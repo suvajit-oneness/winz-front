@@ -1,19 +1,22 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AppComponent } from './app.component';
 import { LoginComponent } from './component/auth/login/login.component';
 import { SignupComponent } from './component/auth/signup/signup.component';
+import { CourseDetailsComponent } from './component/course-details/course-details.component';
+import { CourseListComponent } from './component/course-list/course-list.component';
 import { HomeComponent } from './component/home/home.component';
 import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
+import { TeacherProfileComponent } from './component/teacher-profile/teacher-profile.component';
 
 const routes: Routes = [
-  {path : '', component : HomeComponent,pathMatch:'full'},
+  {path : '', component : HomeComponent, pathMatch:'full'},
   {path : 'login', component : LoginComponent},
   {path : 'signup', component : SignupComponent},
+  {path : 'course-list', component : CourseListComponent},
+  {path : 'course-details', component : CourseDetailsComponent},
+  {path : 'teacher', component : TeacherProfileComponent},
 
-  
   { path : '**', component : PageNotFoundComponent },
-
 ];
 
 @NgModule({
