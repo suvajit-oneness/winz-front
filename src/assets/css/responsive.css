@@ -1,0 +1,109 @@
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+
+
+@media (max-width: 320px){
+	
+}
+@media (max-width: 360px){
+	
+}
+@media (max-width: 480px){
+	
+}
+@media (max-width: 640px){
+	
+}
+
+@media (max-width: 768px){
+	#navbar_top {
+		padding: 10px 0;
+	}
+	.navbar-brand img{
+		width: 120px;
+	}
+	.pt-6 {
+		padding-top: 3rem!important;
+	}
+	.img-footer {
+		max-width: 100px;
+		margin-bottom: 1rem;
+	}
+	ul.lectures_lists li{
+		display: inherit !important;
+	}
+	.lectures_lists_title{
+		margin-bottom: 10px !important;
+	}
+	.caption{
+		text-align: center;
+	}
+}
+
+@media (max-width: 860px) {
+	footer {
+		padding: 20px 0;
+	}
+	footer ul {
+		width: 100%;
+	}
+	.navbar-brand{
+		padding-left: 15px;
+	}
+    .navbar-default .navbar-toggle .icon-bar {
+        background-color: #ffffff;
+    }
+	
+	.navbar-toggler-icon {
+	  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E") !important;
+	}
+	.navbar-toggler {
+		color: rgba(0, 0, 0, 0.42);
+		border-color: transparent !important;
+	}
+
+	.navbar-collapse{
+		margin-top: 15px;
+		background: #2565bd;
+	}
+	.nav-item {
+		border-bottom: 1px solid #3e7fda;
+	}
+	.nav-link{
+		padding: 15px 15px !important;
+	}
+	.nav-link .dropdown-menu{
+		background: transparent !important;
+		box-shadow: inherit !important;
+	}
+	.banner-search-2.transparent{
+		margin: .8rem 0;
+	}
+	.banner {
+		padding: 20px 15px 50px 15px;
+	}
+	.big-header-capt {
+		font-size: 30px;
+	}
+	.banner-search-2 p {
+		font-size: 14px;
+	}
+	.sub_subject{
+		margin: 0px;
+		padding: 0px;
+	}
+	.section_title h3{
+		font-size: 30px;
+	}
+	.section_title p {
+		font-size: 15px;
+	}
+	.widget-title {
+		margin-bottom: 10px;
+		margin-top: 15px;
+	}
+	.thank_bg{
+		margin:30px 0 15px 0;
+	}
+}

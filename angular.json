@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "winz-frontend"
+    }
+  },
+  "defaultProject": "winz-frontend",
+  "cli": {
+    "analytics": "f4424829-3fa6-4188-8880-edb3ddcfcc56"
+  }
 }
