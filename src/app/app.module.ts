@@ -3,10 +3,12 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { HomeComponent } from './home/home.component';
-import { HeaderComponent } from './layouts/header/header.component';
-import { FooterComponent } from './layouts/footer/footer.component';
+import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
+import { HomeComponent } from './component/home/home.component';
+import { HeaderComponent } from './component/layouts/header/header.component';
+import { FooterComponent } from './component/layouts/footer/footer.component';
+import { LoginComponent } from './component/auth/login/login.component';
+import { SignupComponent } from './component/auth/signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { FooterComponent } from './layouts/footer/footer.component';
     PageNotFoundComponent,
     HomeComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    LoginComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
