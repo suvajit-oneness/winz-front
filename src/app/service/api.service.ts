@@ -3,12 +3,13 @@ import { environment } from '../../environments/environment';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 
+var _apiUrl = environment.apiUrl;
+
 @Injectable({
   providedIn: 'root'
 })
 export class APIService {
 
-  private _APIURL = environment.APIURL;
   private header;
   
   constructor(private _http : HttpClient,private _router : Router) {
@@ -17,7 +18,7 @@ export class APIService {
         .set("Accept","application/json");
   }
   // How to send the data + Header Example is below
-  // return this.http.post<any>(this._APIURL + 'update/user/profile',data,{headers: this.header});
+  // return this.http.post<any>(_apiUrl + 'update/user/profile',data,{headers: this.header});
 
   // Storing the User Info Locally
   storeUserLocally(data){
@@ -49,19 +50,19 @@ export class APIService {
 
   // API Implementation Start
   userLoginAPI(formData){
-    return this._http.post<any>(this._APIURL+'login',formData);
+    return this._http.post<any>(_apiUrl+'login',formData);
   }
 
   userRegistrationAPI(formData){
-    return this._http.post<any>(this._APIURL+'signup',formData);
+    return this._http.post<any>(_apiUrl+'signup',formData);
   }
 
   getTeacherList(){
-    return this._http.get<any>(this._APIURL + 'teacher');
+    return this._http.get<any>(_apiUrl + 'teacher');
   }
 
   getCourseList(){
-    return this._http.get<any>(this._APIURL + 'course');
+    return this._http.get<any>(_apiUrl + 'course');
   }
 
   
