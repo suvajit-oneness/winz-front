@@ -15,54 +15,18 @@
                                   <option>2</option>
                                   <option>3</option>
                                   <option>4</option>
-                                  <option selected>All Couese</option>
+                                  <option selected>All Courses</option>
                                 </select>
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 col-md-3 p-1">
+                    <div class="col-12 col-md-3 p-1" *ngFor="let course of courseList">
                         <div class="card">
-                            <img src="assets/img/co-3.jpg" class="card-img-top">
+                            <img src="{{course.course_image}}" class="card-img-top">
                             <div class="card-body">
                                 <a routerLink="/course-details">
-                                    <h3 class="course-title">Test Couese</h3>
-                                    <p class="course-subtitle">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                </a>
-                                <div class="foot_lecture">5 Teachers</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-3 p-1">
-                        <div class="card">
-                            <img src="assets/img/co-5.jpg" class="card-img-top">
-                            <div class="card-body">
-                                <a routerLink="/course-details">
-                                    <h3 class="course-title">Test Couese</h3>
-                                    <p class="course-subtitle">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                </a>
-                                <div class="foot_lecture">5 Teachers</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-3 p-1">
-                        <div class="card">
-                            <img src="assets/img/co-7.jpg" class="card-img-top">
-                            <div class="card-body">
-                                <a routerLink="/course-details">
-                                    <h3 class="course-title">Test Couese</h3>
-                                    <p class="course-subtitle">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                </a>
-                                <div class="foot_lecture">5 Teachers</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-3 p-1">
-                        <div class="card">
-                            <img src="assets/img/co-2.jpg" class="card-img-top">
-                            <div class="card-body">
-                                <a routerLink="/course-details">
-                                    <h3 class="course-title">Test Couese</h3>
-                                    <p class="course-subtitle">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                                    <h3 class="course-title">{{course.course_name}}</h3>
+                                    <p class="course-subtitle">{{course.course_description}}</p>
                                 </a>
                                 <div class="foot_lecture">5 Teachers</div>
                             </div>
