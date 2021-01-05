@@ -13,6 +13,7 @@
         </div>
     </div>
 </section><!--End_banner-->
+
 <section>
     <div class="container p-0 pl-md-2 pr-md-2">
         <div class="row align-items-center sub_subject">
@@ -31,6 +32,7 @@
         </div>
     </div>
 </section><!--subject-->
+
 <section class="pt-6 pb-4 overflow-hidden">
     <div class="container">
         <div class="row">
@@ -79,6 +81,7 @@
         </div>
     </div>
 </section>
+
 <section class="bg-light pt-5 pb-5 mt-5">
     <div class="container">
         <div class="row">
@@ -88,63 +91,20 @@
             </div>
             <div class="col-12 p-2 p-md-0 pt-5">
                 <div class="row m-0 p-0">
-                    <div class="col-12 col-md-3 p-1">
+                    <div class="col-12 col-md-3 p-1" *ngFor="let course of courseList">
                         <div class="card">
                             <div class="card-body p-0 pb-3">
-                                <img src="assets/img/co-3.jpg" class="card-img-top" alt="...">
+                                <img src="{{course.course_image}}" class="card-img-top">
                                 <div class="card-body">
                                     <a routerLink="/course-details">
-                                        <h3 class="course-title">Test Couese</h3>
-                                        <p class="course-subtitle">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                                        <h3 class="course-title">{{course.course_name}}</h3>
+                                        <p class="course-subtitle">{{course.course_description}}</p>
                                     </a>
                                     <div class="foot_lecture">5 Teachers</div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 col-md-3 p-1">
-                        <div class="card">
-                            <div class="card-body p-0 pb-3">
-                                <img src="assets/img/co-2.jpg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <a routerLink="/course-details">
-                                        <h3 class="course-title">Test Couese</h3>
-                                        <p class="course-subtitle">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                    </a>
-                                    <div class="foot_lecture">5 Teachers</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-3 p-1">
-                        <div class="card">
-                            <div class="card-body p-0 pb-3">
-                                <img src="assets/img/co-5.jpg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <a routerLink="/course-details">
-                                        <h3 class="course-title">Test Couese</h3>
-                                        <p class="course-subtitle">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                    </a>
-                                    <div class="foot_lecture">5 Teachers</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-3 p-1">
-                        <div class="card">
-                            <div class="card-body p-0 pb-3">
-                                <img src="assets/img/co-7.jpg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <a routerLink="/course-details">
-                                        <h3 class="course-title">Test Couese</h3>
-                                        <p class="course-subtitle">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                    </a>
-                                    <div class="foot_lecture">5 Teachers</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
                 </div>
             </div>
         </div>
@@ -157,6 +117,7 @@
         </div>
     </div>
 </section><!--Courses-->
+
 <section class="pb-5">
    <div class="container">
         <div class="section_title text-center pt-5 pb-5 mt-0 mt-md-5">
@@ -164,87 +125,26 @@
             <p class="col-md-8 m-auto pt-3">What do you think is better to receive after each lesson: a lovely looking badge or important skills you can immediately put into practice.</p>
         </div>
         <div class="row m-0">
-            <div class="col-12 col-md-3 p-2 mb-2">
+            <div class="col-12 col-md-3 p-2 mb-2" *ngFor="let teacher of teacherList">
                 <div class="card border-none pt-2 shadow-sm">
                     <div class="image m-auto">
                         <div class="image-teacher">
-                            <img src="assets/img/im1.jpg">
+                            <img src="{{teacher.image}}">
                         </div>
                     </div>
                     <div class="card-body">
                         <a routerLink="/teacher">
-                            <h3 class="course-title text-center"><b>Daniel Diwansker</b></h3>
-                            <p class="course-subtitle text-center mt-1">Maths</p>
+                            <h3 class="course-title text-center"><b>{{teacher.name}}</b></h3>
+                            <p class="course-subtitle text-center mt-1">{{teacher.subject}}</p>
                         </a>
                         <ul class="instructor_caption">
-                            <li><a href="#" class="cl-fb" tabindex="-1"><i class="ti-facebook"></i></a></li>
-                            <li><a href="#" class="cl-twitter" tabindex="-1"><i class="ti-twitter"></i></a></li>
-                            <li><a href="#" class="cl-linked" tabindex="-1"><i class="ti-linkedin"></i></a></li>
+                            <li *ngIf="teacher.facebook != ''"><a href="{{teacher.facebook}}" class="cl-fb" tabindex="-1" target="_blank"><i class="ti-facebook"></i></a></li>
+                            <li *ngIf="teacher.twitter != ''"><a href="{{teacher.twitter}}" class="cl-twitter" tabindex="-1"><i class="ti-twitter"></i></a></li>
+                            <li *ngIf="teacher.linkedin != ''"><a href="{{teacher.linkedin}}" class="cl-linked" tabindex="-1"><i class="ti-linkedin"></i></a></li>
                         </ul>
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-3 p-2 mb-2">
-                <div class="card border-none pt-2 shadow-sm">
-                    <div class="image m-auto">
-                        <div class="image-teacher">
-                            <img src="assets/img/im1.jpg">
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <a routerLink="/teacher">
-                            <h3 class="course-title text-center"><b>Daniel Diwansker</b></h3>
-                            <p class="course-subtitle text-center mt-1">Maths</p>
-                        </a>
-                        <ul class="instructor_caption">
-                            <li><a href="#" class="cl-fb" tabindex="-1"><i class="ti-facebook"></i></a></li>
-                            <li><a href="#" class="cl-twitter" tabindex="-1"><i class="ti-twitter"></i></a></li>
-                            <li><a href="#" class="cl-linked" tabindex="-1"><i class="ti-linkedin"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-md-3 p-2 mb-2">
-                <div class="card border-none pt-2 shadow-sm">
-                    <div class="image m-auto">
-                        <div class="image-teacher">
-                            <img src="assets/img/im1.jpg">
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <a routerLink="/teacher">
-                            <h3 class="course-title text-center"><b>Daniel Diwansker</b></h3>
-                            <p class="course-subtitle text-center mt-1">Maths</p>
-                        </a>
-                        <ul class="instructor_caption">
-                            <li><a href="#" class="cl-fb" tabindex="-1"><i class="ti-facebook"></i></a></li>
-                            <li><a href="#" class="cl-twitter" tabindex="-1"><i class="ti-twitter"></i></a></li>
-                            <li><a href="#" class="cl-linked" tabindex="-1"><i class="ti-linkedin"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-md-3 p-2 mb-2">
-                <div class="card border-none pt-2 shadow-sm">
-                    <div class="image m-auto">
-                        <div class="image-teacher">
-                            <img src="assets/img/im1.jpg">
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <a routerLink="/teacher">
-                            <h3 class="course-title text-center"><b>Daniel Diwansker</b></h3>
-                            <p class="course-subtitle text-center mt-1">Maths</p>
-                        </a>
-                        <ul class="instructor_caption">
-                            <li><a href="#" class="cl-fb" tabindex="-1"><i class="ti-facebook"></i></a></li>
-                            <li><a href="#" class="cl-twitter" tabindex="-1"><i class="ti-twitter"></i></a></li>
-                            <li><a href="#" class="cl-linked" tabindex="-1"><i class="ti-linkedin"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            
         </div>
     </div>
 </section><!--teachers-->

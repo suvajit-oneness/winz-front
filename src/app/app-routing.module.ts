@@ -4,14 +4,17 @@ import { LoginComponent } from './component/auth/login/login.component';
 import { SignupComponent } from './component/auth/signup/signup.component';
 import { CourseDetailsComponent } from './component/course-details/course-details.component';
 import { CourseListComponent } from './component/course-list/course-list.component';
+import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { HomeComponent } from './component/home/home.component';
 import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
 import { TeacherProfileComponent } from './component/teacher-profile/teacher-profile.component';
+import { AuthGuardService } from './service/auth-guard.service';
 
 const routes: Routes = [
   {path : '', component : HomeComponent, pathMatch:'full'},
   {path : 'login', component : LoginComponent},
   {path : 'signup', component : SignupComponent},
+  {path : 'dashboard', component : DashboardComponent,canActivate:[AuthGuardService]},
   {path : 'course-list', component : CourseListComponent},
   {path : 'course-details', component : CourseDetailsComponent},
   {path : 'teacher', component : TeacherProfileComponent},
