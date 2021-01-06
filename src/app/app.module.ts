@@ -16,6 +16,7 @@ import { FormsModule , ReactiveFormsModule, FormControl} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
+import { NgxUiLoaderHttpModule, NgxUiLoaderModule, NgxUiLoaderRouterModule } from 'ngx-ui-loader';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { DashboardComponent } from './component/dashboard/dashboard.component';
     DashboardComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule,NgxUiLoaderModule,NgxUiLoaderRouterModule,NgxUiLoaderHttpModule,
     AppRoutingModule,FormsModule,ReactiveFormsModule,HttpClientModule,CommonModule
   ],
   providers: [],

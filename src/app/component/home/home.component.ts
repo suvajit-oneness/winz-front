@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { APIService } from 'src/app/service/api.service';
+import { NgxUiLoaderService } from 'ngx-ui-loader';
+
 
 @Component({
   selector: 'app-home',
@@ -8,7 +10,12 @@ import { APIService } from 'src/app/service/api.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private _api:APIService) { }
+  constructor(
+    private _api:APIService,
+    private _loader : NgxUiLoaderService
+  ) {
+    this._loader.startLoader('loader');
+  }
 
   public courseList : any = [];
   public teacherList : any = [];
@@ -16,6 +23,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.getCourseList();
     this.getTeacherList();
+    this._loader.stopLoader('loader');
   }
   /*********Get Course List *********/
   getCourseList(){
