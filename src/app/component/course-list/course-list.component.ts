@@ -14,7 +14,8 @@ export class CourseListComponent implements OnInit {
     
   }
   ngOnInit(): void {
-    this.getCourseList(); 
+    this.getCourseList();
+    window.scrollTo(0, 0);
   }
 
   /*********Get Course List *********/

@@ -48,6 +48,10 @@ export class APIService {
     }
   }
 
+  getHomePageContent(){
+    return this._http.get<any>(_apiUrl+'home_page_content');
+  }
+
   // API Implementation Start
   userLoginAPI(formData){
     return this._http.post<any>(_apiUrl+'login',formData);
@@ -61,8 +65,16 @@ export class APIService {
     return this._http.get<any>(_apiUrl + 'teacher');
   }
 
+  getTeacherDetails(teacherId){
+    return this._http.get<any>(_apiUrl + 'teacher/'+teacherId);
+  }
+
   getCourseList(){
     return this._http.get<any>(_apiUrl + 'course');
+  }
+
+  getCourseDetails(courseId){
+    return this._http.get<any>(_apiUrl + 'course/'+courseId);
   }
 
   

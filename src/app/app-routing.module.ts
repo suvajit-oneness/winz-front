@@ -16,8 +16,8 @@ const routes: Routes = [
   {path : 'signup', component : SignupComponent},
   {path : 'dashboard', component : DashboardComponent,canActivate:[AuthGuardService]},
   {path : 'course-list', component : CourseListComponent},
-  {path : 'course-details', component : CourseDetailsComponent},
-  {path : 'teacher', component : TeacherProfileComponent},
+  {path : 'course-details/:courseId', component : CourseDetailsComponent},
+  {path : 'teacher/:teacherId', component : TeacherProfileComponent},
 
   { path : '**', component : PageNotFoundComponent },
 ];

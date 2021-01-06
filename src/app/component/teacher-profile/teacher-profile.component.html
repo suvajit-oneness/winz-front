@@ -13,13 +13,8 @@
                 <div class="caption">
                     <!-- <div class="viewer_package_status">6 Year Expe.</div> -->
                     <div class="viewer_header">
-                        <h4>
-                            Adam Willsoriam
-                            <span class="viewer_location">Math Teacher</span>
-                        </h4>
-                        <p>
-                            What do you think is better to receive after each lesson: a lovely looking badge or important skills you can immediately put into practice.What do you think is better to receive after each lesson: a lovely looking badge or important skills you can immediately put into practice.
-                        </p>
+                        <h4>{{teacherData.name}}<span class="viewer_location">{{teacherData.subject}}</span></h4>
+                        <p>{{teacherData.description}}</p>
                         <button type="button" class="btn btn-warning badge-pill btn-sm mt-2 mb-1 shadow-lg">Book Session</button>
                     </div>
                 </div>
@@ -34,9 +29,11 @@
             <div class="col-12 p-0 pt-2">
                 <div class="row m-0 p-0">
                     <div class="col-12 row m-0 mb-3 p-0">
+
                         <div class="col-6 p-0">
                             <h4 class="text-bold font-small-3 pt-3 pb-3 pb-md-0">Classes</h4>
                         </div>
+
                         <div class="col-md-2 p-0 ml-auto text-right">
                             <div class="form-group">
                                 <select class="form-control" id="exampleFormControlSelect1">
@@ -48,52 +45,21 @@
                                 </select>
                             </div>
                         </div>
+
                     </div>
-                    <div class="col-12 col-md-3 p-1">
+
+                    <div class="col-12 col-md-3 p-1" *ngFor="let course of teacherData.teacherCourses">
                         <div class="card">
-                            <img src="assets/img/co-3.jpg" class="card-img-top">
+                            <img src="{{course.course_image}}" class="card-img-top">
                             <div class="card-body">
-                                <a routerLink="/course-details">
-                                    <h3 class="course-title">Test Couese</h3>
-                                    <p class="course-subtitle">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                                <a routerLink="/course-details/{{EncodeDecodeBase64(course.id,'encode')}}">
+                                    <h3 class="course-title">{{course.course_name}}</h3>
+                                    <p class="course-subtitle">{{course.course_description}}</p>
                                 </a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 col-md-3 p-1">
-                        <div class="card">
-                            <img src="assets/img/co-5.jpg" class="card-img-top">
-                            <div class="card-body">
-                                <a routerLink="/course-details">
-                                    <h3 class="course-title">Test Couese</h3>
-                                    <p class="course-subtitle">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-3 p-1">
-                        <div class="card">
-                            <img src="assets/img/co-7.jpg" class="card-img-top">
-                            <div class="card-body">
-                                <a routerLink="/course-details">
-                                    <h3 class="course-title">Test Couese</h3>
-                                    <p class="course-subtitle">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-3 p-1">
-                        <div class="card">
-                            <img src="assets/img/co-2.jpg" class="card-img-top">
-                            <div class="card-body">
-                                <a routerLink="/course-details">
-                                    <h3 class="course-title">Test Couese</h3>
-                                    <p class="course-subtitle">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    
+
                 </div>
             </div>
         </div>
