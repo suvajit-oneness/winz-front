@@ -43,11 +43,12 @@
                     <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                         <div class="card-body pl-3 pr-3">
                             <ul class="lectures_lists">
-                                <li><div class="lectures_lists_title"><i class="ti-control-play"></i>Lecture: 01</div>Web Designing Beginner</li>
-                                <li><div class="lectures_lists_title"><i class="ti-control-play"></i>Lecture: 02</div>Startup Designing with HTML5 &amp; CSS3</li>
-                                <li><div class="lectures_lists_title"><i class="ti-control-play"></i>Lecture: 03</div>How To Call Google Map iFrame</li>
-                                <li><div class="lectures_lists_title"><i class="ti-control-play"></i>Lecture: 04</div>Create Drop Down Navigation Using CSS3</li>
-                                <li><div class="lectures_lists_title"><i class="ti-control-play"></i>Lecture: 05</div>How to Create Sticky Navigation Using JS</li>
+                                <li *ngFor="let lecture of courseDetails.lectures">
+                                    <div class="lectures_lists_title">
+                                        <i class="ti-control-play"></i>{{lecture.title}}
+                                    </div>
+                                    {{lecture.description}}
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -70,11 +71,7 @@
                             <div class="ed_view_features pl-4">
                                 <span>Course Features</span>
                                 <ul>
-                                    <li><i class="ti-angle-right"></i>Fully Programming</li>
-                                    <li><i class="ti-angle-right"></i>Help Code to Code</li>
-                                    <li><i class="ti-angle-right"></i>Free Trial 7 Days</li>
-                                    <li><i class="ti-angle-right"></i>Unlimited Videos</li>
-                                    <li><i class="ti-angle-right"></i>24x7 Support</li>
+                                    <li *ngFor="let feature of courseDetails.features"><i class="ti-angle-right"></i>{{feature.feature}}</li>
                                 </ul>
                             </div>
                             <div class="ed_view_link">

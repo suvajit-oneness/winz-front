@@ -29,7 +29,7 @@ export class CourseDetailsComponent implements OnInit {
     this._api.getCourseDetails(courseId).subscribe(
         res => {
           this.courseDetails = res.data;
-          console.log(this.courseDetails);
+          // console.log(this.courseDetails);
           this._loader.stopLoader('loader');
         },err => {}
     )
