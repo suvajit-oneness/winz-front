@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { APIService } from 'src/app/service/api.service';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
+import { EncodeDecodeBase64 } from 'src/globalFunction';
 
 @Component({
   selector: 'app-course-list',
@@ -8,7 +9,8 @@ import { NgxUiLoaderService } from 'ngx-ui-loader';
   styleUrls: ['./course-list.component.css']
 })
 export class CourseListComponent implements OnInit {
-
+  
+  public EncodeDecodeBase64 = EncodeDecodeBase64;
   public courseList : any = [];
   constructor(private _api:APIService,private _loader : NgxUiLoaderService) {
     
