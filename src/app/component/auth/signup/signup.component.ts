@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { APIService } from 'src/app/service/api.service';
+import { NgxUiLoaderService } from 'ngx-ui-loader';
 
 @Component({
   selector: 'app-signup',
@@ -8,9 +9,12 @@ import { APIService } from 'src/app/service/api.service';
 })
 export class SignupComponent implements OnInit {
   public errorMessage = '';
-  constructor(private _api:APIService) { }
+  constructor(private _api:APIService,private _loader : NgxUiLoaderService) {
+    this._loader.startLoader('loader');
+  }
 
   ngOnInit(): void {
+    this._loader.stopLoader('loader');
   }
 
   userSignUpForm(formData){
@@ -23,6 +27,7 @@ export class SignupComponent implements OnInit {
       Object.keys(formData.value).forEach((key)=>{
         mainForm.append(key,formData.value[key])
       });
+      this._loader.startLoader('loader');
       this._api.userRegistrationAPI(mainForm).subscribe(
         res => {
           if(res.error == false){
@@ -30,6 +35,7 @@ export class SignupComponent implements OnInit {
           }else{
             this.errorMessage = res.message;
           }
+          this._loader.stopLoader('loader');
         },
         err => {
           this.errorMessage = 'Something went wrong please try after some time';
