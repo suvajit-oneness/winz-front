@@ -33,6 +33,7 @@ export class APIService {
     localStorage.removeItem('userInfo');
     localStorage.setItem('userInfo',JSON.stringify(data.data));
   }
+
   // Logging Out the Current User
   logoutUser():void{
     localStorage.removeItem('accessToken');
@@ -72,7 +73,7 @@ export class APIService {
   }
 
   updateUserProfile(formData){
-    return this._http.post<any>(_apiUrl+'update_profile',formData);
+    return this._http.post<any>(_apiUrl + 'update_profile',formData);
   }
 
   getTeacherList(){
@@ -89,6 +90,10 @@ export class APIService {
 
   getCourseDetails(courseId){
     return this._http.get<any>(_apiUrl + 'course/'+courseId);
+  }
+
+  updateUserPassword(data){
+    return this._http.post<any>(_apiUrl + 'change/password',data);
   }
 
   

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './component/auth/login/login.component';
 import { SignupComponent } from './component/auth/signup/signup.component';
+import { ChangePasswordComponent } from './component/change-password/change-password.component';
 import { CourseDetailsComponent } from './component/course-details/course-details.component';
 import { CourseListComponent } from './component/course-list/course-list.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
@@ -17,6 +18,7 @@ const routes: Routes = [
   {path : 'signup', component : SignupComponent},
   {path : 'dashboard', component : DashboardComponent,canActivate:[AuthGuardService]},
   {path : 'user/profile', component : EditProfileComponent,canActivate:[AuthGuardService]},
+  {path : 'user/password/change', component : ChangePasswordComponent,canActivate:[AuthGuardService]},
   {path : 'course-list', component : CourseListComponent},
   {path : 'course-details/:courseId', component : CourseDetailsComponent},
   {path : 'teacher/:teacherId', component : TeacherProfileComponent},

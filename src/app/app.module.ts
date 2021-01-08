@@ -19,6 +19,7 @@ import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { NgxUiLoaderHttpModule, NgxUiLoaderModule, NgxUiLoaderRouterModule } from 'ngx-ui-loader';
 import { SidebarComponent } from './component/layouts/sidebar/sidebar.component';
 import { EditProfileComponent } from './component/edit-profile/edit-profile.component';
+import { ChangePasswordComponent } from './component/change-password/change-password.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { EditProfileComponent } from './component/edit-profile/edit-profile.comp
     TeacherProfileComponent,
     DashboardComponent,
     SidebarComponent,
-    EditProfileComponent
+    EditProfileComponent,
+    ChangePasswordComponent
   ],
   imports: [
     BrowserModule,NgxUiLoaderModule,NgxUiLoaderRouterModule,NgxUiLoaderHttpModule,
