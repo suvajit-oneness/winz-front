@@ -20,6 +20,7 @@ import { NgxUiLoaderHttpModule, NgxUiLoaderModule, NgxUiLoaderRouterModule } fro
 import { SidebarComponent } from './component/layouts/sidebar/sidebar.component';
 import { EditProfileComponent } from './component/edit-profile/edit-profile.component';
 import { ChangePasswordComponent } from './component/change-password/change-password.component';
+import { SubscribedCourseComponent } from './component/subscribed-course/subscribed-course.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { ChangePasswordComponent } from './component/change-password/change-pass
     DashboardComponent,
     SidebarComponent,
     EditProfileComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    SubscribedCourseComponent
   ],
   imports: [
     BrowserModule,NgxUiLoaderModule,NgxUiLoaderRouterModule,NgxUiLoaderHttpModule,

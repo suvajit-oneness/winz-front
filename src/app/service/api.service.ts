@@ -96,5 +96,9 @@ export class APIService {
     return this._http.post<any>(_apiUrl + 'change/password',data);
   }
 
+  getUserSubscribedCourses(userId){
+    return this._http.get<any>(_apiUrl + 'subscribed/course?userId='+userId);
+  }
+
   
 }

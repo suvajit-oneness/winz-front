@@ -9,6 +9,7 @@ import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { EditProfileComponent } from './component/edit-profile/edit-profile.component';
 import { HomeComponent } from './component/home/home.component';
 import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
+import { SubscribedCourseComponent } from './component/subscribed-course/subscribed-course.component';
 import { TeacherProfileComponent } from './component/teacher-profile/teacher-profile.component';
 import { AuthGuardService } from './service/auth-guard.service';
 
@@ -19,6 +20,7 @@ const routes: Routes = [
   {path : 'dashboard', component : DashboardComponent,canActivate:[AuthGuardService]},
   {path : 'user/profile', component : EditProfileComponent,canActivate:[AuthGuardService]},
   {path : 'user/password/change', component : ChangePasswordComponent,canActivate:[AuthGuardService]},
+  {path : 'user/subscribed/course', component : SubscribedCourseComponent,canActivate:[AuthGuardService]},
   {path : 'course-list', component : CourseListComponent},
   {path : 'course-details/:courseId', component : CourseDetailsComponent},
   {path : 'teacher/:teacherId', component : TeacherProfileComponent},

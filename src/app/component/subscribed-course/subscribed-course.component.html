@@ -1,0 +1,41 @@
+<ngx-ui-loader loaderId="loader" fgsColor="#FFFFFF" bgsOpacity="1" overlayColor="rgba(40,40,40,0.1)"></ngx-ui-loader>
+<section class="account-detail h-100">
+    <div class="d-flex">
+        <ul class="aside">
+            <app-sidebar></app-sidebar>
+        </ul>
+        <div class="account-sec mb-5">
+            <h3>Subscribed Courses</h3>
+            <div class="row" *ngIf="subscribedCourses.length > 0,else notsubscribed">
+                <div class="col-md-4" *ngFor="let subscribed of subscribedCourses">
+                    <div class="card course-detail-card shadow p-0 pt-2 mb-4">
+                        <div class="card-header bg-none border-bottom-0">
+                            <h4 class="edu_title">{{subscribed.courses.course_name}}</h4>
+                        </div>
+                        <div class="card-body p-1">
+                            <div class="mb-4">
+                                <div class="ed_view_price pl-4">
+                                    <span>Acctual Price</span>
+                                    <h2 class="theme-cl">$ {{subscribed.courses.course_price}}.00</h2>
+                                </div>
+                                <div class="ed_view_features pl-4">
+                                    <span>Course Features</span>
+                                    <ul>
+                                        <li *ngFor="let feature of subscribed.features">
+                                            <i class="ti-angle-right"></i>{{feature.feature}}
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <ng-template #notsubscribed>
+                <div class="row">
+                    <h6>You donot have any course subscribed yet</h6>
+                </div>
+            </ng-template>
+        </div>
+    </div>
+</section>

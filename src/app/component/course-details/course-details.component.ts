@@ -15,10 +15,12 @@ export class CourseDetailsComponent implements OnInit {
 
   public courseDetails : any = [];
   constructor(private _api:APIService,private _loader : NgxUiLoaderService,private _activatedRoute:ActivatedRoute) {}
-  
+  public loginCheck = false;public userInfo :any = {};
   public courseId : any = 0;
   ngOnInit(): void {
     window.scrollTo(0, 0);
+    this.loginCheck = this._api.isAuthenticated();
+    this.userInfo = this._api.getUserDetailsFromStorage();
     this.courseId = EncodeDecodeBase64(this._activatedRoute.snapshot.paramMap.get('courseId'),'decode');
     this.getCourseDetails(this.courseId); // calling to get the Teacher Info
   }
@@ -33,6 +35,14 @@ export class CourseDetailsComponent implements OnInit {
           this._loader.stopLoader('loader');
         },err => {}
     )
+  }
+
+  enrollNow(){
+    if(this.loginCheck){
+
+    }else{
+      
+    }
   }
 
 }

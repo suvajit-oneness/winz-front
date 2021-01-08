@@ -31,7 +31,8 @@
                     <li class="nav-item"><a class="nav-link" href="#">Membership</a></li>
                     <li class="nav-item" *ngIf="!userAuthentication, else falseAuthCheck"><a class="nav-link" routerLink="/login">Login</a></li>
                     <ng-template #falseAuthCheck>
-                        <li class="nav-item"><a class="nav-link" (click)="userLogout()">Logout</a></li>
+                        <!-- <li class="nav-item"><a class="nav-link" (click)="userLogout()">Logout</a></li> -->
+                        <li class="nav-item"><a class="nav-link" routerLink="/dashboard">Dashboard</a></li>
                     </ng-template>
                 </ul>
             </div> <!-- navbar-collapse.// -->
