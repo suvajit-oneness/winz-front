@@ -28,6 +28,11 @@ export class APIService {
     localStorage.setItem('userInfo',JSON.stringify(data.data));
     this._router.navigate(['/dashboard']);
   }
+
+  updateUserLocally(data){
+    localStorage.removeItem('userInfo');
+    localStorage.setItem('userInfo',JSON.stringify(data.data));
+  }
   // Logging Out the Current User
   logoutUser():void{
     localStorage.removeItem('accessToken');
@@ -38,6 +43,11 @@ export class APIService {
   // Checking the Authentication for User
   isAuthenticated(){
     return !!localStorage.getItem('accessToken');
+  }
+
+  getUserDetailsFromStorage(){
+    let user = localStorage.getItem('userInfo');
+    return JSON.parse(user);
   }
 
   // Error Handling in any API
@@ -59,6 +69,10 @@ export class APIService {
 
   userRegistrationAPI(formData){
     return this._http.post<any>(_apiUrl+'signup',formData);
+  }
+
+  updateUserProfile(formData){
+    return this._http.post<any>(_apiUrl+'update_profile',formData);
   }
 
   getTeacherList(){

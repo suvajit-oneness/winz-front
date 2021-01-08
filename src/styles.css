@@ -946,3 +946,123 @@ input[type=checkbox]:not(old)+label>span {
     display: flex;
     display: -webkit-flex;
 }
+.account-detail{
+    margin:0 0 40px;
+    border-bottom:1px solid grey;
+}
+.aside {
+    background:#003783;
+    padding:60px 0;
+    margin: 0;
+    width:20%;
+}
+.aside li:first-child a{
+    border-top:1px solid #0453c2;
+}
+.aside li a {
+    font-size: 14px;
+    color: #fff;
+    font-weight: 400;
+    padding:10px 15px;
+    display: block;
+    border-bottom:1px solid #0453c2;
+}
+.aside li a i{
+    margin-right:10px;
+    font-size: 16px;
+}
+.aside li.active a,
+.aside li a:hover, .aside li a:focus {
+    color:#000000;
+    background: #d39e00;
+}
+
+.account-sec{
+    padding:60px 60px 0 60px;
+    width:80%;
+}
+.account-detail .account-sec h3 {
+margin-bottom: 30px;
+padding-bottom: 30px;
+border-bottom: 1px solid #cccccc;
+}
+
+.account-detail .account-sec small {
+font-size: 13px;
+margin-bottom: 20px;
+display: block;
+}
+
+.account-detail .account-sec form {
+margin-bottom: 50px;
+padding-bottom: 50px;
+border-bottom: 1px solid #cccccc;
+}
+
+.account-detail .account-sec form:last-child {
+margin: 0;
+padding: 0;
+border-bottom: none;
+}
+
+.account-detail .account-sec form .form-control::-webkit-input-placeholder, .account-detail .account-sec form .form-control option {
+color: #7a7a7a;
+}
+
+.account-detail .account-sec form .form-control:-ms-input-placeholder, .account-detail .account-sec form .form-control option {
+color: #7a7a7a;
+}
+
+.account-detail .account-sec form .form-control::-ms-input-placeholder, .account-detail .account-sec form .form-control option {
+color: #7a7a7a;
+}
+
+.account-detail .account-sec form .form-control::placeholder, .account-detail .account-sec form .form-control option {
+color: #7a7a7a;
+}
+
+.account-detail .account-sec form input[type="submit"] {
+text-transform: uppercase;
+}
+
+.account-detail .account-sec form select {
+padding: 0 15px;
+}
+
+.account-detail .account-sec form textarea {
+height: 127px;
+}
+
+.drag-outr {
+color: #7a7a7a;
+}
+
+.drag-outr .dragfiles {
+display: block;
+margin-bottom: 20px;
+}
+
+.drag-outr .dragfiles span {
+color: #000000;
+font-size: 14px;
+margin: 0 0 10px;
+display: block;
+}
+
+.drag-outr .selectbtn {
+position: relative;
+}
+
+.drag-outr .selectbtn .btn {
+margin: 20px 0 0;
+border: 1px solid #000000;
+height: 41px;
+min-width: 146px;
+}
+
+.drag-outr .selectbtn input[type=file] {
+position: absolute;
+left: 0;
+top: 0;
+opacity: 0;
+}

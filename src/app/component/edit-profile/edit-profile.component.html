@@ -1,0 +1,52 @@
+<ngx-ui-loader loaderId="loader" fgsColor="#FFFFFF" bgsOpacity="1" overlayColor="rgba(40,40,40,0.1)"></ngx-ui-loader>
+<section class="account-detail">
+    <div class="d-flex">
+        <ul class="aside">
+            <app-sidebar></app-sidebar>
+        </ul>
+        <div class="account-sec mb-5">
+            <h3>Edit Your Profile</h3>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="drag-outr text-center">
+                        <a href="javascript:void(0)" class="dragfiles">
+                            <!-- <span>Drag files here to upload</span> -->
+                            <img src="{{userInfo.image}}"/>
+                        </a>
+                        <!-- Or -->
+                        <div class="selectbtn">
+                            <input type="file" class="btn">
+                            <a href="javascript:void(0)" class="btn">Select FIles</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="signin-form col-md-8 offset-md-1">
+                    <form #userProfile="ngForm" (ngSubmit)="updateUserProfile(userProfile)">
+                        <!-- {{userProfile.value | json}} -->
+                        <!-- <small>NAME & EMAIL</small> -->
+                        <div class="row">
+                            <input #userId [ngModel]="userInfo.id" name="userId" type="hidden" required>
+                            <div class="col-md-12 mb-4">
+                                <input #name [ngModel]="userInfo.name" name="name" type="text" placeholder="Name" class="form-control">
+                            </div>
+                            <div class="col-md-12 mb-4">
+                                <input #mobile [ngModel]="userInfo.mobile" name="mobile" type="text" placeholder="Mobile" class="form-control">
+                            </div>
+                            <div class="col-md-12 mb-4">
+                                <input #email [ngModel]="userInfo.email" name="email" type="email" placeholder="Email Address" class="form-control" readonly disabled>
+                            </div>
+                            <div class="col-md-12 mb-4">
+                                <textarea #address [ngModel]="userInfo.address" name="address" rows="10" placeholder="Your Address" class="form-control"></textarea>
+                                <span class="text-danger">{{errorMsg}}</span>
+                                <span class="text-success">{{successMsg}}</span>
+                            </div>
+                            <div class="col-md-6">
+                                <button type="submit" class="btn btn-primary shadow-sm pl-4 pr-4 mt-4 mb-0">Save the Details</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
