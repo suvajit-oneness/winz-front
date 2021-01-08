@@ -3,6 +3,7 @@ import { APIService } from 'src/app/service/api.service';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { EncodeDecodeBase64 } from 'src/globalFunction';
 import { ActivatedRoute } from '@angular/router';
+import   Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-course-details',
@@ -41,7 +42,7 @@ export class CourseDetailsComponent implements OnInit {
     if(this.loginCheck){
 
     }else{
-      
+      Swal.fire('Error','Please login to countinue','error')
     }
   }
 
