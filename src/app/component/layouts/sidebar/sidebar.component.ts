@@ -8,7 +8,7 @@ import { APIService } from 'src/app/service/api.service';
       <li routerLinkActive="active"><a routerLink="/user/profile"><i class="ti-pencil-alt"></i> Edit Profile</a></li>
       <li routerLinkActive="active"><a routerLink="/user/password/change"><i class="ti-eraser"></i> Change Password</a></li>
       <li routerLinkActive="active"><a routerLink="/user/subscribed/course"><i class="ti-receipt"></i> Subscribed Courses</a></li>
-      <li routerLinkActive="active"><a routerLink="/course-list"><i class="ti-book"></i> Course Details</a></li>
+      <li routerLinkActive="active"><a routerLink="/course-list"><i class="ti-book"></i> All Courses</a></li>
       <li><a href="javascript:void(0)" (click)="userLogout()"><i class="ti-na"></i> Log Out</a></li>
   `,
   styles: [

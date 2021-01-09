@@ -37,6 +37,7 @@ export class CourseDetailsComponent implements OnInit {
     this._api.getCourseDetails(courseId,this.userId).subscribe(
         res => {
           this.courseDetails = res.data;
+          console.log(this.courseDetails);
           window.scrollTo(0, 0);
           this._loader.stopLoader('loader');
         },err => {}
@@ -63,6 +64,15 @@ export class CourseDetailsComponent implements OnInit {
     }else{
       Swal.fire('Error','Please login to countinue','error')
     }
+  }
+
+  commaSeparateTeacher(teacherList){
+    let teacher = '';
+    Object.keys(teacherList).forEach((key)=>{
+      teacher += teacherList[key].name+',';
+    });
+    teacher = teacher.slice(0, -1);// removing the last , sign from String
+    return teacher;
   }
 
 }

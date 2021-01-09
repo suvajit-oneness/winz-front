@@ -27,8 +27,18 @@ export class CourseListComponent implements OnInit {
         res => {
           this.courseList = res.data;
           this._loader.stopLoader('loader');
+          // console.log(this.courseList);
         },err => {}
     )
+  }
+
+  commaSeparateTeacher(teacherList){
+    let teacher = '';
+    Object.keys(teacherList).forEach((key)=>{
+      teacher += teacherList[key].name+',';
+    });
+    teacher = teacher.slice(0, -1);// removing the last , sign from String
+    return teacher;
   }
 
 }

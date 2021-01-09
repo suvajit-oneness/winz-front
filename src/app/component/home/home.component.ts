@@ -68,4 +68,13 @@ export class HomeComponent implements OnInit {
       )
   }
 
+  commaSeparateTeacher(teacherList){
+    let teacher = '';
+    Object.keys(teacherList).forEach((key)=>{
+      teacher += teacherList[key].name+',';
+    });
+    teacher = teacher.slice(0, -1);// removing the last , sign from String
+    return teacher;
+  }
+
 }
