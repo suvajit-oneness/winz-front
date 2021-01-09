@@ -75,7 +75,7 @@
                                 </ul>
                             </div>
                             <div class="ed_view_link">
-                                <a href="javascript:void(0)" class="btn btn-theme enroll-btn" (click)="enrollNow()">Enroll Now<i class="ti-angle-right"></i></a>
+                                <a href="javascript:void(0)" class="btn btn-theme enroll-btn" (click)="enrollNow(courseDetails.id)">Enroll Now<i class="ti-angle-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -92,7 +92,7 @@
                             <div class="card">
                                 <img src="{{course.course_image}}" class="card-img-top">
                                 <div class="card-body">
-                                    <a href="javascript:void(0);">
+                                    <a (click)="getCourseDetails(course.id)" href="javascript:void(0)">
                                         <h3 class="course-title">{{course.course_name}}</h3>
                                         <p class="course-subtitle">{{course.course_description}}</p>
                                     </a>

@@ -1066,3 +1066,110 @@ left: 0;
 top: 0;
 opacity: 0;
 }
+
+
+.member-inn{
+    border-radius:10px;
+    overflow: hidden;
+    box-shadow: 0 0 25px rgba(0,0,0,0.45);
+}
+.member-inn h4{
+    display: block;
+    padding:20px 5px;
+    color:#fff;
+}
+.blue-bg{
+    background:#e6f0fd;
+}
+.blue-bg h4{
+    background:#003783;
+}
+.member-inn span{
+    margin:15px 0;
+    display: block;
+    font-size: 46px;
+    font-weight:bold;
+}
+.member-inn.blue-bg span{
+    color:#003783;
+}
+.member-inn span sup{
+    font-size: 28px;
+    font-weight:300;
+    margin-right:10px;
+}
+.member-inn ul{
+    text-align: left;
+    padding:0 20px;
+}
+.member-inn ul li{
+    margin:0 0 12px;
+    display:flex;
+}
+.member-inn ul li p{
+    font-size:14px;
+    margin-top:0;
+}
+.member-inn ul li p strong{
+    display:block;
+    font-weight: 600;
+}
+.member-inn ul li i{
+    margin: 5px 10px 0 0;
+    font-size: 16px;
+}
+.member-inn.blue-bg ul li i{
+    color:#003783;
+}
+.member-inn.blue-bg .btn-browse-btn{
+    background:#003783;
+    color:#fff;
+}
+.member-inn.blue-bg .btn-browse-btn:hover{
+    background:#001f49;
+}
+
+.brown-bg{
+    background:#f8efce;
+}
+.brown-bg h4{
+    background:#dabe62;
+}
+.member-inn.brown-bg span{
+    color:#dabe62;
+}
+.member-inn.brown-bg ul li i{
+    color:#dabe62;
+}
+.member-inn.brown-bg .btn-browse-btn{
+    background:#dabe62;
+    color:#fff;
+}
+.member-inn.brown-bg .btn-browse-btn:hover{
+    background:#dabe62;
+}
+.faq-sec{
+    background:#f6f6f6;
+}
+.faq-sec h3{
+    margin:0 0 60px;
+    text-align: center;
+    font-weight: bold;
+}
+.faq-inn{
+    margin:0;
+}
+.faq-inn li{
+    display: inline-flex;
+    margin:0 0 30px;
+}
+.faq-inn li i{
+    margin: 4px 0 0 0;
+    color: #2D3954;
+}
+.faq-inn li > div{
+    padding:0 20px;
+}
+.faq-inn li p{
+    font-size: 15px;
+}

@@ -17,13 +17,10 @@ import { APIService } from 'src/app/service/api.service';
 export class SidebarComponent implements OnInit {
 
   constructor(private _api:APIService) { }
-  userAuthentication = false;
-  ngOnInit(): void {
-    this.userAuthentication = this._api.isAuthenticated();
-  }
+
+  ngOnInit(): void {}
 
   userLogout(){
-    this.userAuthentication = false;
     this._api.logoutUser();
   }
 

@@ -26,7 +26,8 @@ export class APIService {
     localStorage.removeItem('userInfo');
     localStorage.setItem('accessToken',data.data.accessToken);
     localStorage.setItem('userInfo',JSON.stringify(data.data));
-    this._router.navigate(['/dashboard']);
+    window.location.href="/dashboard";
+    // this._router.navigate(['/dashboard']);
   }
 
   updateUserLocally(data){
@@ -38,7 +39,8 @@ export class APIService {
   logoutUser():void{
     localStorage.removeItem('accessToken');
     localStorage.removeItem('userInfo');
-    this._router.navigate(['/']);
+    window.location.href="/";
+    // this._router.navigate(['/']);
   }
 
   // Checking the Authentication for User
@@ -96,8 +98,12 @@ export class APIService {
     return this._http.post<any>(_apiUrl + 'change/password',data);
   }
 
-  getUserSubscribedCourses(userId){
-    return this._http.get<any>(_apiUrl + 'subscribed/course?userId='+userId);
+  getUserSubscribedCourses(userId,subscribedId=0){
+    return this._http.get<any>(_apiUrl + 'subscribed/course/'+subscribedId+'/?userId='+userId);
+  }
+
+  postUserSubscribedCourse(formData){
+    return this._http.post<any>(_apiUrl + 'subscribed/course',formData);
   }
 
   

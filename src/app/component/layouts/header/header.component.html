@@ -28,7 +28,7 @@
                             <a class="dropdown-item" href="#">Math HL</a>
                         </div>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="#">Membership</a></li>
+                    <li class="nav-item"><a class="nav-link" routerLink="/membership">Membership</a></li>
                     <li class="nav-item" *ngIf="!userAuthentication, else falseAuthCheck"><a class="nav-link" routerLink="/login">Login</a></li>
                     <ng-template #falseAuthCheck>
                         <!-- <li class="nav-item"><a class="nav-link" (click)="userLogout()">Logout</a></li> -->

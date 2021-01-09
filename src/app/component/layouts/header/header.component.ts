@@ -7,24 +7,9 @@ import { APIService } from 'src/app/service/api.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
-  constructor(private _api:APIService) { }
-  userAuthentication = false;
+  userAuthentication : boolean = false;
+  constructor(private _api:APIService) {}
   ngOnInit(): void {
-    // let token = this._api.isAuthenticated();
-    // if(token){
-    //   this.userAuthentication = true;
-    // }else{
-    //   this.userAuthentication = false;
-    // }
     this.userAuthentication = this._api.isAuthenticated();
   }
-
-  userLogout(){
-    this.userAuthentication = false;
-    this._api.logoutUser();
-  }
-
-  
-
 }

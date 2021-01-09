@@ -8,6 +8,8 @@ import { CourseListComponent } from './component/course-list/course-list.compone
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { EditProfileComponent } from './component/edit-profile/edit-profile.component';
 import { HomeComponent } from './component/home/home.component';
+import { SubscriptionThankyouComponent } from './component/layouts/subscription-thankyou/subscription-thankyou.component';
+import { MembershipComponent } from './component/membership/membership.component';
 import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
 import { SubscribedCourseComponent } from './component/subscribed-course/subscribed-course.component';
 import { TeacherProfileComponent } from './component/teacher-profile/teacher-profile.component';
@@ -21,7 +23,10 @@ const routes: Routes = [
   {path : 'user/profile', component : EditProfileComponent,canActivate:[AuthGuardService]},
   {path : 'user/password/change', component : ChangePasswordComponent,canActivate:[AuthGuardService]},
   {path : 'user/subscribed/course', component : SubscribedCourseComponent,canActivate:[AuthGuardService]},
+  {path : 'user/subscription/thankyou/:subscriptionId', component : SubscriptionThankyouComponent,canActivate:[AuthGuardService]},
+  
   {path : 'course-list', component : CourseListComponent},
+  {path : 'membership', component : MembershipComponent},
   {path : 'course-details/:courseId', component : CourseDetailsComponent},
   {path : 'teacher/:teacherId', component : TeacherProfileComponent},
 

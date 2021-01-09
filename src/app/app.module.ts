@@ -21,6 +21,8 @@ import { SidebarComponent } from './component/layouts/sidebar/sidebar.component'
 import { EditProfileComponent } from './component/edit-profile/edit-profile.component';
 import { ChangePasswordComponent } from './component/change-password/change-password.component';
 import { SubscribedCourseComponent } from './component/subscribed-course/subscribed-course.component';
+import { MembershipComponent } from './component/membership/membership.component';
+import { SubscriptionThankyouComponent } from './component/layouts/subscription-thankyou/subscription-thankyou.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { SubscribedCourseComponent } from './component/subscribed-course/subscri
     SidebarComponent,
     EditProfileComponent,
     ChangePasswordComponent,
-    SubscribedCourseComponent
+    SubscribedCourseComponent,
+    MembershipComponent,
+    SubscriptionThankyouComponent
   ],
   imports: [
     BrowserModule,NgxUiLoaderModule,NgxUiLoaderRouterModule,NgxUiLoaderHttpModule,
