@@ -32,10 +32,10 @@ export class CourseDetailsComponent implements OnInit {
   /*********Get Course List *********/
   getCourseDetails(courseId){
     this._loader.startLoader('loader');
+    this._router.navigateByUrl('/course-details/'+EncodeDecodeBase64(courseId,'encode'));
     this._api.getCourseDetails(courseId).subscribe(
         res => {
           this.courseDetails = res.data;
-          this._router.navigateByUrl('/course-details/'+EncodeDecodeBase64(courseId,'encode'));
           window.scrollTo(0, 0);
           this._loader.stopLoader('loader');
         },err => {}

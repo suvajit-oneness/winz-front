@@ -26,8 +26,8 @@ export class APIService {
     localStorage.removeItem('userInfo');
     localStorage.setItem('accessToken',data.data.accessToken);
     localStorage.setItem('userInfo',JSON.stringify(data.data));
-    window.location.href="/dashboard";
-    // this._router.navigate(['/dashboard']);
+    // window.location.href="/dashboard";
+    this._router.navigate(['/dashboard']);
   }
 
   updateUserLocally(data){

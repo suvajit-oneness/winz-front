@@ -24,7 +24,6 @@ const routes: Routes = [
   {path : 'user/password/change', component : ChangePasswordComponent,canActivate:[AuthGuardService]},
   {path : 'user/subscribed/course', component : SubscribedCourseComponent,canActivate:[AuthGuardService]},
   {path : 'user/subscription/thankyou/:subscriptionId', component : SubscriptionThankyouComponent,canActivate:[AuthGuardService]},
-  
   {path : 'course-list', component : CourseListComponent},
   {path : 'membership', component : MembershipComponent},
   {path : 'course-details/:courseId', component : CourseDetailsComponent},
