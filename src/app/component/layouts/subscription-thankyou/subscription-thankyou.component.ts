@@ -29,6 +29,7 @@ export class SubscriptionThankyouComponent implements OnInit {
   ngOnInit(): void {
     this.subscriptionId = EncodeDecodeBase64(this._activatedRoute.snapshot.paramMap.get('subscriptionId'),'decode');
     this.userInfo = this._api.getUserDetailsFromStorage();
+    window.scrollTo(0, 0);
     // this.getSubscriptionDetails(this.subscriptionId);
   }
 
@@ -38,7 +39,7 @@ export class SubscriptionThankyouComponent implements OnInit {
       res => {
         if(res.error == false){
           this.courseInfo = res.data;
-          console.log(this.courseInfo);
+          // console.log(this.courseInfo);
           this._loader.stopLoader('loader');
         }
       },err => {}

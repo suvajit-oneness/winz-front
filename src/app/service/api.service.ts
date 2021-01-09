@@ -90,8 +90,8 @@ export class APIService {
     return this._http.get<any>(_apiUrl + 'course');
   }
 
-  getCourseDetails(courseId){
-    return this._http.get<any>(_apiUrl + 'course/'+courseId);
+  getCourseDetails(courseId,userId=0){
+    return this._http.get<any>(_apiUrl + 'course/'+courseId+'/?userId='+userId);
   }
 
   updateUserPassword(data){

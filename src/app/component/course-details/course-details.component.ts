@@ -20,11 +20,12 @@ export class CourseDetailsComponent implements OnInit {
     private _router: Router
   ) {}
   public loginCheck = false;public userInfo :any = {};
-  public courseId : any = 0;
+  public courseId : any = 0;public userId : any = 0;
   ngOnInit(): void {
     window.scrollTo(0, 0);
     this.loginCheck = this._api.isAuthenticated();
     this.userInfo = this._api.getUserDetailsFromStorage();
+    this.userId = (this.loginCheck) ? this.userInfo.id : 0;
     this.courseId = EncodeDecodeBase64(this._activatedRoute.snapshot.paramMap.get('courseId'),'decode');
     this.getCourseDetails(this.courseId); // calling to get the Teacher Info
   }
@@ -33,7 +34,7 @@ export class CourseDetailsComponent implements OnInit {
   getCourseDetails(courseId){
     this._loader.startLoader('loader');
     this._router.navigateByUrl('/course-details/'+EncodeDecodeBase64(courseId,'encode'));
-    this._api.getCourseDetails(courseId).subscribe(
+    this._api.getCourseDetails(courseId,this.userId).subscribe(
         res => {
           this.courseDetails = res.data;
           window.scrollTo(0, 0);
@@ -52,6 +53,8 @@ export class CourseDetailsComponent implements OnInit {
         res => {
           if(res.error == false){
             this._router.navigateByUrl('/user/subscription/thankyou/'+EncodeDecodeBase64(res.data.id,'encode'));
+          }else{
+            Swal.fire('',res.message);
           }
           this._loader.stopLoader('loader');
           // console.log(res);

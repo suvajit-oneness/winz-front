@@ -75,7 +75,10 @@
                                 </ul>
                             </div>
                             <div class="ed_view_link">
-                                <a href="javascript:void(0)" class="btn btn-theme enroll-btn" (click)="enrollNow(courseDetails.id)">Enroll Now<i class="ti-angle-right"></i></a>
+                                <a *ngIf="!courseDetails.isUserSubscribed, else enrolled;" href="javascript:void(0)" class="btn btn-theme enroll-btn" (click)="enrollNow(courseDetails.id)">Enroll Now<i class="ti-angle-right"></i></a>
+                                <ng-template #enrolled>
+                                    <a href="javascript:void(0)" [disabled]="true" class="btn btn-theme enroll-btn">Enrolled</a>
+                                </ng-template>
                             </div>
                         </div>
                     </div>
