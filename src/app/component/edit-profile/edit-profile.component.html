@@ -11,13 +11,14 @@
                     <div class="drag-outr text-center">
                         <a href="javascript:void(0)" class="dragfiles">
                             <!-- <span>Drag files here to upload</span> -->
-                            <img src="{{userInfo.image}}"/>
+                            <img id="userImage" [src]="userImage"/>
                         </a>
                         <!-- Or -->
                         <div class="selectbtn">
-                            <input type="file" class="btn">
+                            <input type="file" name="userImage" class="btn" (change)="onSelectFile($event)">
                             <a href="javascript:void(0)" class="btn">Select FIles</a>
                         </div>
+                        {{fileFormatError}}
                     </div>
                 </div>
                 <div class="signin-form col-md-8 offset-md-1">
