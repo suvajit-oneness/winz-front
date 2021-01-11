@@ -76,6 +76,7 @@ export class EditProfileComponent implements OnInit {
         }
         this.fileFormatError = 'This File Format is not accepted';
     }
+    this.getUserInfo(); // calling to get updated user Data
     this.userImage = this.userInfo.image;
     return false;
   }
