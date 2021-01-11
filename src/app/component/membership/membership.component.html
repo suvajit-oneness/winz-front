@@ -6,26 +6,15 @@
         <div class="row pt-5">
             <div class="col-md-10 offset-md-1">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-6" *ngFor="let member of memberShip">
                         <div class="member-inn blue-bg">
-                            <h4>Revision Member Village</h4>
-                            <span><sup>$</sup>99</span>
+                            <h4>{{member.title}}</h4>
+                            <span><sup>$</sup>{{member.price}}</span>
                             <ul>
-                                <li><i class="ti-check-box"></i>
-                                    <p><strong>IB Math Exam Question Bank</strong>
-                                    Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs</p>
-                                </li>
-                                <li><i class="ti-check-box"></i>
-                                    <p><strong>IB Math Exam Question Bank</strong>
-                                    Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs</p>
-                                </li>
-                                <li><i class="ti-check-box"></i>
-                                    <p><strong>IB Math Exam Question Bank</strong>
-                                    Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs</p>
-                                </li>
-                                <li><i class="ti-check-box"></i>
-                                    <p><strong>IB Math Exam Question Bank</strong>
-                                    Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs</p>
+                                <li *ngFor="let question of member.question">
+                                    <i class="ti-check-box"></i>
+                                    <p><strong>{{question.title}}</strong>
+                                    {{question.description}}
                                 </li>
                             </ul>
                             <div class="text-center my-5">
@@ -33,7 +22,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <!-- <div class="col-md-6">
                         <div class="member-inn brown-bg">
                             <h4>Revision Member Village</h4>
                             <span><sup>$</sup>199</span>
@@ -59,7 +48,7 @@
                                 <a href="#" class="btn btn-theme btn-browse-btn">Gold Option</a>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -70,16 +59,14 @@
     <div class="container">
         <h3>Common Questions</h3>
         <ul class="faq-inn">
-            <li>
-                <i class="ti-blackboard"></i>
+            <li *ngFor="let cq of commonQuestion;">
+                <i class="{{cq.icon}}"></i>
                 <div>
-                    <h5>What is Revision Village?</h5>
-                    <p>
-                        Voted the #1 IB Mathematics Resource in 2019 & 2020, Revision Village is an award winning education website dedicated to helping IB Students learn, practice and revise for their IB Mathematics exams. More than 70% of IB Students & Teachers worldwide use Revision Village (350,000+ IB Students from 1,500+ IB Schools).
-                    </p>
+                    <h5>{{cq.title}}</h5>
+                    <p>{{cq.description}}</p>
                 </div>
             </li>
-            <li>
+            <!-- <li>
                 <i class="ti-check-box"></i>
                 <div>
                     <h5>Does Revision Village have resources for all of the IB Mathematics courses?</h5>
@@ -173,7 +160,7 @@
                         The Revision Village team includes experienced IB Teachers, Examiners and some of the world’s best educators. The team is dedicated to helping each and every student achieve their best possible IB Mathematics grade.
                     </p>
                 </div>
-            </li>
+            </li> -->
         </ul>
     </div>
 </section>
