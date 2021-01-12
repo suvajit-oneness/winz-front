@@ -16,6 +16,7 @@ export class QuestionComponent implements OnInit {
   }
 
   public subjectCategory;
+  public questionList : any = [];
 
   ngOnInit(): void {
     window.scrollTo(0, 0);
@@ -29,7 +30,8 @@ export class QuestionComponent implements OnInit {
     this._loader.startLoader('loader');
     this._api.getQuestionList(subjectCategory,chapter).subscribe(
       res => {
-        console.log(res);
+        this.questionList = res.data;
+        console.log(this.questionList);
       },err => {}
     )
     this._loader.stopLoader('loader');
