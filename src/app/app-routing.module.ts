@@ -11,6 +11,7 @@ import { HomeComponent } from './component/home/home.component';
 import { SubscriptionThankyouComponent } from './component/layouts/subscription-thankyou/subscription-thankyou.component';
 import { MembershipComponent } from './component/membership/membership.component';
 import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
+import { QuestionComponent } from './component/question/question.component';
 import { SubscribedCourseComponent } from './component/subscribed-course/subscribed-course.component';
 import { TeacherProfileComponent } from './component/teacher-profile/teacher-profile.component';
 import { AuthGuardService } from './service/auth-guard.service';
@@ -28,6 +29,7 @@ const routes: Routes = [
   {path : 'membership', component : MembershipComponent},
   {path : 'course-details/:courseId', component : CourseDetailsComponent},
   {path : 'teacher/:teacherId', component : TeacherProfileComponent},
+  {path : 'category/question/:subjectCategory', component : QuestionComponent},
 
   { path : '**', component : PageNotFoundComponent },
 ];

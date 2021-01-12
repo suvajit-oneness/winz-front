@@ -23,6 +23,7 @@ import { ChangePasswordComponent } from './component/change-password/change-pass
 import { SubscribedCourseComponent } from './component/subscribed-course/subscribed-course.component';
 import { MembershipComponent } from './component/membership/membership.component';
 import { SubscriptionThankyouComponent } from './component/layouts/subscription-thankyou/subscription-thankyou.component';
+import { QuestionComponent } from './component/question/question.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { SubscriptionThankyouComponent } from './component/layouts/subscription-
     ChangePasswordComponent,
     SubscribedCourseComponent,
     MembershipComponent,
-    SubscriptionThankyouComponent
+    SubscriptionThankyouComponent,
+    QuestionComponent
   ],
   imports: [
     BrowserModule,NgxUiLoaderModule,NgxUiLoaderRouterModule,NgxUiLoaderHttpModule,
