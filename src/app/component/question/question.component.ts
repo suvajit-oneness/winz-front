@@ -30,7 +30,7 @@ export class QuestionComponent implements OnInit {
     this._loader.startLoader('loader');
     this._api.getQuestionList(subjectCategoryId,chapterId).subscribe(
       res => {
-        // this.questionList = res.data;
+        this.questionList = res.data;
         console.log(res);
       },err => {}
     )
