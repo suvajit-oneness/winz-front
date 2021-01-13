@@ -5,33 +5,33 @@ import { APIService } from 'src/app/service/api.service';
 import { EncodeDecodeBase64 } from 'src/globalFunction';
 
 @Component({
-  selector: 'app-question',
-  templateUrl: './question.component.html',
-  styleUrls: ['./question.component.css']
+  selector: 'app-chapter',
+  templateUrl: './chapter.component.html',
+  styleUrls: ['./chapter.component.css']
 })
-export class QuestionComponent implements OnInit {
+export class ChapterComponent implements OnInit {
 
   public EncodeDecodeBase64 = EncodeDecodeBase64;
   constructor(private _loader : NgxUiLoaderService,private _activatedRoute:ActivatedRoute,private _api:APIService) {
     this._loader.startLoader('loader');
   }
 
-  public subjectCategory;public chapterId;
-  public questionList : any = [];
+  public subjectCategory;
+  public chapterList : any = [];
+
   ngOnInit(): void {
     window.scrollTo(0, 0);
     this._loader.stopLoader('loader');
     this.subjectCategory = EncodeDecodeBase64(this._activatedRoute.snapshot.paramMap.get('subjectCategory'),'decode');
-    this.chapterId = EncodeDecodeBase64(this._activatedRoute.snapshot.paramMap.get('chapterId'),'decode');
-    this.getQuestion(this.subjectCategory,this.chapterId);
+    this.getChapters(this.subjectCategory);
   }
 
-  getQuestion(subjectCategoryId,chapterId){
+  getChapters(subjectCategory=0,chapter=0){
     this._loader.startLoader('loader');
-    this._api.getQuestionList(subjectCategoryId,chapterId).subscribe(
+    this._api.getChapterList(subjectCategory,chapter).subscribe(
       res => {
-        // this.questionList = res.data;
-        console.log(res);
+        this.chapterList = res.data;
+        console.log(this.chapterList);
       },err => {}
     )
     this._loader.stopLoader('loader');

@@ -110,8 +110,12 @@ export class APIService {
     return this._http.get<any>(_apiUrl + 'membership');
   }
 
-  getQuestionList(subjectCategory='',chapter=''){
-    return this._http.get<any>(_apiUrl + 'question/?subjectCategory='+subjectCategory+'/?chapter='+chapter);
+  getChapterList(subjectCategoryId = 0,chapterId = 0){
+    return this._http.get<any>(_apiUrl + 'chapter?subjectCategoryId='+subjectCategoryId+'&chapterId='+chapterId);
+  }
+
+  getQuestionList(subjectCategoryId = 0,chapterId = 0){
+    return this._http.get<any>(_apiUrl + 'question?subjectCategoryId='+subjectCategoryId+'&chapterId='+chapterId);
   }
 
   

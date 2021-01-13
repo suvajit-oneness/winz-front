@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './component/auth/login/login.component';
 import { SignupComponent } from './component/auth/signup/signup.component';
 import { ChangePasswordComponent } from './component/change-password/change-password.component';
+import { ChapterComponent } from './component/chapter/chapter.component';
 import { CourseDetailsComponent } from './component/course-details/course-details.component';
 import { CourseListComponent } from './component/course-list/course-list.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
@@ -29,7 +30,8 @@ const routes: Routes = [
   {path : 'membership', component : MembershipComponent},
   {path : 'course-details/:courseId', component : CourseDetailsComponent},
   {path : 'teacher/:teacherId', component : TeacherProfileComponent},
-  {path : 'category/question/:subjectCategory', component : QuestionComponent},
+  {path : 'category/chapter/:subjectCategory', component : ChapterComponent},
+  {path : 'category/chapter/question/:subjectCategory/:chapterId', component : QuestionComponent},
 
   { path : '**', component : PageNotFoundComponent },
 ];
