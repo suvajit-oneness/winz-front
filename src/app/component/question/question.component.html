@@ -8,6 +8,18 @@
                     <div class="col-md-6">
                         <h4>Question {{i+1}} : {{question.chapter.chapter}}</h4><br>
                         <img src="{{question.question}}" alt="Question">
+                        <h6>Difficulty : 
+                            <span [ngSwitch]="question.difficulty">
+                                <p *ngSwitchCase="1">Easy<progress value="33" max="100" style="border-color: green;"></progress></p>
+                                <p *ngSwitchCase="2">Medium<progress value="66" max="100" style="border-color: yellow !important;"></progress></p>
+                                <p *ngSwitchCase="3">Hard<progress value="99" max="100" style="border-color: red !important;"></progress></p>
+                            </span>
+                        </h6>
+                        <h4 *ngIf="question.mark_scheme != ''"><a href="{{question.mark_scheme}}" target="_blank">Mark Scheme</a></h4>
+                        <h4 *ngIf="question.answer1 != ''"><a href="{{question.answer1}}" target="_blank">(a) Video Solution</a></h4>
+                        <h4 *ngIf="question.answer2 != ''"><a href="{{question.answer2}}" target="_blank">(b) Video Solution</a></h4>
+                        <h4 *ngIf="question.answer3 != ''"><a href="{{question.answer3}}" target="_blank">(c) Video Solution</a></h4>
+                        <h4 *ngIf="question.answer4 != ''"><a href="{{question.answer4}}" target="_blank">(d) Video Solution</a></h4>
                     </div>
                 </div>
             </div>

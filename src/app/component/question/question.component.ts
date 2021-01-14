@@ -30,11 +30,24 @@ export class QuestionComponent implements OnInit {
     this._loader.startLoader('loader');
     this._api.getQuestionList(subjectCategoryId,chapterId).subscribe(
       res => {
+        window.scrollTo(0, 0);
         this.questionList = res.data;
         console.log(res);
       },err => {}
     )
     this._loader.stopLoader('loader');
+  }
+
+  getProgress(difficulty){
+    let level = 'Easy';let value = 33;let color = 'blue';
+    switch(difficulty){
+      case 1:level = 'Easy';value = 33;color='blue';break;
+      case 2:level = 'Medium';value = 66;color='yellow';break;
+      case 3:level = 'Hard';value = 99;color='red';break;
+      default:break;
+    }
+    return level;
+    return level +' <progress value="'+value+'" max="100" style="border-color: '+color+';"></progress>';
   }
 
 }

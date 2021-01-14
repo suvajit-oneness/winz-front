@@ -19,6 +19,8 @@ export class ChapterComponent implements OnInit {
   public subjectCategory;
   public chapterList : any = [];
 
+  public subjectCategoryName = '';
+
   ngOnInit(): void {
     window.scrollTo(0, 0);
     this._loader.stopLoader('loader');
@@ -31,7 +33,10 @@ export class ChapterComponent implements OnInit {
     this._api.getChapterList(subjectCategory,chapter).subscribe(
       res => {
         this.chapterList = res.data;
-        console.log(this.chapterList);
+        Object.keys(res.data).forEach((key)=>{
+          this.subjectCategoryName = res.data[key].subject_category.full_name;
+        });
+        // console.log(this.chapterList);
       },err => {}
     )
     this._loader.stopLoader('loader');
