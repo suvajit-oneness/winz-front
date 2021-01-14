@@ -12,15 +12,12 @@ import { EncodeDecodeBase64 } from 'src/globalFunction';
 export class QuestionComponent implements OnInit {
 
   public EncodeDecodeBase64 = EncodeDecodeBase64;
-  constructor(private _loader : NgxUiLoaderService,private _activatedRoute:ActivatedRoute,private _api:APIService) {
-    this._loader.startLoader('loader');
-  }
+  constructor(private _loader : NgxUiLoaderService,private _activatedRoute:ActivatedRoute,private _api:APIService) {}
 
   public subjectCategory;public chapterId;
   public questionList : any = [];
   ngOnInit(): void {
     window.scrollTo(0, 0);
-    this._loader.stopLoader('loader');
     this.subjectCategory = EncodeDecodeBase64(this._activatedRoute.snapshot.paramMap.get('subjectCategory'),'decode');
     this.chapterId = EncodeDecodeBase64(this._activatedRoute.snapshot.paramMap.get('chapterId'),'decode');
     this.getQuestion(this.subjectCategory,this.chapterId);

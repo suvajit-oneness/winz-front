@@ -25,6 +25,7 @@ import { MembershipComponent } from './component/membership/membership.component
 import { SubscriptionThankyouComponent } from './component/layouts/subscription-thankyou/subscription-thankyou.component';
 import { QuestionComponent } from './component/question/question.component';
 import { ChapterComponent } from './component/chapter/chapter.component';
+import { ContactusComponent } from './component/contactus/contactus.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { ChapterComponent } from './component/chapter/chapter.component';
     MembershipComponent,
     SubscriptionThankyouComponent,
     QuestionComponent,
-    ChapterComponent
+    ChapterComponent,
+    ContactusComponent
   ],
   imports: [
     BrowserModule,NgxUiLoaderModule,NgxUiLoaderRouterModule,NgxUiLoaderHttpModule,
