@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { APIService } from 'src/app/service/api.service';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -9,11 +10,14 @@ import { NgxUiLoaderService } from 'ngx-ui-loader';
 })
 export class SignupComponent implements OnInit {
   public errorMessage = '';
-  constructor(private _api:APIService,private _loader : NgxUiLoaderService) {
+  constructor(private _api:APIService,private _loader : NgxUiLoaderService,private _router:Router) {
     this._loader.startLoader('loader');
   }
 
   ngOnInit(): void {
+    if(this._api.isAuthenticated()){
+      this._router.navigate(['/dashboard']);
+    }
     this._loader.stopLoader('loader');
   }
 

@@ -1,2 +1,28 @@
 <ngx-ui-loader loaderId="loader" fgsColor="#FFFFFF" bgsOpacity="1" overlayColor="rgba(40,40,40,0.1)"></ngx-ui-loader>
-<p>contactus works!</p>
+<section class="account-detail">
+    <div class="d-flex">
+        <div class="account-sec mb-5">
+            <h3>Contact Us</h3>
+            <div class="row">
+                <div class="signin-form col-md-8 offset-md-1">
+                    <form #userProfile="ngForm">
+                        <div class="row">
+                            <div class="col-md-12 mb-4">
+                                <input name="name" type="text" placeholder="Name" class="form-control">
+                            </div>
+                            <div class="col-md-12 mb-4">
+                                <input name="mobile" type="text" placeholder="Mobile" class="form-control">
+                            </div>
+                            <div class="col-md-12 mb-4">
+                                <input name="email" type="email" placeholder="Email Address" class="form-control">
+                            </div>
+                            <div class="col-md-6">
+                                <button type="submit" class="btn btn-primary shadow-sm pl-4 pr-4 mt-4 mb-0">Save the Details</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

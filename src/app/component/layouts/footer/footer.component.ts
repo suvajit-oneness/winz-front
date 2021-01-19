@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NavigationStart, Router } from '@angular/router';
+import { APIService } from 'src/app/service/api.service';
 
 @Component({
   selector: 'app-footer',
@@ -7,7 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  constructor() { }
+  public showContactUsBOX: boolean = true;
+
+  constructor(private _router:Router,private _api:APIService) {
+    _router.events.forEach((event) => {
+      if (event instanceof NavigationStart) {
+        if (event['url'] == '/contact-us') {
+          this.showContactUsBOX = false;
+        }else {
+          this.showContactUsBOX = true;
+        }
+      }
+    });
+  }
 
   ngOnInit(): void {
   }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { APIService } from 'src/app/service/api.service';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -9,11 +10,14 @@ import { NgxUiLoaderService } from 'ngx-ui-loader';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private _api:APIService,private _loader : NgxUiLoaderService) {
+  constructor(private _api:APIService,private _loader : NgxUiLoaderService,private _router:Router) {
     this._loader.startLoader('loader');
   }
   public errorMessage = '';
   ngOnInit(): void {
+    if(this._api.isAuthenticated()){
+      this._router.navigate(['/dashboard']);
+    }
     this._loader.stopLoader('loader');
   }
 
@@ -24,9 +28,8 @@ export class LoginComponent implements OnInit {
     }
     if( formData?.valid ){
       const mainForm = new FormData();
-      Object.keys(formData.value).forEach((key)=>{
-        mainForm.append(key,formData.value[key])
-      });
+      
+      
       this._loader.startLoader('loader');
       this._api.userLoginAPI(mainForm).subscribe(
         res => {
