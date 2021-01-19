@@ -14,6 +14,7 @@ import { SubscriptionThankyouComponent } from './component/layouts/subscription-
 import { MembershipComponent } from './component/membership/membership.component';
 import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
 import { QuestionComponent } from './component/question/question.component';
+import { SubjectCategoryComponent } from './component/subject-category/subject-category.component';
 import { SubscribedCourseComponent } from './component/subscribed-course/subscribed-course.component';
 import { TeacherProfileComponent } from './component/teacher-profile/teacher-profile.component';
 import { AuthGuardService } from './service/auth-guard.service';
@@ -31,8 +32,9 @@ const routes: Routes = [
   {path : 'membership', component : MembershipComponent},
   {path : 'course-details/:courseId', component : CourseDetailsComponent},
   {path : 'teacher/:teacherId', component : TeacherProfileComponent},
-  {path : 'category/chapter/:subjectCategory', component : ChapterComponent},
-  {path : 'category/chapter/question/:subjectCategory/:chapterId', component : QuestionComponent},
+  {path : 'category/subject-category/:categoryId', component:SubjectCategoryComponent},
+  {path : 'category/subject-category/chapter/:subjectCategoryId', component:ChapterComponent},
+  {path : 'category/subject-category/chapter/question/:subjectCategory/:chapterId', component : QuestionComponent},
 
   {path : 'contact-us', component : ContactusComponent},
   {path : '**', component : PageNotFoundComponent},

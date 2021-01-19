@@ -55,7 +55,7 @@ export class CourseDetailsComponent implements OnInit {
           if(res.error == false){
             this._router.navigateByUrl('/user/subscription/thankyou/'+EncodeDecodeBase64(res.data.id,'encode'));
           }else{
-            Swal.fire('',res.message);
+            Swal.fire('Error',res.message);
           }
           this._loader.stopLoader('loader');
           // console.log(res);
@@ -64,6 +64,10 @@ export class CourseDetailsComponent implements OnInit {
     }else{
       Swal.fire('Error','Please login to countinue','error')
     }
+  }
+
+  alreadyEnrolled(){
+    Swal.fire('Warning','This course is already enrolled by you');
   }
 
   commaSeparateTeacher(teacherList){

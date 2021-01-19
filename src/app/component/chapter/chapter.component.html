@@ -1,13 +1,13 @@
 <ngx-ui-loader loaderId="loader" fgsColor="#FFFFFF" bgsOpacity="1" overlayColor="rgba(40,40,40,0.1)"></ngx-ui-loader>
 <section class="member-sec section_title py-5 text-center">
     <div class="container-fluid">
-        <h2>{{subjectCategoryName}}</h2>
+        <h2>{{categoryName}} {{subjectCategoryName}}</h2>
         <p>How would you like to study today…</p>
         <div class="row">
             <div class="col-md-12 offset-md-1" *ngIf="chapterList.length > 0,else noDataFound">
                 <div class="row" *ngFor="let chapter of chapterList;index as i">
                     <div class="col-md-3">
-                        <a class="member-inn blue-bg" routerLink="/category/chapter/question/{{EncodeDecodeBase64(chapter.subjectCategoryId,'encode')}}/{{EncodeDecodeBase64(chapter.id,'encode')}}">
+                        <a class="member-inn blue-bg" routerLink="/category/subject-category/chapter/question/{{EncodeDecodeBase64(chapter.subjectCategoryId,'encode')}}/{{EncodeDecodeBase64(chapter.id,'encode')}}">
                             <h4>{{chapter.chapter}}</h4>
                         </a>
                     </div>

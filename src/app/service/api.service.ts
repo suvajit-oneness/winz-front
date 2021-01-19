@@ -110,6 +110,10 @@ export class APIService {
     return this._http.get<any>(_apiUrl + 'membership');
   }
 
+  getSubjectCategory(categoryId){
+    return this._http.get<any>(_apiUrl + 'subject-category?categoryId='+categoryId);
+  }
+
   getChapterList(subjectCategoryId = 0,chapterId = 0){
     return this._http.get<any>(_apiUrl + 'chapter?subjectCategoryId='+subjectCategoryId+'&chapterId='+chapterId);
   }

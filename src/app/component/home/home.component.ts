@@ -33,7 +33,7 @@ export class HomeComponent implements OnInit {
 
   // get home Page Banner Headings and Images
   public HomeHeader : any = {};public HomeBanner : any = {};public HomeBannerContent : any = [];
-  public HomeCourses : any = {};public HomeTeacher : any = {};public subjectCategory : any = [];
+  public HomeCourses : any = {};public HomeTeacher : any = {};public category : any = [];
   getHomePageContent(){
     this._api.getHomePageContent().subscribe(
       res => {
@@ -43,7 +43,7 @@ export class HomeComponent implements OnInit {
             this.HomeTeacher = res.data.teacher[0];
             this.HomeBanner = res.data.banner[0];
             this.HomeBannerContent = res.data.bannerContent;
-            this.subjectCategory = res.data.subjectCategory;
+            this.category = res.data.category;
             // console.log(res.data);
           }
       }
