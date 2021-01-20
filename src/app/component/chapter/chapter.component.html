@@ -6,11 +6,20 @@
         <div class="row">
             <div class="col-md-12 offset-md-1" *ngIf="chapterList.length > 0,else noDataFound">
                 <div class="row" *ngFor="let chapter of chapterList;index as i">
-                    <div class="col-md-3">
-                        <a class="member-inn blue-bg" routerLink="/category/subject-category/chapter/question/{{EncodeDecodeBase64(chapter.subjectCategoryId,'encode')}}/{{EncodeDecodeBase64(chapter.id,'encode')}}">
-                            <h4>{{chapter.chapter}}</h4>
-                        </a>
-                    </div>
+                    topic {{i+1}}
+                    <ul>
+                        <li>
+                            <a class="member-inn blue-bg" routerLink="/category/subject-category/chapter/question/{{EncodeDecodeBase64(chapter.subjectCategoryId,'encode')}}/{{EncodeDecodeBase64(chapter.id,'encode')}}">
+                                <h4>{{chapter.chapter}}</h4>
+                                <ul>
+                                    <li *ngFor="let subchapter of chapter.sub_chapter">
+                                        {{subchapter.name}} <br>
+                                        {{subchapter.topics}}
+                                    </li>
+                                </ul>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
             <ng-template #noDataFound>

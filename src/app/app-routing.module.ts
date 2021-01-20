@@ -32,8 +32,8 @@ const routes: Routes = [
   {path : 'membership', component : MembershipComponent},
   {path : 'course-details/:courseId', component : CourseDetailsComponent},
   {path : 'teacher/:teacherId', component : TeacherProfileComponent},
-  {path : 'category/subject-category/:categoryId', component:SubjectCategoryComponent},
-  {path : 'category/subject-category/chapter/:subjectCategoryId', component:ChapterComponent},
+  {path : 'category/subject-category/:categoryId', component : SubjectCategoryComponent},
+  {path : 'category/subject-category/chapter/:subjectCategoryId', component : ChapterComponent},
   {path : 'category/subject-category/chapter/question/:subjectCategory/:chapterId', component : QuestionComponent},
 
   {path : 'contact-us', component : ContactusComponent},
