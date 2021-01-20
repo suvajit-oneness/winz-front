@@ -122,5 +122,9 @@ export class APIService {
     return this._http.get<any>(_apiUrl + 'question?subjectCategoryId='+subjectCategoryId+'&chapterId='+chapterId);
   }
 
+  postContactUsForm(formData){
+    return this._http.post<any>(_apiUrl + 'contact-us',formData);
+  }
+
   
 }

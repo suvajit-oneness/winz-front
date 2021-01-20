@@ -9,10 +9,14 @@ import { APIService } from 'src/app/service/api.service';
 })
 export class FooterComponent implements OnInit {
 
-  public showContactUsBOX: boolean = true;
+  public showContactUsBOX: boolean=true;
 
   constructor(private _router:Router,private _api:APIService) {
-    _router.events.forEach((event) => {
+
+  }
+
+  ngOnInit(): void {
+    this._router.events.forEach((event) => {
       if (event instanceof NavigationStart) {
         if (event['url'] == '/contact-us') {
           this.showContactUsBOX = false;
@@ -21,9 +25,11 @@ export class FooterComponent implements OnInit {
         }
       }
     });
-  }
-
-  ngOnInit(): void {
+    if(this._router.url == '/contact-us'){
+      this.showContactUsBOX = false;
+    }else{
+      this.showContactUsBOX = true;
+    }
   }
 
 }

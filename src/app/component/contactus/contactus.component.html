@@ -5,19 +5,23 @@
             <h3>Contact Us</h3>
             <div class="row">
                 <div class="signin-form col-md-8 offset-md-1">
-                    <form #userProfile="ngForm">
+                    <form #contact="ngForm" (ngSubmit)="contactUsForm(contact)">
+                        <!-- {{contact.value | json}} -->
                         <div class="row">
                             <div class="col-md-12 mb-4">
-                                <input name="name" type="text" placeholder="Name" class="form-control">
+                                <input #name="ngModel" ngModel name="name" type="text" placeholder="Name" [ngClass]="{'form-control':true,'is-invalid':name.invalid && name.touched}" required>
                             </div>
                             <div class="col-md-12 mb-4">
-                                <input name="mobile" type="text" placeholder="Mobile" class="form-control">
+                                <input #email="ngModel" ngModel name="email" type="email" placeholder="Email Address" [ngClass]="{'form-control':true,'is-invalid':email?.invalid && email?.touched}" required>
                             </div>
                             <div class="col-md-12 mb-4">
-                                <input name="email" type="email" placeholder="Email Address" class="form-control">
+                                <input #mobile="ngModel" ngModel name="mobile" type="text" placeholder="Mobile (optional)" class="form-control">
+                            </div>
+                            <div class="col-md-12 mb-4">
+                                <textarea #message="ngModel" ngModel name="message" cols="30" rows="10" style="resize: none;" [ngClass]="{'form-control':true,'is-invalid':message?.invalid && message?.touched}" placeholder="Message (max 255 character)" required></textarea>
                             </div>
                             <div class="col-md-6">
-                                <button type="submit" class="btn btn-primary shadow-sm pl-4 pr-4 mt-4 mb-0">Save the Details</button>
+                                <button type="submit" class="btn btn-primary shadow-sm pl-4 pr-4 mt-4 mb-0">Contact-us</button>
                             </div>
                         </div>
                     </form>

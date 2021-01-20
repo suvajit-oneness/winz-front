@@ -28,8 +28,9 @@ export class LoginComponent implements OnInit {
     }
     if( formData?.valid ){
       const mainForm = new FormData();
-      
-      
+      Object.keys(formData.value).forEach((key)=>{
+        mainForm.append(key,formData.value[key])
+      });
       this._loader.startLoader('loader');
       this._api.userLoginAPI(mainForm).subscribe(
         res => {
