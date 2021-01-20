@@ -21,8 +21,11 @@
                                 <textarea #message="ngModel" ngModel name="message" cols="30" rows="10" style="resize: none;" [ngClass]="{'form-control':true,'is-invalid':message?.invalid && message?.touched}" placeholder="Message (max 255 character)" required></textarea>
                             </div>
                             <div class="col-md-6">
+                                <button type="reset" class="resetForm" [hidden]="true">reset</button>
                                 <button type="submit" class="btn btn-primary shadow-sm pl-4 pr-4 mt-4 mb-0">Contact-us</button>
                             </div>
+                            <span class="text-success">{{success}}</span>
+                            <span class="text-danger">{{errorMessage}}</span>
                         </div>
                     </form>
                 </div>

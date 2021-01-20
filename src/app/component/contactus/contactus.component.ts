@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { APIService } from 'src/app/service/api.service';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-contactus',
@@ -12,13 +13,14 @@ export class ContactusComponent implements OnInit {
   constructor(private _loader : NgxUiLoaderService,private _api:APIService) {
     this._loader.startLoader('loader');
   }
-  public errorMessage = '';
+  public errorMessage = '';public success='';
   ngOnInit(): void {
     window.scrollTo(0, 0);
     this._loader.stopLoader('loader');
   }
 
   contactUsForm(formData){
+    this.errorMessage='';this.success='';
     for( let i in formData.controls ){
       formData.controls[i].markAsTouched();
     }
@@ -31,7 +33,7 @@ export class ContactusComponent implements OnInit {
       this._api.postContactUsForm(mainForm).subscribe(
         res => {
           if(res.error == false){
-            
+            this.success = res.message;$('.resetForm').click();
           }else{
             this.errorMessage = res.message;
           }
