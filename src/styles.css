@@ -518,7 +518,7 @@ header{
     padding: 6px 15px;
     font-size: 12px;
     border-radius: 50px;
-    width: 100px;
+    /* width: 100px; */
     text-align: center;
     float: right;
     margin-top: 15px;
@@ -1071,18 +1071,16 @@ opacity: 0;
 .member-inn{
     border-radius:10px;
     overflow: hidden;
-    box-shadow: 0 0 25px rgba(0,0,0,0.45);
+    /* box-shadow: 0 0 25px rgba(0,0,0,0.45); */
 }
 .member-inn h4{
     display: block;
     padding:20px 5px;
     color:#fff;
+    background:#003783;
 }
 .blue-bg{
     background:#e6f0fd;
-}
-.blue-bg h4{
-    background:#003783;
 }
 .member-inn span{
     margin:15px 0;
@@ -1161,10 +1159,10 @@ opacity: 0;
 }
 .faq-inn li{
     display: inline-flex;
-    margin:0 0 30px;
+    margin:0 0 50px;
 }
 .faq-inn li i{
-    margin: 4px 0 0 0;
+    margin: 0;
     color: #2D3954;
 }
 .faq-inn li > div{

@@ -7,8 +7,8 @@
             <div class="col-md-10 offset-md-1">
                 <div class="row">
                     <div class="col-md-6" *ngFor="let member of memberShip">
-                        <div class="member-inn blue-bg">
-                            <h4>{{member.title}}</h4>
+                        <div class="member-inn border">
+                            <h4 class="bg-blue">{{member.title}}</h4>
                             <span><sup>$</sup>{{member.price}}</span>
                             <ul>
                                 <li *ngFor="let question of member.question">
@@ -55,13 +55,13 @@
     </div>
 </section>
 
-<section class="faq-sec section_title py-5">
+<section class="section_title py-5">
     <div class="container">
-        <h3>Common Questions</h3>
+        <h5 class="question-title">Common Questions</h5>
         <ul class="faq-inn">
             <li *ngFor="let cq of commonQuestion;">
-                <i class="{{cq.icon}}"></i>
-                <div>
+                <div class="common-ques-icon"><i class="{{cq.icon}}"></i></div>
+                <div class="common-ques">
                     <h5>{{cq.title}}</h5>
                     <p>{{cq.description}}</p>
                 </div>

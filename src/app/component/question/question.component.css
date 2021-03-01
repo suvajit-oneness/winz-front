@@ -1,0 +1,29 @@
+.card-header{
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #2D3954;
+    text-align: left;
+    background: rgb(0 55 131 / 15%);
+    border-bottom: 0;
+}
+.card-body h6{
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+.card-body h6 .progress{
+    margin-top: 10px;
+}
+.question-answer{
+    margin: 20px 0 0 0;
+    padding: 0;
+    text-align: left;
+}
+.question-answer li{
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 500;
+    color:#2D3954;
+    text-align: left;
+    cursor: pointer;
+    margin-bottom:3px;
+}

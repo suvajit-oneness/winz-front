@@ -1,0 +1,28 @@
+.card-header{
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #2D3954;
+    text-align: left;
+    background: rgb(0 55 131 / 15%);
+    border-bottom: 0;
+}
+
+.subchapter{
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+.subchapter li{
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color:#2D3954;
+    text-align: left;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+.subchapter li span{
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
