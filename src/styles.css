@@ -321,8 +321,8 @@ header{
 }
 .section_title p{
     color: #2D3954;
-    font-weight: 300;
-    font-size: 16px;
+    font-weight: 400;
+    font-size: 14px;
     margin-top: 8px;
 }
 
@@ -889,6 +889,7 @@ img {
     font-family: Poppins;
     box-sizing: border-box;
     font-size: 14px;
+    border-radius: 0;
     
 }
 .signin-form input:focus {
@@ -1099,18 +1100,28 @@ opacity: 0;
 .member-inn ul{
     text-align: left;
     padding:0 20px;
+    font-family: Poppins,sans-serif !important;
 }
 .member-inn ul li{
     margin:0 0 12px;
     display:flex;
 }
 .member-inn ul li p{
-    font-size:14px;
-    margin-top:0;
+    font-size:0.8rem;
+    font-weight: 400;
+    margin-top:3px;
+    line-height: 18px;
+    color: #647b9c;
+    font-family: Poppins,sans-serif !important;
 }
 .member-inn ul li p strong{
-    display:block;
     font-weight: 600;
+    font-size: 0.8rem;
+    color: #234149!important;
+    line-height: 1.2em;
+    display: block;
+    margin-bottom: 8px;
+    font-family: Poppins,sans-serif !important;
 }
 .member-inn ul li i{
     margin: 5px 10px 0 0;
@@ -1170,4 +1181,5 @@ opacity: 0;
 }
 .faq-inn li p{
     font-size: 15px;
+    color: #647b9c !important;
 }
