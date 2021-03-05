@@ -9,6 +9,7 @@ import { CourseDetailsComponent } from './component/course-details/course-detail
 import { CourseListComponent } from './component/course-list/course-list.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { EditProfileComponent } from './component/edit-profile/edit-profile.component';
+import { EventCalenderComponent } from './component/event-calender/event-calender.component';
 import { HomeComponent } from './component/home/home.component';
 import { SubscriptionThankyouComponent } from './component/layouts/subscription-thankyou/subscription-thankyou.component';
 import { MembershipComponent } from './component/membership/membership.component';
@@ -35,6 +36,7 @@ const routes: Routes = [
   {path : 'category/subject-category/:categoryId', component : SubjectCategoryComponent},
   {path : 'category/subject-category/chapter/:subjectCategoryId', component : ChapterComponent},
   {path : 'category/subject-category/chapter/question/:subjectCategory/:chapterId', component : QuestionComponent},
+  {path : 'events', component : EventCalenderComponent},
 
   {path : 'contact-us', component : ContactusComponent},
   {path : '**', component : PageNotFoundComponent},

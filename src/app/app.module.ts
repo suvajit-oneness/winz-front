@@ -27,6 +27,7 @@ import { QuestionComponent } from './component/question/question.component';
 import { ChapterComponent } from './component/chapter/chapter.component';
 import { ContactusComponent } from './component/contactus/contactus.component';
 import { SubjectCategoryComponent } from './component/subject-category/subject-category.component';
+import { EventCalenderComponent } from './component/event-calender/event-calender.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { SubjectCategoryComponent } from './component/subject-category/subject-c
     QuestionComponent,
     ChapterComponent,
     ContactusComponent,
-    SubjectCategoryComponent
+    SubjectCategoryComponent,
+    EventCalenderComponent
   ],
   imports: [
     BrowserModule,NgxUiLoaderModule,NgxUiLoaderRouterModule,NgxUiLoaderHttpModule,
