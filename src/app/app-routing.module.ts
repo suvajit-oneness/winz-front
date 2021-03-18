@@ -15,6 +15,7 @@ import { SubscriptionThankyouComponent } from './component/layouts/subscription-
 import { MembershipComponent } from './component/membership/membership.component';
 import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
 import { QuestionComponent } from './component/question/question.component';
+import { ScheduleComponent } from './component/schedule/schedule.component';
 import { SubjectCategoryComponent } from './component/subject-category/subject-category.component';
 import { SubscribedCourseComponent } from './component/subscribed-course/subscribed-course.component';
 import { TeacherProfileComponent } from './component/teacher-profile/teacher-profile.component';
@@ -36,6 +37,7 @@ const routes: Routes = [
   {path : 'category/subject-category/:categoryId', component : SubjectCategoryComponent},
   {path : 'category/subject-category/chapter/:subjectCategoryId', component : ChapterComponent},
   {path : 'category/subject-category/chapter/question/:subjectCategory/:chapterId', component : QuestionComponent},
+  {path : 'schedule', component : ScheduleComponent},
   {path : 'events', component : EventCalenderComponent},
 
   {path : 'contact-us', component : ContactusComponent},

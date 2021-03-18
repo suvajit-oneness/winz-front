@@ -31,6 +31,7 @@ import { EventCalenderComponent } from './component/event-calender/event-calende
 import { FullCalendarModule } from '@fullcalendar/angular';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
+import { ScheduleComponent } from './component/schedule/schedule.component';
 FullCalendarModule.registerPlugins([
   dayGridPlugin,
   interactionPlugin
@@ -59,7 +60,8 @@ FullCalendarModule.registerPlugins([
     ChapterComponent,
     ContactusComponent,
     SubjectCategoryComponent,
-    EventCalenderComponent
+    EventCalenderComponent,
+    ScheduleComponent
   ],
   imports: [
     BrowserModule,NgxUiLoaderModule,NgxUiLoaderRouterModule,NgxUiLoaderHttpModule,

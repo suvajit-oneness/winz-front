@@ -8,6 +8,7 @@ import { NgxUiLoaderService } from 'ngx-ui-loader';
   templateUrl: './event-calender.component.html',
   styleUrls: ['./event-calender.component.css']
 })
+// referance : https://therichpost.com/angular-10-fullcalendar-with-dynamic-events/
 
 export class EventCalenderComponent implements OnInit {
 
