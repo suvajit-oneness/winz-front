@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
@@ -28,7 +27,12 @@ import { ChapterComponent } from './component/chapter/chapter.component';
 import { ContactusComponent } from './component/contactus/contactus.component';
 import { SubjectCategoryComponent } from './component/subject-category/subject-category.component';
 import { EventCalenderComponent } from './component/event-calender/event-calender.component';
-
+// for eventCalender Modules
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+// for EventCalender Module End
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,7 +60,12 @@ import { EventCalenderComponent } from './component/event-calender/event-calende
   ],
   imports: [
     BrowserModule,NgxUiLoaderModule,NgxUiLoaderRouterModule,NgxUiLoaderHttpModule,
-    AppRoutingModule,FormsModule,ReactiveFormsModule,HttpClientModule,CommonModule
+    AppRoutingModule,FormsModule,ReactiveFormsModule,HttpClientModule,CommonModule,
+    BrowserAnimationsModule,NgbModalModule,
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory,
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]

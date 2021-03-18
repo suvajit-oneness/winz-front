@@ -1,6 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 @charset "utf-8";
-
+/* Event Calender CSS importing */
+@import "../node_modules/angular-calendar/css/angular-calendar.css";
+/* Event Calender CSS importing END*/
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&display=swap');
 .jsError{
     font-size: 10px;
