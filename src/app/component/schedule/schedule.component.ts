@@ -1,5 +1,6 @@
 import { Time } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { APIService } from 'src/app/service/api.service';
 
@@ -13,7 +14,9 @@ export class ScheduleComponent implements OnInit {
   public schedule: {data: SCHEDULE[];};
   public errorMsg = '';
 
-  constructor(private _loader : NgxUiLoaderService,private _api:APIService) {
+  public userInfo = this._api.getUserDetailsFromStorage();
+
+  constructor(private _loader : NgxUiLoaderService,private _api:APIService,private toast:ToastrService) {
     this.schedule = {data : []}; // Initialise blank data to SCHEDULE interface
   }
 
@@ -22,36 +25,31 @@ export class ScheduleComponent implements OnInit {
   }
 
   public getScheduleDate(){
-    // this._loader.startLoader('loader');
-    // let userId = 0;
-    // this._api.getScheduleData(userId).subscribe(
-    //   res => {
-    //     this._loader.stopLoader('loader');
-    //   },err => {this.errorMsg = 'Something went wrong please try after some time'}
-    // )
-    this.scheduleData.forEach((value) => {
-        this.schedule.data.push({
-          date : value.date,
-          time : value.time,
-          event : value.event,
-        });
-    });
+    this._loader.startLoader('loader');
+    let userId = this.userInfo.id;
+    this._api.getScheduleData(userId).subscribe(
+      res => {
+        if(res.error == false){
+          res.data.forEach((response) => {
+              this.schedule.data.push({
+                date : response.date,
+                time : response.time,
+                event : response.event,
+              });
+          });
+        }
+        if(this.schedule.data.length == 0){ // if Not Found any Data
+          this.addSchedule();
+        }
+        this._loader.stopLoader('loader');
+      },err => {
+        this.errorMsg = 'Something went wrong please try after some time';
+        this._loader.stopLoader('loader');
+      }
+    )
   }
 
-  public scheduleData = [
-    {date:'2021-03-19',time:'10:00',event:'math'},
-    {date:'2021-03-19',time:'11:00',event:'physics'},
-    {date:'2021-03-19',time:'12:00',event:'chemistry'},
-    // {id: 4,date:'2021-03-20',time:'10:00',event:'math'},
-    // {id: 5,date:'2021-03-20',time:'11:00',event:'physics'},
-    // {id: 6,date:'2021-03-20',time:'12:00',event:'chemistry'},
-    // {id: 7,date:'2021-03-21',time:'10:00',event:'math'},
-    // {id: 8,date:'2021-03-21',time:'11:00',event:'physics'},
-    // {id: 9,date:'2021-03-21',time:'12:00',event:'chemistry'},
-    // {id: 10,date:'2021-03-22',time:'10:00',event:'math'},
-    // {id: 11,date:'2021-03-22',time:'11:00',event:'physics'},
-    // {id: 12,date:'2021-03-22',time:'12:00',event:'chemistry'},
-  ];
+  // public scheduleData = [];
 
   public addSchedule(){
     console.log('Yeah! its Working for adding Schedule');

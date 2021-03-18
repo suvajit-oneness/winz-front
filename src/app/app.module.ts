@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ErrorHandler, NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
@@ -32,42 +33,42 @@ import { FullCalendarModule } from '@fullcalendar/angular';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import { ScheduleComponent } from './component/schedule/schedule.component';
+import { ToastrModule, ToastrService } from 'ngx-toastr';
+
 FullCalendarModule.registerPlugins([
   dayGridPlugin,
   interactionPlugin
 ]);
 // for EventCalender Module End
+
+// export class RajeevErrorHandler implements ErrorHandler{
+//   handleError(error: Error){
+//     if(Error){
+//       console.log(error);
+//     }
+//   }
+// }
+
 @NgModule({
   declarations: [
-    AppComponent,
-    PageNotFoundComponent,
-    HomeComponent,
-    HeaderComponent,
-    FooterComponent,
-    LoginComponent,
-    SignupComponent,
-    CourseListComponent,
-    CourseDetailsComponent,
-    TeacherProfileComponent,
-    DashboardComponent,
-    SidebarComponent,
-    EditProfileComponent,
-    ChangePasswordComponent,
-    SubscribedCourseComponent,
-    MembershipComponent,
-    SubscriptionThankyouComponent,
-    QuestionComponent,
-    ChapterComponent,
-    ContactusComponent,
-    SubjectCategoryComponent,
-    EventCalenderComponent,
-    ScheduleComponent
+    AppComponent,PageNotFoundComponent,HomeComponent,HeaderComponent,
+    FooterComponent,LoginComponent,SignupComponent,CourseListComponent,CourseDetailsComponent,
+    TeacherProfileComponent,DashboardComponent,SidebarComponent,EditProfileComponent,ChangePasswordComponent,
+    SubscribedCourseComponent,MembershipComponent,SubscriptionThankyouComponent,QuestionComponent,ChapterComponent,
+    ContactusComponent,SubjectCategoryComponent,EventCalenderComponent,ScheduleComponent
   ],
   imports: [
-    BrowserModule,NgxUiLoaderModule,NgxUiLoaderRouterModule,NgxUiLoaderHttpModule,
+    BrowserModule,BrowserAnimationsModule,NgxUiLoaderModule,NgxUiLoaderRouterModule,NgxUiLoaderHttpModule,
     AppRoutingModule,FormsModule,ReactiveFormsModule,HttpClientModule,CommonModule,FullCalendarModule,
+    ToastrModule.forRoot({
+      timeOut : 10000,
+      positionClass : 'toast-top-right',
+      preventDuplicates : true,
+    }),
   ],
-  providers: [],
+  providers: [
+    // {provide : ErrorHandler,useClass : RajeevErrorHandler}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
