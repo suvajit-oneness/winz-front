@@ -27,11 +27,14 @@ import { ChapterComponent } from './component/chapter/chapter.component';
 import { ContactusComponent } from './component/contactus/contactus.component';
 import { SubjectCategoryComponent } from './component/subject-category/subject-category.component';
 import { EventCalenderComponent } from './component/event-calender/event-calender.component';
-// for eventCalender Modules
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CalendarModule, DateAdapter } from 'angular-calendar';
-import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
-import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+// Calender Module
+import { FullCalendarModule } from '@fullcalendar/angular';
+import dayGridPlugin from '@fullcalendar/daygrid';
+import interactionPlugin from '@fullcalendar/interaction';
+FullCalendarModule.registerPlugins([
+  dayGridPlugin,
+  interactionPlugin
+]);
 // for EventCalender Module End
 @NgModule({
   declarations: [
@@ -60,12 +63,7 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
   ],
   imports: [
     BrowserModule,NgxUiLoaderModule,NgxUiLoaderRouterModule,NgxUiLoaderHttpModule,
-    AppRoutingModule,FormsModule,ReactiveFormsModule,HttpClientModule,CommonModule,
-    BrowserAnimationsModule,NgbModalModule,
-    CalendarModule.forRoot({
-      provide: DateAdapter,
-      useFactory: adapterFactory,
-    }),
+    AppRoutingModule,FormsModule,ReactiveFormsModule,HttpClientModule,CommonModule,FullCalendarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
