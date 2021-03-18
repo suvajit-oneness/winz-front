@@ -46,7 +46,7 @@ export class EventCalenderComponent implements OnInit {
     }
 }
 
-export interface EVENTS{
+interface EVENTS{
   id : number,
   title : string,
   start : Date,

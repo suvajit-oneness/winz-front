@@ -6,6 +6,57 @@
         </ul>
         <div class="account-sec mb-5">
             <h3>Manage Schedule</h3>
+            <table class="table" style="width: 100%;">
+                <tr>
+                    <td>Date</td>
+                    <td>Time</td>
+                    <td>Event</td>
+                    <td>Action</td>
+                </tr>
+                <tr *ngFor="let data of schedule.data;let last=last">
+                    <td><input type="date" #date [(ngModel)]="data.date" class="form-control" value="{{data.date}}" onfocus="blur()"></td>
+                    <td><input type="time" #time [(ngModel)]="data.time" class="form-control" value="{{data.time}}" onfocus="blur()"></td>
+                    <td><input type="text" #event [(ngModel)]="data.event" class="form-control" value="{{data.event}}" maxlength="200"></td>
+                    <td>
+                        <a href="javascript:void(0)" class="text-success" *ngIf="last;else notLastEvent" (click)="addSchedule()">&oplus;</a>
+                        <ng-template #notLastEvent>
+                            <a href="javascript:void(0)" class="text-danger" (click)="removeSchedule(data)">&otimes;</a>
+                        </ng-template>
+                    </td>
+                </tr>
+            </table>
+            <button type="button" class="btn btn-success" (click)="updateScheduledData()">Update</button>
+            
+            <!-- <table class="table" style="width: 100%;">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Events</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let data of scheduleData;let l = last">
+                        <td><input type="date" value="{{data.date}}" onfocus="blur()"></td>
+                        <td>
+                            <table class="table">
+                                <tr>
+                                    <th>Time</th>
+                                    <th>Event</th>
+                                    <th>Action</th>
+                                </tr>
+                                <tr *ngFor="let event of data.data; let last = last">
+                                    <td><input type="time" value="{{event.time}}" onfocus="blur()"></td>
+                                    <td><input type="text" value="{{event.event}}"></td>
+                                    <td>
+                                        <span *ngIf="last;else notLastEvent">&#x2b;</span>
+                                        <ng-template #notLastEvent><span>&#10006;</span></ng-template>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </tbody>
+            </table> -->
         </div>
     </div>
 </section>

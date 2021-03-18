@@ -126,5 +126,8 @@ export class APIService {
     return this._http.post<any>(_apiUrl + 'contact-us',formData);
   }
 
+  getScheduleData(userId){
+    return this._http.get<any>(_apiUrl + 'scheduled-user-data?user_id='+userId);
+  }
   
 }
