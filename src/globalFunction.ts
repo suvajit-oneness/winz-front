@@ -13,6 +13,16 @@ export function getDateFormat(date) : any {
     return month + '/' + day + '/' + year;
 }
 
+export function getTimeFormat(time) : any {
+    let hour = (time.split(':'))[0]
+    let min = (time.split(':'))[1]
+    let part = hour > 12 ? 'PM' : 'AM';
+    min = (min+'').length == 1 ? `0${min}` : min;
+    hour = hour > 12 ? hour - 12 : hour;
+    hour = (hour+'').length == 1 ? `0${hour}` : hour;
+    return `${hour}:${min} ${part}`
+}
+
 export function EncodeDecodeBase64(value,changeTo:string){
     if(changeTo == 'encode'){
         return btoa(value);

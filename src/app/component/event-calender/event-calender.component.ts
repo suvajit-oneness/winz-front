@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { CalendarOptions } from '@fullcalendar/angular'; // useful for typechecking
 import { HttpClient } from '@angular/common/http';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
+import { APIService } from 'src/app/service/api.service';
+import { getTimeFormat } from 'src/globalFunction';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-event-calender',
@@ -14,40 +17,92 @@ export class EventCalenderComponent implements OnInit {
 
     calendarOptions: CalendarOptions;
 
-    constructor(private http: HttpClient,private _loader : NgxUiLoaderService) { }
+    public getTimeFormat = getTimeFormat;
 
-    public events = [
-      { title : 'Event1', start : '2021-03-18' },
-      { title : 'Event2', start : '2021-03-19' },
-      { title : 'Event 3', start : '2021-03-18' },
-      { title : 'Event4', start : '2021-05-18' },
-    ];
+    public AllEvents: {data: ALLEVENTSDATA[];};
+    public events : {data : EVENTSTOSHOW[]};
+
+    constructor(private http: HttpClient,private _loader : NgxUiLoaderService,private _api:APIService) {
+      this.AllEvents = {data : []}; // Initialise blank data to ALlEVENTS interface
+      this.events = {data : []}; // Initialise blank data to ALlEVENTS interface
+    }
+
+    public userInfo = this._api.getUserDetailsFromStorage();
 
     ngOnInit(){
+      window.scrollTo(0, 0);
+      this.getScheduleDate();
+    }
+
+    public getScheduleDate(){
       this._loader.startLoader('loader');
-      this.calendarOptions = {
-        events : this.events,
-        initialView : 'dayGridMonth',
-        dateClick : this.handleDateClick.bind(this),
-      };
-      this._loader.stopLoader('loader');
+      let userId = this.userInfo.id;
+      this._api.getScheduleData(userId).subscribe(
+        res => {
+          if(res.error == false){
+            res.data.forEach((response) => {
+                // pushing into All EVentData Interface
+                this.AllEvents.data.push({
+                  id : response.id,userId : response.userId,
+                  date : response.date,time : response.time,
+                  event : response.event,description: response.description,
+                });
+            });
+          }
+          this.loadCalenderEvent();
+          this._loader.stopLoader('loader');
+        },err => {
+          this._loader.stopLoader('loader');
+        }
+      )
     }
 
-    public addEvent(){
-
+    public loadCalenderEvent(){
+        this._loader.startLoader('loader');
+        // pushing into EVENTStoSHOW Interface
+        this.events.data = [];
+        this.AllEvents.data.forEach((data) => {
+          this.events.data.push({
+            title : this.getTimeFormat(data.time)+' => '+data.event,
+            start : data.date,
+          });
+        });
+        // load into Calender
+        this.calendarOptions = {
+          events : this.events.data,
+          initialView : 'dayGridMonth',
+          dateClick : this.handleDateClick.bind(this),
+        };
+        this._loader.stopLoader('loader');
     }
 
-    public removeEvent(){
-
-    }
-
+    public dateWiseEvents = [];public date = '';
     handleDateClick(arg) {
-      console.log('Date Clicked',arg.dateStr);
+      this.dateWiseEvents = [];this.date = arg.dateStr;
+
+      this.AllEvents.data.forEach((data) => {
+        if(data.date == this.date){
+          this.dateWiseEvents.push({
+            time : this.getTimeFormat(data.time),
+            event : data.event,
+          });
+        }
+      });
+      $('#launchModal').trigger('click');
+      // console.log(this.dateWiseEvents);
     }
 }
 
-interface EVENTS{
+interface ALLEVENTSDATA{
   id : number,
+  userId : number,
+  date : string,
+  time : string,
+  event : string,
+  description: string,
+}
+
+interface EVENTSTOSHOW{
   title : string,
-  start : Date,
+  start : string,
 }
