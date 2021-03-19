@@ -12,7 +12,7 @@ import { APIService } from 'src/app/service/api.service';
 export class ScheduleComponent implements OnInit {
 
   public schedule: {data: SCHEDULE[];};
-  public errorMsg = '';
+  public errorMsg = '';public successMsg = '';
 
   public userInfo = this._api.getUserDetailsFromStorage();
 
@@ -50,9 +50,7 @@ export class ScheduleComponent implements OnInit {
   }
 
   // public scheduleData = [];
-
   public addSchedule(){
-    console.log('Yeah! its Working for adding Schedule');
     this.schedule.data.push({
       date : '',
       time : '',
@@ -61,13 +59,45 @@ export class ScheduleComponent implements OnInit {
   }
 
   public removeSchedule(row){
-    console.log('Yeah! its Working for Removing Schedule');
     const index = this.schedule.data.indexOf(row);
     this.schedule.data.splice(index, 1);
   }
 
   public updateScheduledData() {
-    
+    let dateData = '';let timeDate = '';let eventData = '';let request = true;this.errorMsg = '';this.successMsg = '';
+    this.schedule.data.forEach((formDate) => {
+      if(formDate.date == '' || formDate.time == '' || formDate.event == ''){
+        this.errorMsg = 'please fill all the data correctly';
+        request = false;
+      }else{
+        dateData += formDate.date+'@rajeev@';
+        timeDate += formDate.time+'@rajeev@';
+        eventData += formDate.event+'@rajeev@';
+      }
+    });
+    if(request == true){
+      console.log('Form are Now Ready to POST');
+      this._loader.startLoader('loader');
+      let userId = this.userInfo.id;
+      const mainForm = new FormData();
+      mainForm.append('date',dateData);
+      mainForm.append('time',timeDate);
+      mainForm.append('event',eventData);
+      this._api.saveScheduleUserData(userId,mainForm).subscribe(
+        res => {
+          if(res.error == false){
+            this.successMsg = res.message;
+          }
+          else{
+            this.errorMsg = res.message;
+          }
+          this._loader.stopLoader('loader');
+        },err => {
+          this._loader.stopLoader('loader');
+          this.errorMsg = 'Something went wrong please try after some time';
+        }
+      )
+    }
   }
 }
 

@@ -127,26 +127,11 @@ export class APIService {
   }
 
   getScheduleData(userId){
-    return this._http.get<any>(_apiUrl + 'scheduled-user-data?user_id='+userId);
-    // return this._http.get<any>(_apiUrl + 'membership');
-    // return {
-    //   error : false,
-    //   data : [
-    //     {date:'2021-03-19',time:'10:00',event:'math'},
-    //     {date:'2021-03-19',time:'11:00',event:'physics'},
-    //     {date:'2021-03-19',time:'12:00',event:'chemistry'},
-    //     {id: 4,date:'2021-03-20',time:'10:00',event:'math'},
-    //     {id: 5,date:'2021-03-20',time:'11:00',event:'physics'},
-    //     // {id: 6,date:'2021-03-20',time:'12:00',event:'chemistry'},
-    //     // {id: 7,date:'2021-03-21',time:'10:00',event:'math'},
-    //     // {id: 8,date:'2021-03-21',time:'11:00',event:'physics'},
-    //     // {id: 9,date:'2021-03-21',time:'12:00',event:'chemistry'},
-    //     // {id: 10,date:'2021-03-22',time:'10:00',event:'math'},
-    //     // {id: 11,date:'2021-03-22',time:'11:00',event:'physics'},
-    //     // {id: 12,date:'2021-03-22',time:'12:00',event:'chemistry'},
-    //   ]
-    // }
-    // 
+    return this._http.get<any>(_apiUrl + 'scheduled-user-data?userId='+userId);
+  }
+
+  saveScheduleUserData(userId,FormData){
+    return this._http.post<any>(_apiUrl + 'scheduled-user-data/save?userId='+userId,FormData);
   }
   
 }
