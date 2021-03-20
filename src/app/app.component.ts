@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { NavigationStart, Router } from '@angular/router';
+import { ConnectionService } from 'ng-connection-service';
+import { ToastrService } from 'ngx-toastr';
 import { APIService } from './service/api.service';
 
 @Component({
@@ -10,7 +12,9 @@ import { APIService } from './service/api.service';
 export class AppComponent {
   title = 'winz-frontend';
   public showHeaderFooter: boolean = false;
-  constructor(private _api:APIService,private _router:Router){
+  public isConnected : boolean = true;
+
+  constructor(private _api:APIService,private _router:Router,private _connection:ConnectionService,public toastr:ToastrService){
     _router.events.forEach((event) => {
       if (event instanceof NavigationStart) {
         if (event['url'] == '/login' || event['url'] == '/signup') {
@@ -20,5 +24,16 @@ export class AppComponent {
         }
       }
     });
+    
+    // Internet Checking
+    this._connection.monitor().subscribe(isConnected => {
+      this.isConnected = isConnected;
+      if(this.isConnected){
+        this.toastr.success('Success','You are Online');
+      }else{
+        this.toastr.error('Error','You are Offline');
+      }
+    });
+    // Internet Checking END
   }
 }

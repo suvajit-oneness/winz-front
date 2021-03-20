@@ -13,7 +13,6 @@ import { CourseListComponent } from './component/course-list/course-list.compone
 import { CourseDetailsComponent } from './component/course-details/course-details.component';
 import { TeacherProfileComponent } from './component/teacher-profile/teacher-profile.component';
 import { FormsModule , ReactiveFormsModule, FormControl} from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { NgxUiLoaderHttpModule, NgxUiLoaderModule, NgxUiLoaderRouterModule } from 'ngx-ui-loader';
@@ -34,12 +33,16 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import { ScheduleComponent } from './component/schedule/schedule.component';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
-
+import { ConnectionServiceModule } from 'ng-connection-service';
 FullCalendarModule.registerPlugins([
   dayGridPlugin,
   interactionPlugin
 ]);
 // for EventCalender Module End
+// Global Error Catch Implement
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpErrorInterceptor } from 'src/app/Interceptor/http-error.interceptor';
+// Global Error Catch Implement END
 
 // export class RajeevErrorHandler implements ErrorHandler{
 //   handleError(error: Error){
@@ -60,14 +63,16 @@ FullCalendarModule.registerPlugins([
   imports: [
     BrowserModule,BrowserAnimationsModule,NgxUiLoaderModule,NgxUiLoaderRouterModule,NgxUiLoaderHttpModule,
     AppRoutingModule,FormsModule,ReactiveFormsModule,HttpClientModule,CommonModule,FullCalendarModule,
+    ConnectionServiceModule,
     ToastrModule.forRoot({
-      timeOut : 10000,
+      timeOut : 2000,
       positionClass : 'toast-top-right',
-      preventDuplicates : true,
+      preventDuplicates : false,
     }),
   ],
   providers: [
     // {provide : ErrorHandler,useClass : RajeevErrorHandler}
+    {provide : HTTP_INTERCEPTORS,useClass:HttpErrorInterceptor,multi:true}
   ],
   bootstrap: [AppComponent]
 })

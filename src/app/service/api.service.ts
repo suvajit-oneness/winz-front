@@ -2,12 +2,15 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { Observable, throwError } from 'rxjs';
+import { retry, catchError } from 'rxjs/operators';
 
 var _apiUrl = environment.apiUrl;
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class APIService {
 
   private header;
