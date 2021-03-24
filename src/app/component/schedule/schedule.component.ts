@@ -12,6 +12,7 @@ import { APIService } from 'src/app/service/api.service';
 export class ScheduleComponent implements OnInit {
 
   public schedule: {data: SCHEDULE[];};
+
   public errorMsg = '';public successMsg = '';
 
   public userInfo = this._api.getUserDetailsFromStorage();
@@ -26,15 +27,20 @@ export class ScheduleComponent implements OnInit {
 
   public getScheduleDate(){
     this._loader.startLoader('loader');
-    let userId = this.userInfo.id;
-    this._api.getScheduleData(userId).subscribe(
+    let teacherId = this.userInfo.id;
+    this._api.getScheduleData(teacherId).subscribe(
       res => {
         if(res.error == false){
           res.data.forEach((response) => {
               this.schedule.data.push({
-                date : response.date,
-                time : response.time,
-                event : response.event,
+                date : response.date,time : response.time,
+                mon : (response.mon == 1) ? true : false,
+                tue : (response.tue == 1) ? true : false,
+                wed : (response.wed == 1) ? true : false,
+                thu : (response.thu == 1) ? true : false,
+                fri : (response.fri == 1) ? true : false,
+                sat : (response.sat == 1) ? true : false,
+                sun : (response.sun == 1) ? true : false,
               });
           });
         }
@@ -52,9 +58,9 @@ export class ScheduleComponent implements OnInit {
   // public scheduleData = [];
   public addSchedule(){
     this.schedule.data.push({
-      date : '',
-      time : '',
-      event : '',
+      date : '',time : '',
+      mon : true,tue : true,wed : true,thu : true,
+      fri : true,sat : true,sun : true,
     });
   }
 
@@ -64,26 +70,41 @@ export class ScheduleComponent implements OnInit {
   }
 
   public updateScheduledData() {
-    let dateData = '';let timeDate = '';let eventData = '';let request = true;this.errorMsg = '';this.successMsg = '';
-    this.schedule.data.forEach((formDate) => {
-      if(formDate.date == '' || formDate.time == '' || formDate.event == ''){
+    let dateData = '';let timeDate = '';let request = true;this.errorMsg = '';this.successMsg = '';
+    let monday = '';let tuesday = '';let wednesday = ''; let thurusday = '';let friday = '';let saturday = '';let sunday = '';
+    this.schedule.data.forEach((teacherData) => {
+      if(teacherData.date == '' || teacherData.time == ''){
         this.errorMsg = 'please fill all the data correctly';
         request = false;
       }else{
-        dateData += formDate.date+'@rajeev@';
-        timeDate += formDate.time+'@rajeev@';
-        eventData += formDate.event+'@rajeev@';
+        dateData += teacherData.date+'@rajeev@';timeDate += teacherData.time+'@rajeev@';
+        monday += teacherData.mon+'@rajeev@';tuesday += teacherData.tue+'@rajeev@';
+        wednesday += teacherData.wed+'@rajeev@';thurusday += teacherData.thu+'@rajeev@';
+        friday += teacherData.fri+'@rajeev@';saturday += teacherData.sat+'@rajeev@';
+        sunday += teacherData.sun+'@rajeev@';
+        // request = false;
       }
     });
+
+    console.log('Monday',monday);
+    console.log('Tuesday',tuesday);
+    console.log('Wednesday',wednesday);
+
+
+
+
     if(request == true){
-      console.log('Form are Now Ready to POST');
+      // console.log('Form are Now Ready to POST');
       this._loader.startLoader('loader');
-      let userId = this.userInfo.id;
+      let teacherId = this.userInfo.id;
       const mainForm = new FormData();
-      mainForm.append('date',dateData);
-      mainForm.append('time',timeDate);
-      mainForm.append('event',eventData);
-      this._api.saveScheduleUserData(userId,mainForm).subscribe(
+      mainForm.append('date',dateData);mainForm.append('time',timeDate);
+      mainForm.append('monday',monday);mainForm.append('tuesday',tuesday);
+      mainForm.append('wednesday',wednesday);mainForm.append('thurusday',thurusday);
+      mainForm.append('friday',friday);mainForm.append('saturday',saturday);
+      mainForm.append('sunday',sunday);
+      // mainForm.append('event',eventData);
+      this._api.saveScheduleUserData(teacherId,mainForm).subscribe(
         res => {
           if(res.error == false){
             this.successMsg = res.message;
@@ -102,7 +123,7 @@ export class ScheduleComponent implements OnInit {
 }
 
 interface SCHEDULE{
-  date : string,
-  time : string,
-  event: string, 
+  date : string,time : string,
+  mon : boolean,tue : boolean,wed : boolean,thu : boolean,
+  fri : boolean,sat : boolean,sun : boolean
 }

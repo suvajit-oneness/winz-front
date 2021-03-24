@@ -129,12 +129,12 @@ export class APIService {
     return this._http.post<any>(_apiUrl + 'contact-us',formData);
   }
 
-  getScheduleData(userId){
-    return this._http.get<any>(_apiUrl + 'scheduled-user-data?userId='+userId);
+  getScheduleData(teacherId){
+    return this._http.get<any>(_apiUrl + 'scheduled-teacher-data?teacherId='+teacherId);
   }
 
-  saveScheduleUserData(userId,FormData){
-    return this._http.post<any>(_apiUrl + 'scheduled-user-data/save?userId='+userId,FormData);
+  saveScheduleUserData(teacherId,FormData){
+    return this._http.post<any>(_apiUrl + 'scheduled-teacher-data/save?teacherId='+teacherId,FormData);
   }
   
 }

@@ -11,13 +11,27 @@
                     <tr>
                         <td>Date</td>
                         <td>Time</td>
-                        <td>Event</td>
+                        <td>Mon</td>
+                        <td>Tue</td>
+                        <td>Wed</td>
+                        <td>Thu</td>
+                        <td>Fri</td>
+                        <td>Sat</td>
+                        <td>Sun</td>
+                        <!-- <td>Event</td> -->
                         <td>Action</td>
                     </tr>
                     <tr *ngFor="let data of schedule.data;let last=last">
                         <td><input type="date" #date [(ngModel)]="data.date" class="form-control" value="{{data.date}}" onfocus="blur()"></td>
                         <td><input type="time" #time [(ngModel)]="data.time" class="form-control" value="{{data.time}}" onfocus="blur()"></td>
-                        <td><input type="text" #event [(ngModel)]="data.event" class="form-control" value="{{data.event}}" maxlength="200"></td>
+                        <td><input type="checkbox" class="checkbox" #mon [(ngModel)]="data.mon"></td>
+                        <td><input type="checkbox" class="checkbox" #tue [(ngModel)]="data.tue"></td>
+                        <td><input type="checkbox" class="checkbox" #wed [(ngModel)]="data.wed"></td>
+                        <td><input type="checkbox" class="checkbox" #thu [(ngModel)]="data.thu"></td>
+                        <td><input type="checkbox" class="checkbox" #fri [(ngModel)]="data.fri"></td>
+                        <td><input type="checkbox" class="checkbox" #sat [(ngModel)]="data.sat"></td>
+                        <td><input type="checkbox" class="checkbox" #sun [(ngModel)]="data.sun"></td>
+                        <!-- <td><input type="text" #event [(ngModel)]="data.event" class="form-control" value="{{data.event}}" maxlength="200"></td> -->
                         <td>
                             <a href="javascript:void(0)" class="text-success" *ngIf="last;else notLastEvent" (click)="addSchedule()">&oplus;</a>
                             <ng-template #notLastEvent>
