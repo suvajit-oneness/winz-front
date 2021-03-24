@@ -43,9 +43,12 @@ export class EventCalenderComponent implements OnInit {
             res.data.forEach((response) => {
                 // pushing into All EVentData Interface
                 this.AllEvents.data.push({
-                  id : response.id,userId : response.userId,
+                  id : response.id,teacherId : response.teacherId,
                   date : response.date,time : response.time,
-                  event : response.event,description: response.description,
+                  mon : response.mon,tue : response.tue,
+                  wed : response.wed,thu : response.thu,
+                  fri : response.fri,sat : response.sat,
+                  sun : response.sun
                 });
             });
           }
@@ -63,7 +66,7 @@ export class EventCalenderComponent implements OnInit {
         this.events.data = [];
         this.AllEvents.data.forEach((data) => {
           this.events.data.push({
-            title : this.getTimeFormat(data.time)+' => '+data.event,
+            title : this.getTimeFormat(data.time),
             start : data.date,
           });
         });
@@ -79,27 +82,25 @@ export class EventCalenderComponent implements OnInit {
     public dateWiseEvents = [];public date = '';
     handleDateClick(arg) {
       this.dateWiseEvents = [];this.date = arg.dateStr;
-
       this.AllEvents.data.forEach((data) => {
         if(data.date == this.date){
           this.dateWiseEvents.push({
             time : this.getTimeFormat(data.time),
-            event : data.event,
+            mon : data.mon,tue : data.tue,wed : data.wed,
+            thu : data.thu,fri : data.fri,sat : data.sat,
+            sun : data.sun,
           });
         }
       });
       $('#launchModal').trigger('click');
-      // console.log(this.dateWiseEvents);
     }
 }
 
 interface ALLEVENTSDATA{
-  id : number,
-  userId : number,
-  date : string,
-  time : string,
-  event : string,
-  description: string,
+  id : number,teacherId : number,
+  date : string,time : string,
+  mon : number,tue : number,wed : number,
+  thu : number,fri : number,sat : number,sun : number
 }
 
 interface EVENTSTOSHOW{
