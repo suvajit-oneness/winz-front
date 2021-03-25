@@ -16,7 +16,7 @@
                         <h4>{{teacherData.name}}<span class="viewer_location">{{teacherData.subject}}</span></h4>
                         <p>{{teacherData.description}}</p>
                         <!-- <a routerLink="/teacher/booking/details" class="btn btn-warning badge-pill btn-sm mt-2 mb-1 shadow-lg">Book Session</a> -->
-                        <button type="button" class="btn btn-warning badge-pill btn-sm mt-2 mb-1 shadow-lg">Book Session</button>
+                        <button type="button" class="btn btn-warning badge-pill btn-sm mt-2 mb-1 shadow-lg" (click)="bookSession()">Book Session</button>
                     </div>
                 </div>
             </div>
@@ -63,11 +63,9 @@
             <div class="col-12 p-0 pt-2">
                 <div class="row m-0 p-0">
                     <div class="col-12 row m-0 mb-3 p-0">
-
                         <div class="col-6 p-0">
                             <h4 class="text-bold font-small-3 pt-3 pb-3 pb-md-0">Classes</h4>
                         </div>
-
                         <div class="col-md-2 p-0 ml-auto text-right">
                             <div class="form-group">
                                 <select class="form-control" id="exampleFormControlSelect1">
@@ -79,7 +77,6 @@
                                 </select>
                             </div>
                         </div>
-
                     </div>
 
                     <div class="col-12 col-md-3 p-1" *ngFor="let course of teacherData.teacherCourses">
@@ -93,9 +90,19 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
     </div>
 </section><!--class-list-->
+
+
+
+<!-- <div class="container mt-5">
+    <h2>Stripe Checkout</h2>
+    <div class="row mt-5">
+        <div class="col-md-4">
+            <button (click)="bookNow(20)" class="btn btn-primary btn-block">Pay $20</button>
+        </div>
+    </div>
+</div> -->

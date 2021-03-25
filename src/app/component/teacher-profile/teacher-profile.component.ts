@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { APIService } from 'src/app/service/api.service';
 import { EncodeDecodeBase64 } from 'src/globalFunction';
+import { environment } from 'src/environments/environment';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-teacher-profile',
@@ -11,6 +13,7 @@ import { EncodeDecodeBase64 } from 'src/globalFunction';
 })
 export class TeacherProfileComponent implements OnInit {
   public EncodeDecodeBase64 = EncodeDecodeBase64;
+
   constructor(private _loader : NgxUiLoaderService,private _activatedRoute:ActivatedRoute,private _api:APIService) { }
 
   public teacherId : any = 0;public teacherData : any = {};
@@ -19,6 +22,7 @@ export class TeacherProfileComponent implements OnInit {
     this.teacherId = EncodeDecodeBase64(this._activatedRoute.snapshot.paramMap.get('teacherId'),'decode');
     this.getTeacherDetailsAndTheirCourses(this.teacherId); // calling to get the Teacher Info
     this.getTeacherAllAvailableSlots(this.teacherId); // getting The Available Slots for Teacher
+    this.loadStripe();
   }
 
   getTeacherDetailsAndTheirCourses(teacherId){
@@ -39,13 +43,102 @@ export class TeacherProfileComponent implements OnInit {
         if(res.error == false){
           this.slotsData = res.data;
         }
-        console.log('SlotData',this.slotsData);
         this._loader.stopLoader('loader');
       },err => {this._loader.stopLoader('loader');}
     )
   }
 
-  public bookSlot(slotDetails){
-    console.log('Slot Details',slotDetails);
+  public bookSession(){
+    Swal.fire('Warning', 'Please select the available slots');
   }
+
+  public bookSlot(slotDetails){
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'You want to Proceed for the Booking of '+ slotDetails.date+' and '+slotDetails.time+'!',
+      showCancelButton: true,
+      cancelButtonText: 'Cancel',
+      confirmButtonText: 'Proceed!',
+    }).then((result) => {
+      if (result.value) {
+        this.proceedToPay(60,slotDetails.id);
+      } 
+    })
+  }
+
+  
+
+  /********************************************** Stripe Payment Integration ****************************************************/
+
+  public stripeKey = environment.stripeKey; // Stripe Key
+  public stripeCesret = environment.stripeSecret; // Stripe Token
+
+  handler:any = null;
+
+    proceedToPay(amount:any,slotId) {
+        var handler = (<any>window).StripeCheckout.configure({
+          key: this.stripeKey,
+          locale: 'auto',
+          token: function (token: any) {
+            this.createStripeCharge(token.id,amount,slotId)
+            // You can access the token ID with `token.id`.
+            // Get the token ID to your server-side code for use.
+            console.log(token)
+            alert('Token Created!!');
+          }
+        });
+
+        handler.open({
+          name: 'Winz',
+          // description: '2 widgets',
+          amount: amount * 100
+        });
+    }
+
+    createStripeCharge(stripeToken,amount,slotId)
+    {
+        this._loader.startLoader('loader');
+        const mainForm = new FormData();
+        mainForm.append('stripeToken',stripeToken);
+        mainForm.append('amount',amount);
+        mainForm.append('slotId',slotId);
+        this._api.createStripeTokenCharge(mainForm).subscribe(
+          res => {
+            if(res.error == false){
+              console.log(res);
+            }else{
+              Swal.fire('Error', res.message);  
+            }
+            this._loader.stopLoader('loader');
+          },
+          err => {
+            this._loader.stopLoader('loader');
+            Swal.fire('Error', 'Something Went Wrong Please try after Some time');
+          }
+        );
+    }
+ 
+    loadStripe() {
+      if(!window.document.getElementById('stripe-script')) {
+        var s = window.document.createElement("script");
+        s.id = "stripe-script";
+        s.type = "text/javascript";
+        s.src = "https://checkout.stripe.com/checkout.js";
+        s.onload = () => {
+          this.handler = (<any>window).StripeCheckout.configure({
+            key: this.stripeKey,
+            locale: 'auto',
+            token: function (token: any) {
+              // You can access the token ID with `token.id`.
+              // Get the token ID to your server-side code for use.
+              console.log(token)
+              alert('Payment Success!!');
+            }
+          });
+        }
+        window.document.body.appendChild(s);
+      }
+    }
+
+  /********************************************** Stripe Payment Integration Done ****************************************************/
 }

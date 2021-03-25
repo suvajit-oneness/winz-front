@@ -2,8 +2,6 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { Observable, throwError } from 'rxjs';
-import { retry, catchError } from 'rxjs/operators';
 
 var _apiUrl = environment.apiUrl;
 
@@ -139,5 +137,9 @@ export class APIService {
   
   getTeacherAvailableSlots(teacherId){
     return this._http.get<any>(_apiUrl + 'teacher-slots?teacherId='+teacherId);
+  }
+
+  createStripeTokenCharge(formData){
+    return this._http.post<any>(_apiUrl + 'create-stripe-charge/by-token',formData);
   }
 }
