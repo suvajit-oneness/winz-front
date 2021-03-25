@@ -18,6 +18,7 @@ export class TeacherProfileComponent implements OnInit {
     window.scrollTo(0, 0);
     this.teacherId = EncodeDecodeBase64(this._activatedRoute.snapshot.paramMap.get('teacherId'),'decode');
     this.getTeacherDetailsAndTheirCourses(this.teacherId); // calling to get the Teacher Info
+    this.getTeacherAllAvailableSlots(this.teacherId); // getting The Available Slots for Teacher
   }
 
   getTeacherDetailsAndTheirCourses(teacherId){
@@ -28,6 +29,23 @@ export class TeacherProfileComponent implements OnInit {
         this._loader.stopLoader('loader');
       },err => {}
     )
-    
+  }
+
+  public slotsData = [];
+  getTeacherAllAvailableSlots(teacherId){
+    this._loader.startLoader('loader');
+    this._api.getTeacherAvailableSlots(teacherId).subscribe(
+      res => {
+        if(res.error == false){
+          this.slotsData = res.data;
+        }
+        console.log('SlotData',this.slotsData);
+        this._loader.stopLoader('loader');
+      },err => {this._loader.stopLoader('loader');}
+    )
+  }
+
+  public bookSlot(slotDetails){
+    console.log('Slot Details',slotDetails);
   }
 }

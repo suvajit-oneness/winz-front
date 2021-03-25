@@ -137,4 +137,7 @@ export class APIService {
     return this._http.post<any>(_apiUrl + 'scheduled-teacher-data/save?teacherId='+teacherId,FormData);
   }
   
+  getTeacherAvailableSlots(teacherId){
+    return this._http.get<any>(_apiUrl + 'teacher-slots?teacherId='+teacherId);
+  }
 }

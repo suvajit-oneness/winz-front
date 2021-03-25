@@ -45,10 +45,7 @@ export class EventCalenderComponent implements OnInit {
                 this.AllEvents.data.push({
                   id : response.id,teacherId : response.teacherId,
                   date : response.date,time : response.time,
-                  mon : response.mon,tue : response.tue,
-                  wed : response.wed,thu : response.thu,
-                  fri : response.fri,sat : response.sat,
-                  sun : response.sun
+                  available : response.available,
                 });
             });
           }
@@ -86,9 +83,7 @@ export class EventCalenderComponent implements OnInit {
         if(data.date == this.date){
           this.dateWiseEvents.push({
             time : this.getTimeFormat(data.time),
-            mon : data.mon,tue : data.tue,wed : data.wed,
-            thu : data.thu,fri : data.fri,sat : data.sat,
-            sun : data.sun,
+            available : data.available,
           });
         }
       });
@@ -99,8 +94,8 @@ export class EventCalenderComponent implements OnInit {
 interface ALLEVENTSDATA{
   id : number,teacherId : number,
   date : string,time : string,
-  mon : number,tue : number,wed : number,
-  thu : number,fri : number,sat : number,sun : number
+  available : number,
+  
 }
 
 interface EVENTSTOSHOW{

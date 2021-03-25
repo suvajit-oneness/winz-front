@@ -15,6 +15,7 @@
                     <div class="viewer_header">
                         <h4>{{teacherData.name}}<span class="viewer_location">{{teacherData.subject}}</span></h4>
                         <p>{{teacherData.description}}</p>
+                        <!-- <a routerLink="/teacher/booking/details" class="btn btn-warning badge-pill btn-sm mt-2 mb-1 shadow-lg">Book Session</a> -->
                         <button type="button" class="btn btn-warning badge-pill btn-sm mt-2 mb-1 shadow-lg">Book Session</button>
                     </div>
                 </div>
@@ -22,6 +23,39 @@
         </div>
     </div>
 </section><!--Courses-->
+
+<section class="gray-wrapper">
+    <div class="container-xl">
+        <div class="mentor-det-details no-flex available-place">
+            <h2 class="medium-heading">Available Slots</h2>
+            <div class="calender-holder">
+                <div class="calender-header">
+                    <div class="date-scroll">
+                        <a href="#" class="pre-handle"><i class="fas fa-chevron-left"></i></a>
+                        <a href="#" class="next-handle"> <i class="fas fa-chevron-right"></i></a>
+                        <span class="date">from - to</span>
+                    </div>
+                </div>
+                <div class="calender-body">
+                    <div class="calender-head">
+                        <div class="dayname" *ngFor="let data of slotsData">
+                            <span>{{data.day}}<br>({{data.short_date}})</span>
+                        </div>
+                    </div>
+                    <div class="calender-time">
+                        <span *ngFor="let slot of slotsData">
+                            <div class="time-avali">
+                                <div class="time-slot" *ngFor="let ava of slot.available">
+                                    <a href="javascript:void(0)" (click)="bookSlot(ava)">{{ava.time}}</a>
+                                </div>
+                            </div>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 <section class="mt-4">
     <div class="container">

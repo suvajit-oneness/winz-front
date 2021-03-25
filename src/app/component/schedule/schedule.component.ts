@@ -1,4 +1,3 @@
-import { Time } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
@@ -34,13 +33,7 @@ export class ScheduleComponent implements OnInit {
           res.data.forEach((response) => {
               this.schedule.data.push({
                 date : response.date,time : response.time,
-                mon : (response.mon == 1) ? true : false,
-                tue : (response.tue == 1) ? true : false,
-                wed : (response.wed == 1) ? true : false,
-                thu : (response.thu == 1) ? true : false,
-                fri : (response.fri == 1) ? true : false,
-                sat : (response.sat == 1) ? true : false,
-                sun : (response.sun == 1) ? true : false,
+                available : (response.available == 1) ? true : false,
               });
           });
         }
@@ -58,9 +51,7 @@ export class ScheduleComponent implements OnInit {
   // public scheduleData = [];
   public addSchedule(){
     this.schedule.data.push({
-      date : '',time : '',
-      mon : true,tue : true,wed : true,thu : true,
-      fri : true,sat : true,sun : true,
+      date : '',time : '',available : true
     });
   }
 
@@ -71,24 +62,16 @@ export class ScheduleComponent implements OnInit {
 
   public updateScheduledData() {
     let dateData = '';let timeDate = '';let request = true;this.errorMsg = '';this.successMsg = '';
-    let monday = '';let tuesday = '';let wednesday = ''; let thurusday = '';let friday = '';let saturday = '';let sunday = '';
+    let available = '';
     this.schedule.data.forEach((teacherData) => {
       if(teacherData.date == '' || teacherData.time == ''){
         this.errorMsg = 'please fill all the data correctly';
         request = false;
       }else{
         dateData += teacherData.date+'@rajeev@';timeDate += teacherData.time+'@rajeev@';
-        monday += teacherData.mon+'@rajeev@';tuesday += teacherData.tue+'@rajeev@';
-        wednesday += teacherData.wed+'@rajeev@';thurusday += teacherData.thu+'@rajeev@';
-        friday += teacherData.fri+'@rajeev@';saturday += teacherData.sat+'@rajeev@';
-        sunday += teacherData.sun+'@rajeev@';
-        // request = false;
+        available += teacherData.available+'@rajeev@';
       }
     });
-
-    console.log('Monday',monday);
-    console.log('Tuesday',tuesday);
-    console.log('Wednesday',wednesday);
 
 
 
@@ -99,11 +82,7 @@ export class ScheduleComponent implements OnInit {
       let teacherId = this.userInfo.id;
       const mainForm = new FormData();
       mainForm.append('date',dateData);mainForm.append('time',timeDate);
-      mainForm.append('monday',monday);mainForm.append('tuesday',tuesday);
-      mainForm.append('wednesday',wednesday);mainForm.append('thurusday',thurusday);
-      mainForm.append('friday',friday);mainForm.append('saturday',saturday);
-      mainForm.append('sunday',sunday);
-      // mainForm.append('event',eventData);
+      mainForm.append('available',available);
       this._api.saveScheduleUserData(teacherId,mainForm).subscribe(
         res => {
           if(res.error == false){
@@ -123,7 +102,5 @@ export class ScheduleComponent implements OnInit {
 }
 
 interface SCHEDULE{
-  date : string,time : string,
-  mon : boolean,tue : boolean,wed : boolean,thu : boolean,
-  fri : boolean,sat : boolean,sun : boolean
+  date : string,time : string,available : boolean
 }

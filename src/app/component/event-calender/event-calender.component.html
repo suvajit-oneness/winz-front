@@ -26,43 +26,13 @@
                     <table class="table table-striped" style="width: 100%;">
                         <tr>
                             <td>Time</td>
-                            <td>Mon</td>
-                            <td>Tue</td>
-                            <td>Wed</td>
-                            <td>Thu</td>
-                            <td>Fri</td>
-                            <td>Sat</td>
-                            <td>Sun</td>
+                            <td>Availability</td>
                         </tr>
                         <tr *ngFor="let dateWiseEvent of dateWiseEvents">
                             <td>{{dateWiseEvent.time}}</td>
                             <td>
-                                <span *ngIf="dateWiseEvent.mon == 1; else MonNotAvailable">Yes</span>
-                                <ng-template #MonNotAvailable>No</ng-template>
-                            </td>
-                            <td>
-                                <span *ngIf="dateWiseEvent.tue == 1; else TueNotAvailable">Yes</span>
-                                <ng-template #TueNotAvailable>No</ng-template>
-                            </td>
-                            <td>
-                                <span *ngIf="dateWiseEvent.wed == 1; else WedNotAvailable">Yes</span>
-                                <ng-template #WedNotAvailable>No</ng-template>
-                            </td>
-                            <td>
-                                <span *ngIf="dateWiseEvent.thu == 1; else ThuNotAvailable">Yes</span>
-                                <ng-template #ThuNotAvailable>No</ng-template>
-                            </td>
-                            <td>
-                                <span *ngIf="dateWiseEvent.fri == 1; else FriNotAvailable">Yes</span>
-                                <ng-template #FriNotAvailable>No</ng-template>
-                            </td>
-                            <td>
-                                <span *ngIf="dateWiseEvent.sat == 1; else SatNotAvailable">Yes</span>
-                                <ng-template #SatNotAvailable>No</ng-template>
-                            </td>
-                            <td>
-                                <span *ngIf="dateWiseEvent.sun == 1; else SunNotAvailable">Yes</span>
-                                <ng-template #SunNotAvailable>No</ng-template>
+                                <span *ngIf="dateWiseEvent.available == 1; else NotAvailable">Yes</span>
+                                <ng-template #NotAvailable>No</ng-template>
                             </td>
                         </tr>
                     </table>

@@ -1288,3 +1288,92 @@ opacity: 0;
     padding: 12px 12px 0px 12px;
 }
 /***************** Sweet Alert Design END **********************/
+
+.mentor-det-details {
+    background: #ffffff;
+    border: 1px solid #d6d3d3;
+    padding: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 31px;
+}
+
+.medium-heading {
+    font-family: GT Walsheim Pro;
+    font-weight:400;
+    font-size: 26px;
+    line-height: 1.2;
+    color:#000;
+}
+.calender-holder {
+    margin-top: 26px;
+}
+
+.calender-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.date-scroll a {
+    background: #1cb3d3;
+    color: #fff;
+    display: inline-block;
+    vertical-align: middle;
+    padding: 3px 10px;
+}
+.date-scroll .date {
+    font-family: GT Walsheim Pro;
+    font-weight: 400;
+    color: #000;
+    font-size: 18px;
+    line-height: 1;
+    display: block;
+    margin-top: 13px;
+}
+
+.calender-body {
+    margin-top: 22px;
+}
+.calender-body .dayname {
+    flex:1 0 0;
+    text-align: center;
+    font-family: GT Walsheim Pro;
+    font-weight: 400;
+    color: #000;
+    font-size: 18px;
+    border-top: 3px solid #1cb3d3;
+    padding: 9px 0;
+    border-right:1px solid #1cb3d3;
+}
+.calender-body .dayname:last-child{
+    border-right:none;
+}
+
+.calender-head {
+    display: flex;
+}
+
+.calender-time {
+    display: flex;
+}
+
+.time-avali {
+    flex: 1 0 0;
+    text-align: center;
+    border-right:1px solid #1cb3d3;
+}
+.time-avali:last-child {
+    border-right:none;
+}
+
+.time-slot {
+    padding: 4px 0;
+}
+.time-slot a {
+    font-family: GT Walsheim Pro;
+    font-weight: 400;
+    font-size: 16px;
+    color:#000;
+}
