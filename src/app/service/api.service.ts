@@ -25,6 +25,7 @@ export class APIService {
   storeUserLocally(data){
     localStorage.removeItem('accessToken');
     localStorage.removeItem('userInfo');
+    localStorage.removeItem('bookingData');
     localStorage.setItem('accessToken',data.data.accessToken);
     localStorage.setItem('userInfo',JSON.stringify(data.data));
     // window.location.href="/dashboard";
@@ -33,6 +34,7 @@ export class APIService {
 
   updateUserLocally(data){
     localStorage.removeItem('userInfo');
+    localStorage.removeItem('bookingData');
     localStorage.setItem('userInfo',JSON.stringify(data.data));
   }
 
@@ -40,6 +42,7 @@ export class APIService {
   logoutUser():void{
     localStorage.removeItem('accessToken');
     localStorage.removeItem('userInfo');
+    localStorage.removeItem('bookingData');
     window.location.href="/";
     // this._router.navigate(['/']);
   }

@@ -1496,3 +1496,6 @@ opacity: 0;
     }
 }
 /***************** Loader Design END **************************/
+.value-rendered{
+    font-size: 24px;
+}

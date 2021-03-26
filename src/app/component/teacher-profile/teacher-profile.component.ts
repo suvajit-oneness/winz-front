@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { APIService } from 'src/app/service/api.service';
 import { EncodeDecodeBase64 } from 'src/globalFunction';
@@ -14,7 +14,7 @@ import Swal from 'sweetalert2'
 export class TeacherProfileComponent implements OnInit {
   public EncodeDecodeBase64 = EncodeDecodeBase64;
 
-  constructor(private _loader : NgxUiLoaderService,private _activatedRoute:ActivatedRoute,private _api:APIService) { }
+  constructor(private _loader : NgxUiLoaderService,private _activatedRoute:ActivatedRoute,private _api:APIService,private _router:Router) { }
 
   public teacherId : any = 0;public teacherData : any = {};
   ngOnInit(): void {
@@ -125,7 +125,9 @@ export class TeacherProfileComponent implements OnInit {
         this._api.purchaseBookingSlot(mainForm).subscribe(
           res => {
             if(res.error == false){
-              console.log('Last Step',res);
+              localStorage.removeItem('bookingData');
+              localStorage.setItem('bookingData',JSON.stringify(res.data));
+              this._router.navigate(['booking-thankyou']);
             }else{
               Swal.fire('Error', res.message);
             }
