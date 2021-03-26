@@ -41,6 +41,13 @@
                             <label for="your_confirmpass"><i class="zmdi zmdi-lock"></i></label>
                             <input #confirm="ngModel" ngModel type="password" name="password_confirmation" id="your_confirmpass" placeholder="Confirm Password" required [ngClass]="{'is-invalid':confirm?.invalid && confirm?.touched}">
                         </div>
+                        <div class="form-group">
+                            <label for="user_role">Role</label>
+                            <select #user_role ngModel name="user_role" id="user_role" class="form-control" required>
+                                <option value="user">User</option>
+                                <option value="teacher">Teacher</option>
+                            </select>
+                        </div>
                         <span class="jsError">{{errorMessage}}</span>
                         <div class="form-group form-button text-right">
                             <button type="submit" class="btn btn-primary shadow-sm pl-4 pr-4 mt-4 mb-0">Sign Up</button>

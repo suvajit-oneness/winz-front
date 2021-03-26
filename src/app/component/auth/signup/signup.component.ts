@@ -35,6 +35,7 @@ export class SignupComponent implements OnInit {
       this._api.userRegistrationAPI(mainForm).subscribe(
         res => {
           if(res.error == false){
+            // console.log(res);
             this._api.storeUserLocally(res);
           }else{
             this.errorMessage = res.message;

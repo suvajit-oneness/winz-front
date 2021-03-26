@@ -42,6 +42,9 @@ FullCalendarModule.registerPlugins([
 // Global Error Catch Implement
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpErrorInterceptor } from 'src/app/Interceptor/http-error.interceptor';
+import { BookingThankyouComponent } from './component/layouts/booking-thankyou/booking-thankyou.component';
+import { BookingRequestComponent } from './component/booking-request/booking-request.component';
+import { BookingHistoryComponent } from './component/booking-history/booking-history.component';
 // Global Error Catch Implement END
 
 // export class RajeevErrorHandler implements ErrorHandler{
@@ -58,7 +61,7 @@ import { HttpErrorInterceptor } from 'src/app/Interceptor/http-error.interceptor
     FooterComponent,LoginComponent,SignupComponent,CourseListComponent,CourseDetailsComponent,
     TeacherProfileComponent,DashboardComponent,SidebarComponent,EditProfileComponent,ChangePasswordComponent,
     SubscribedCourseComponent,MembershipComponent,SubscriptionThankyouComponent,QuestionComponent,ChapterComponent,
-    ContactusComponent,SubjectCategoryComponent,EventCalenderComponent,ScheduleComponent
+    ContactusComponent,SubjectCategoryComponent,EventCalenderComponent,ScheduleComponent, BookingThankyouComponent, BookingRequestComponent, BookingHistoryComponent
   ],
   imports: [
     BrowserModule,BrowserAnimationsModule,NgxUiLoaderModule,NgxUiLoaderRouterModule,NgxUiLoaderHttpModule,

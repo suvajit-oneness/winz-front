@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './component/auth/login/login.component';
 import { SignupComponent } from './component/auth/signup/signup.component';
+import { BookingHistoryComponent } from './component/booking-history/booking-history.component';
+import { BookingRequestComponent } from './component/booking-request/booking-request.component';
 import { ChangePasswordComponent } from './component/change-password/change-password.component';
 import { ChapterComponent } from './component/chapter/chapter.component';
 import { ContactusComponent } from './component/contactus/contactus.component';
@@ -11,6 +13,7 @@ import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { EditProfileComponent } from './component/edit-profile/edit-profile.component';
 import { EventCalenderComponent } from './component/event-calender/event-calender.component';
 import { HomeComponent } from './component/home/home.component';
+import { BookingThankyouComponent } from './component/layouts/booking-thankyou/booking-thankyou.component';
 import { SubscriptionThankyouComponent } from './component/layouts/subscription-thankyou/subscription-thankyou.component';
 import { MembershipComponent } from './component/membership/membership.component';
 import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
@@ -39,7 +42,9 @@ const routes: Routes = [
   {path : 'category/subject-category/chapter/question/:subjectCategory/:chapterId', component : QuestionComponent},
   {path : 'schedule', component : ScheduleComponent},
   {path : 'events', component : EventCalenderComponent},
-
+  {path : 'booking-thankyou',component:BookingThankyouComponent},
+  {path : 'booking-request', component:BookingRequestComponent},
+  {path : 'booking-history',component : BookingHistoryComponent},
   {path : 'contact-us', component : ContactusComponent},
   {path : '**', component : PageNotFoundComponent},
 ];

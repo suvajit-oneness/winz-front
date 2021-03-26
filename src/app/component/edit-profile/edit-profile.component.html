@@ -38,9 +38,12 @@
                             </div>
                             <div class="col-md-12 mb-4">
                                 <textarea #address [ngModel]="userInfo.address" name="address" rows="10" placeholder="Your Address" class="form-control"></textarea>
-                                <span class="text-danger">{{errorMsg}}</span>
-                                <span class="text-success">{{successMsg}}</span>
                             </div>
+                            <div class="col-md-12 mb-4" *ngIf="userInfo.userType == 'teacher'">
+                                <input #subject [ngModel]="userInfo.teacherData.subject" name="subject" placeholder="Subject" class="form-control" type="text">
+                            </div>
+                            <span class="text-danger">{{errorMsg}}</span>
+                            <span class="text-success">{{successMsg}}</span>
                             <div class="col-md-6">
                                 <button type="submit" class="btn btn-primary shadow-sm pl-4 pr-4 mt-4 mb-0">Save the Details</button>
                             </div>

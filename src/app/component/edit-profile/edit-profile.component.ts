@@ -48,6 +48,7 @@ export class EditProfileComponent implements OnInit {
       this._api.updateUserProfile(mainForm).subscribe(
         res => {
           if(res.error == false){
+            // console.log(res);
             this._api.updateUserLocally(res);
             this.successMsg = 'Profile Updated Successfully';
           }else{
