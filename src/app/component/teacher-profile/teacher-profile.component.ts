@@ -53,17 +53,22 @@ export class TeacherProfileComponent implements OnInit {
   }
 
   public bookSlot(slotDetails){
-    Swal.fire({
-      title: 'Are you sure?',
-      text: 'You want to Proceed for the Booking of '+ slotDetails.date+' and '+slotDetails.time+'!',
-      showCancelButton: true,
-      cancelButtonText: 'Cancel',
-      confirmButtonText: 'Proceed!',
-    }).then((result) => {
-      if (result.value) {
-        this.proceedToPay(60,slotDetails.id);
-      } 
-    })
+    let auth = this._api.isAuthenticated();
+    if(auth){
+      Swal.fire({
+        title: 'Are you sure?',
+        text: 'You want to Proceed for the Booking of '+ slotDetails.date+' and '+slotDetails.time+'!',
+        showCancelButton: true,
+        cancelButtonText: 'Cancel',
+        confirmButtonText: 'Proceed!',
+      }).then((result) => {
+        if (result.value) {
+          this.proceedToPay(60,slotDetails.id);
+        } 
+      });
+    }else{
+      Swal.fire('Warning', 'Please Login for continue booking');
+    }
   }
 
   

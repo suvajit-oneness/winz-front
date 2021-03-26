@@ -15,7 +15,7 @@ import { APIService } from 'src/app/service/api.service';
               <h3>Payment Success</h3>
               <h3>Note : Please note the below Details for Future Referance</h3>
               <h4>Transaction Id : <a href="javascript:void(0)" class="value-rendered">{{transactionId}}</a></h4>
-              <h4>Slot Booked : <a href="javascript:void(0)" class="value-rendered">{{slot.date}} {{slot.time}}</a></h4>
+              <h4>Slot Booked : <a href="javascript:void(0)" class="value-rendered">{{slot.date}} - ( {{slot.time}} )</a></h4>
               <h4>Amount Received : <a href="javascript:void(0)" class="value-rendered">$ {{amount/100}}</a></h4>
               <h4>Booking Id : <a href="javascript:void(0)" class="value-rendered">{{bookingId}}</a></h4>
           </div>
