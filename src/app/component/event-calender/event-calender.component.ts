@@ -36,8 +36,8 @@ export class EventCalenderComponent implements OnInit {
 
     public getScheduleDate(){
       this._loader.startLoader('loader');
-      let userId = this.userInfo.id;
-      this._api.getScheduleData(userId).subscribe(
+      let teacherId = this.userInfo.teacherData.id;
+      this._api.getScheduleData(teacherId).subscribe(
         res => {
           if(res.error == false){
             res.data.forEach((response) => {

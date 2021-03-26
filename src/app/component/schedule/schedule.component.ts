@@ -26,7 +26,7 @@ export class ScheduleComponent implements OnInit {
 
   public getScheduleDate(){
     this._loader.startLoader('loader');
-    let teacherId = this.userInfo.id;
+    let teacherId = this.userInfo.teacherData.id;
     this._api.getScheduleData(teacherId).subscribe(
       res => {
         if(res.error == false){
@@ -79,7 +79,7 @@ export class ScheduleComponent implements OnInit {
     if(request == true){
       // console.log('Form are Now Ready to POST');
       this._loader.startLoader('loader');
-      let teacherId = this.userInfo.id;
+      let teacherId = this.userInfo.teacherData.id;
       const mainForm = new FormData();
       mainForm.append('date',dateData);mainForm.append('time',timeDate);
       mainForm.append('available',available);
