@@ -1,1 +1,33 @@
-<p>booking-request works!</p>
+<ngx-ui-loader loaderId="loader" fgsColor="#FFFFFF" bgsOpacity="1" overlayColor="rgba(40,40,40,0.1)"></ngx-ui-loader>
+<section class="account-detail">
+    <div class="d-flex">
+        <ul class="aside">
+            <app-sidebar></app-sidebar>
+        </ul>
+        <div class="account-sec mb-5">
+            <h3>Booking Request</h3>
+
+            <table class="table table-striped table-bordered" style="width: 100%;" *ngIf="data.length > 0;else dataNotFound">
+                <tr>
+                    <td>Image</td>
+                    <td>Name</td>
+                    <td>Email</td>
+                    <td>Phone</td>
+                    <td>Amount</td>
+                    <td>Booking Date and Time</td>
+                    <td>Slot Date and Time</td>
+                </tr>
+                <tr *ngFor="let d of data">
+                    <td><img src="{{d.user_info.image}}" alt="" height="70" width="70"></td>
+                    <td>{{d.user_info.name}}</td>
+                    <td>{{d.user_info.email}}</td>
+                    <td>{{d.user_info.mobile}}</td>
+                    <td>$ {{d.price/100}}</td>
+                    <td>{{d.created_at}}</td>
+                    <td>{{d.slot_info.date}} - {{d.slot_info.time}}</td>
+                </tr>
+            </table>
+            <ng-template #dataNotFound>Oops! no data available</ng-template>
+        </div>
+    </div>
+</section>

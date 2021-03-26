@@ -146,4 +146,12 @@ export class APIService {
   purchaseBookingSlot(formData){
     return this._http.post<any>(_apiUrl + 'purchaseBookingSlot-mentor',formData);
   }
+
+  getBookingRequest(teacherId){
+    return this._http.get<any>(_apiUrl + 'booking-history?teacherId='+teacherId);
+  }
+
+  getPaymentHistory(userId){
+    return this._http.get<any>(_apiUrl + 'payment-history?userId='+userId);
+  }
 }
