@@ -79,15 +79,13 @@ export class TeacherProfileComponent implements OnInit {
         var handler = (<any>window).StripeCheckout.configure({
           key: this.stripeKey,
           locale: 'auto',
-          token: function (token: any) {
-            this.createStripeCharge(token.id,amount,slotId)
+          // token: function (token: any) {
+          token: (token: any) => {
             // You can access the token ID with `token.id`.
             // Get the token ID to your server-side code for use.
-            console.log(token)
-            alert('Token Created!!');
+              this.createStripeCharge(token.id,amount,slotId)
           }
         });
-
         handler.open({
           name: 'Winz',
           // description: '2 widgets',
@@ -95,25 +93,46 @@ export class TeacherProfileComponent implements OnInit {
         });
     }
 
-    createStripeCharge(stripeToken,amount,slotId)
+    public createStripeCharge(stripeToken,amount,slotId)
     {
         this._loader.startLoader('loader');
         const mainForm = new FormData();
         mainForm.append('stripeToken',stripeToken);
         mainForm.append('amount',amount);
-        mainForm.append('slotId',slotId);
         this._api.createStripeTokenCharge(mainForm).subscribe(
           res => {
             if(res.error == false){
-              console.log(res);
+              this.bookingTheSlot(res.data,slotId);
             }else{
-              Swal.fire('Error', res.message);  
+              Swal.fire('Error', res.message);
             }
             this._loader.stopLoader('loader');
           },
           err => {
             this._loader.stopLoader('loader');
             Swal.fire('Error', 'Something Went Wrong Please try after Some time');
+          }
+        );
+    }
+
+    public bookingTheSlot(paymentData,slotId){
+        let userinfo = this._api.getUserDetailsFromStorage();
+        this._loader.startLoader('loader');
+        const mainForm = new FormData();
+        mainForm.append('stripeTransactionId',paymentData.id);
+        mainForm.append('slotId',slotId);
+        mainForm.append('userId',userinfo.id);
+        this._api.purchaseBookingSlot(mainForm).subscribe(
+          res => {
+            if(res.error == false){
+              console.log('Last Step',res);
+            }else{
+              Swal.fire('Error', res.message);
+            }
+            this._loader.stopLoader('loader');
+          },err => {
+            this._loader.stopLoader('loader');
+            Swal.fire('Error', 'Something Went Wrong Please try after Some time.');
           }
         );
     }

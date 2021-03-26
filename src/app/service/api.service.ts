@@ -142,4 +142,8 @@ export class APIService {
   createStripeTokenCharge(formData){
     return this._http.post<any>(_apiUrl + 'create-stripe-charge/by-token',formData);
   }
+
+  purchaseBookingSlot(formData){
+    return this._http.post<any>(_apiUrl + 'purchaseBookingSlot-mentor',formData);
+  }
 }
