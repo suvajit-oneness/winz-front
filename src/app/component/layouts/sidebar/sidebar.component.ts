@@ -13,6 +13,7 @@ import { APIService } from 'src/app/service/api.service';
       <li routerLinkActive="active" *ngIf="userInfo.userType == 'user'"><a routerLink="/booking-history"><i class="ti-book"></i> Payment History</a></li>
       <li routerLinkActive="active" *ngIf="userInfo.userType == 'teacher'"><a routerLink="/schedule"><i class="ti-book"></i> Schedule</a></li>
       <li routerLinkActive="active" *ngIf="userInfo.userType == 'teacher'"><a routerLink="/events"><i class="ti-book"></i> Events</a></li>
+      <li routerLinkActive="active"><a routerLink="/user/zoom-meeting"><i class="ti-book"></i> Zoom Meetings</a></li>
       <li><a href="javascript:void(0)" (click)="userLogout()"><i class="ti-na"></i> Log Out</a></li>
   `,
   styles: [

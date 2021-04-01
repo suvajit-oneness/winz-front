@@ -1499,3 +1499,6 @@ opacity: 0;
 .value-rendered{
     font-size: 24px;
 }
+.required{
+    color: #ff0000;
+}

@@ -22,6 +22,7 @@ import { ScheduleComponent } from './component/schedule/schedule.component';
 import { SubjectCategoryComponent } from './component/subject-category/subject-category.component';
 import { SubscribedCourseComponent } from './component/subscribed-course/subscribed-course.component';
 import { TeacherProfileComponent } from './component/teacher-profile/teacher-profile.component';
+import { ZoomMeetingComponent } from './component/zoom-meeting/zoom-meeting.component';
 import { AuthGuardService } from './service/auth-guard.service';
 
 const routes: Routes = [
@@ -46,6 +47,7 @@ const routes: Routes = [
   {path : 'booking-request', component:BookingRequestComponent},
   {path : 'booking-history',component : BookingHistoryComponent},
   {path : 'contact-us', component : ContactusComponent},
+  {path : 'user/zoom-meeting',component : ZoomMeetingComponent},
   {path : '**', component : PageNotFoundComponent},
 ];
 

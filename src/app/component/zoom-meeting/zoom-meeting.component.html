@@ -1,0 +1,76 @@
+<ngx-ui-loader loaderId="loader" fgsColor="#FFFFFF" bgsOpacity="1" overlayColor="rgba(40,40,40,0.1)"></ngx-ui-loader>
+<section class="account-detail">
+    <div class="d-flex">
+        <ul class="aside">
+            <app-sidebar></app-sidebar>
+        </ul>
+        <div class="account-sec mb-5">
+            <h3>Zoom Meetings <p class="float-right btn"><a href="javascript:void(0)" data-toggle="modal" data-target="#exampleModal" (click)="resetModal()">Add Meeting</a></p></h3>
+            <div *ngIf="meeting.data.length>0; else dataNotFound">
+                <table class="table table-striped table-bordered" style="width: 100%;">
+                    <thead>
+                        <tr>
+                            <td>UUID</td>
+                            <td>Meeting Id</td>
+                            <td>Topic</td>
+                            <td>Start Date and Time</td>
+                            <td>Agenda</td>
+                            <td>Join URL</td>
+                            <td>Password</td>
+                            <td>Action</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let zoom of meeting.data">
+                            <td>{{zoom.uuid}}</td>
+                            <td>{{zoom.meetingId}}</td>
+                            <td>{{zoom.topic}}</td>
+                            <td>{{zoom.start_time}}</td>
+                            <td>{{zoom.agenda}}</td>
+                            <td><a href="{{zoom.join_url}}" target="_blank">{{zoom.join_url}}</a></td>
+                            <td>{{zoom.password}}</td>
+                            <td><a href="javascript:void(0)" class="text-danger" (click)="deleteZoomMeeting(zoom)">Delete</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <ng-template #dataNotFound>
+                <span>OOps! Data not Found </span>
+            </ng-template>
+        </div>
+    </div>
+    <!-- Add meeting Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">New Meeting</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form #zoomMeeting="ngForm" (ngSubmit)="createNewZoomMeeting(zoomMeeting)">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="topic">Topic<sup class="required">*</sup></label>
+                            <input type="text" #topic [(ngModel)]="newZoom.topic" name="topic" id="topic" class="form-control" placeholder="Topic" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="Agenda">Agenda</label>
+                            <input type="text" #agenda [(ngModel)]="newZoom.agenda" name="agenda" id="Agenda" class="form-control" placeholder="Agenda">
+                        </div>
+                        <div class="form-group">
+                            <label for="startTime">Start Time<sup class="required">*</sup></label>
+                            <input type="datetime-local" #startime [(ngModel)]="newZoom.startime" name="startime" id="startTime" class="form-control" required onkeypress="return false;">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary closeModal" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Create</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

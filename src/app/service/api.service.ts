@@ -157,4 +157,16 @@ export class APIService {
   getPaymentHistory(userId){
     return this._http.get<any>(_apiUrl + 'payment-history?userId='+userId);
   }
+
+  getZoomMeetingData(parameters){
+    return this._http.get<any>(_apiUrl + 'zoom/meetings'+parameters);
+  }
+
+  saveZoomMeetingData(formData){
+    return this._http.post<any>(_apiUrl + 'zoom/meeting',formData);
+  }
+
+  deleteZoomMeetings(deleteData){
+    return this._http.post<any>(_apiUrl + 'zoom/meeting/delete',deleteData);
+  }
 }
