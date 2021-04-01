@@ -35,7 +35,7 @@ export class TeacherProfileComponent implements OnInit {
     )
   }
 
-  public slotsData = [];
+  public slotsData : any = [];
   getTeacherAllAvailableSlots(teacherId){
     this._loader.startLoader('loader');
     this._api.getTeacherAvailableSlots(teacherId).subscribe(
