@@ -48,6 +48,10 @@ export class TeacherProfileComponent implements OnInit {
     )
   }
 
+  bookedSlotClick(){
+    alert('this slot is booked');
+  }
+
   public bookSession(){
     Swal.fire('Warning', 'Please select the available slots');
   }
@@ -157,8 +161,7 @@ export class TeacherProfileComponent implements OnInit {
             token: function (token: any) {
               // You can access the token ID with `token.id`.
               // Get the token ID to your server-side code for use.
-              console.log(token)
-              alert('Payment Success!!');
+              // alert('Payment Success!!');
             }
           });
         }

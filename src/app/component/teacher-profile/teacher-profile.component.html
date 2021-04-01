@@ -33,20 +33,21 @@
                     <div class="date-scroll">
                         <a href="#" class="pre-handle"><i class="fas fa-chevron-left"></i></a>
                         <a href="#" class="next-handle"> <i class="fas fa-chevron-right"></i></a>
-                        <span class="date">from - to</span>
+                        <span class="date">{{slotsData.from_date}} - {{slotsData.to_date}}</span>
                     </div>
                 </div>
                 <div class="calender-body">
                     <div class="calender-head">
-                        <div class="dayname" *ngFor="let data of slotsData">
+                        <div class="dayname" *ngFor="let data of slotsData.slots">
                             <span>{{data.day}}<br>({{data.short_date}})</span>
                         </div>
                     </div>
                     <div class="calender-time">
-                        <span *ngFor="let slot of slotsData">
+                        <span *ngFor="let slot of slotsData.slots">
                             <div class="time-avali">
                                 <div class="time-slot" *ngFor="let ava of slot.available">
-                                    <a href="javascript:void(0)" (click)="bookSlot(ava)">{{ava.time}}</a>
+                                    <a href="javascript:void(0)" (click)="bookSlot(ava)" *ngIf="ava.available != 2; else bookedSlot">{{ava.time}}</a>
+                                    <ng-template #bookedSlot><a href="javascript:void(0)" class="text-danger" (click)="bookedSlotClick()">{{ava.time}}</a></ng-template>
                                 </div>
                             </div>
                         </span>

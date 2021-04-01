@@ -24,6 +24,7 @@ export class ScheduleComponent implements OnInit {
     this.getScheduleDate();
   }
 
+  public bookedSlot : any = [];
   public getScheduleDate(){
     this._loader.startLoader('loader');
     let teacherId = this.userInfo.teacherData.id;
@@ -31,10 +32,17 @@ export class ScheduleComponent implements OnInit {
       res => {
         if(res.error == false){
           res.data.forEach((response) => {
+            if(response.available != 2){
               this.schedule.data.push({
                 date : response.date,time : response.time,
                 available : (response.available == 1) ? true : false,
               });
+            }else{
+              this.bookedSlot.push({
+                date : response.date,time : response.time,
+                available : 2
+              });
+            }
           });
         }
         if(this.schedule.data.length == 0){ // if Not Found any Data
@@ -72,9 +80,6 @@ export class ScheduleComponent implements OnInit {
         available += teacherData.available+'@rajeev@';
       }
     });
-
-
-
 
     if(request == true){
       // console.log('Form are Now Ready to POST');

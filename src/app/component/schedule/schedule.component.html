@@ -13,6 +13,12 @@
                     <td>Available</td>
                     <td>Action</td>
                 </tr>
+                <tr *ngFor="let booked of bookedSlot">
+                    <td><input type="date" [ngModel]="booked.date" class="form-control" disabled></td>
+                    <td><input type="time" [ngModel]="booked.time" class="form-control" disabled></td>
+                    <td><input type="checkbox" class="checkbox" [checked]="true" [disabled]="true"></td>
+                    <td>Booked</td>
+                </tr>
                 <tr *ngFor="let data of schedule.data;let last=last">
                     <td><input type="date" #date [(ngModel)]="data.date" class="form-control" value="{{data.date}}" onfocus="blur()"></td>
                     <td><input type="time" #time [(ngModel)]="data.time" class="form-control" value="{{data.time}}" onfocus="blur()"></td>
