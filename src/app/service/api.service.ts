@@ -43,7 +43,7 @@ export class APIService {
     localStorage.removeItem('accessToken');
     localStorage.removeItem('userInfo');
     localStorage.removeItem('bookingData');
-    window.location.href="/";
+    window.location.href = environment.projectPath;
     // this._router.navigate(['/']);
   }
 

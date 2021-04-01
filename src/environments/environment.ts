@@ -3,7 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: true,
+  production: false,
+  projectPath : '/',
   stripeKey : 'pk_test_TYooMQauvdEDq54NiTphI7jx',
   stripeSecret : 'sk_test_4eC39HqLyjWDarjtT1zdp7dc',
   apiUrl : 'http://127.0.0.1:8000/api/v1/',
