@@ -114,11 +114,11 @@ export class ZoomMeetingComponent implements OnInit {
       console.log('Form is Not valid Yet');
     }
   }
-
 }
 
 interface ZOOMMEETING{
   id : number,
+  teacherId : number,
   userId : number,
   userType : string,
   uuid : string,
