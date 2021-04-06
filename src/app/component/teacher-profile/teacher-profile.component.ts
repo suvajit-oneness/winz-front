@@ -131,6 +131,7 @@ export class TeacherProfileComponent implements OnInit {
         mainForm.append('stripeTransactionId',paymentData.id);
         mainForm.append('slotId',slotId);
         mainForm.append('userId',userinfo.id);
+        mainForm.append('userType',userinfo.userType);
         this._api.purchaseBookingSlot(mainForm).subscribe(
           res => {
             if(res.error == false){
