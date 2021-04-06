@@ -95,7 +95,7 @@ export class APIService {
   }
 
   getCourseDetails(courseId,userId=0){
-    return this._http.get<any>(_apiUrl + 'course/'+courseId+'/?userId='+userId);
+    return this._http.get<any>(_apiUrl + 'course/'+courseId+'?userId='+userId);
   }
 
   updateUserPassword(data){
@@ -103,7 +103,7 @@ export class APIService {
   }
 
   getUserSubscribedCourses(userId,subscribedId=0){
-    return this._http.get<any>(_apiUrl + 'subscribed/course/'+subscribedId+'/?userId='+userId);
+    return this._http.get<any>(_apiUrl + 'subscribed/course/'+subscribedId+'?userId='+userId);
   }
 
   postUserSubscribedCourse(formData){
