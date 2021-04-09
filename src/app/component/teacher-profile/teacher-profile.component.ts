@@ -17,6 +17,7 @@ export class TeacherProfileComponent implements OnInit {
   constructor(private _loader : NgxUiLoaderService,private _activatedRoute:ActivatedRoute,private _api:APIService,private _router:Router) { }
 
   public teacherId : any = 0;public teacherData : any = {};
+  
   ngOnInit(): void {
     window.scrollTo(0, 0);
     this.teacherId = EncodeDecodeBase64(this._activatedRoute.snapshot.paramMap.get('teacherId'),'decode');

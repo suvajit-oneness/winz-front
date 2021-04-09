@@ -169,4 +169,8 @@ export class APIService {
   deleteZoomMeetings(deleteData){
     return this._http.post<any>(_apiUrl + 'zoom/meeting/delete',deleteData);
   }
+
+  buyMemberShipforUser(formData){
+    return this._http.post<any>(_apiUrl + 'buy_membership',formData);
+  }
 }
