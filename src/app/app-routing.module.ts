@@ -24,6 +24,7 @@ import { SubjectCategoryComponent } from './component/subject-category/subject-c
 import { SubscribedCourseComponent } from './component/subscribed-course/subscribed-course.component';
 import { TeacherListComponent } from './component/teacher-list/teacher-list.component';
 import { TeacherProfileComponent } from './component/teacher-profile/teacher-profile.component';
+import { UserMemberShipComponent } from './component/user-member-ship/user-member-ship.component';
 import { ZoomMeetingComponent } from './component/zoom-meeting/zoom-meeting.component';
 import { AuthGuardService } from './service/auth-guard.service';
 
@@ -52,6 +53,7 @@ const routes: Routes = [
   {path : 'contact-us', component : ContactusComponent},
   {path : 'user/zoom-meeting',component : ZoomMeetingComponent},
   {path : 'membership/booking-thankyou',component : MemberShipBookingThankyouComponent},
+  {path : 'user/membership',component : UserMemberShipComponent},
   {path : '**', component : PageNotFoundComponent},
 ];
 

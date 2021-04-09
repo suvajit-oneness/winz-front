@@ -173,4 +173,8 @@ export class APIService {
   buyMemberShipforUser(formData){
     return this._http.post<any>(_apiUrl + 'buy_membership',formData);
   }
+
+  getUserMembershipHistory(userId,userType){
+    return this._http.get<any>(_apiUrl + 'user-membership-details?userId='+userId+'&userType='+userType);
+  }
 }
