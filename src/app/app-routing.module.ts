@@ -4,6 +4,7 @@ import { LoginComponent } from './component/auth/login/login.component';
 import { SignupComponent } from './component/auth/signup/signup.component';
 import { BookingHistoryComponent } from './component/booking-history/booking-history.component';
 import { BookingRequestComponent } from './component/booking-request/booking-request.component';
+import { MemberShipBookingThankyouComponent } from './component/booking/member-ship-booking-thankyou/member-ship-booking-thankyou.component';
 import { ChangePasswordComponent } from './component/change-password/change-password.component';
 import { ChapterComponent } from './component/chapter/chapter.component';
 import { ContactusComponent } from './component/contactus/contactus.component';
@@ -50,6 +51,7 @@ const routes: Routes = [
   {path : 'booking-history',component : BookingHistoryComponent},
   {path : 'contact-us', component : ContactusComponent},
   {path : 'user/zoom-meeting',component : ZoomMeetingComponent},
+  {path : 'membership/booking-thankyou',component : MemberShipBookingThankyouComponent},
   {path : '**', component : PageNotFoundComponent},
 ];
 

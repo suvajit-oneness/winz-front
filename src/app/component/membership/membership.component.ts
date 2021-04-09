@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { APIService } from 'src/app/service/api.service';
 import { environment } from 'src/environments/environment';
@@ -11,7 +12,7 @@ import Swal from 'sweetalert2';
 })
 export class MembershipComponent implements OnInit {
 
-  constructor(private _loader : NgxUiLoaderService,private _api:APIService) {
+  constructor(private _loader : NgxUiLoaderService,private _api:APIService,private _router:Router) {
     this._loader.startLoader('loader');
   }
 
@@ -112,7 +113,9 @@ export class MembershipComponent implements OnInit {
       this._api.buyMemberShipforUser(mainForm).subscribe(
         res => {
           if(res.error == false){
-            
+              localStorage.removeItem('memberShipBookingData');
+              localStorage.setItem('memberShipBookingData',JSON.stringify(res.data));
+              this._router.navigate(['membership/booking-thankyou']);
           }else{
             Swal.fire('Error', res.message);
           }
