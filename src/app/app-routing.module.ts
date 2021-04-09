@@ -49,7 +49,7 @@ const routes: Routes = [
   {path : 'events', component : EventCalenderComponent},
   {path : 'booking-thankyou',component:BookingThankyouComponent},
   {path : 'booking-request', component:BookingRequestComponent},
-  {path : 'booking-history',component : BookingHistoryComponent},
+  {path : 'slot-booking-history',component : BookingHistoryComponent},
   {path : 'contact-us', component : ContactusComponent},
   {path : 'user/zoom-meeting',component : ZoomMeetingComponent},
   {path : 'membership/booking-thankyou',component : MemberShipBookingThankyouComponent},

@@ -10,7 +10,7 @@ import { APIService } from 'src/app/service/api.service';
       <li routerLinkActive="active"><a routerLink="/user/subscribed/course"><i class="ti-receipt"></i> Subscribed Courses</a></li>
       <li routerLinkActive="active"><a routerLink="/course-list"><i class="ti-book"></i> All Courses</a></li>
       <li routerLinkActive="active" *ngIf="userInfo.userType == 'teacher'"><a routerLink="/booking-request"><i class="ti-book"></i> Booking Request</a></li>
-      <li routerLinkActive="active" *ngIf="userInfo.userType == 'user'"><a routerLink="/booking-history"><i class="ti-book"></i> Payment History</a></li>
+      <li routerLinkActive="active" *ngIf="userInfo.userType == 'user'"><a routerLink="/slot-booking-history"><i class="ti-book"></i> Slot Booking History</a></li>
       <li routerLinkActive="active" *ngIf="userInfo.userType == 'teacher'"><a routerLink="/schedule"><i class="ti-book"></i> Schedule</a></li>
       <li routerLinkActive="active" *ngIf="userInfo.userType == 'teacher'"><a routerLink="/events"><i class="ti-book"></i> Events</a></li>
       <li routerLinkActive="active"><a routerLink="/user/membership"><i class="ti-book"></i> Your Membership</a></li>

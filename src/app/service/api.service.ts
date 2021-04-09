@@ -155,7 +155,7 @@ export class APIService {
   }
 
   getPaymentHistory(userId){
-    return this._http.get<any>(_apiUrl + 'payment-history?userId='+userId);
+    return this._http.get<any>(_apiUrl + 'slot-booking-history?userId='+userId);
   }
 
   getZoomMeetingData(parameters){
