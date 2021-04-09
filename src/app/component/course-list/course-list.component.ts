@@ -12,9 +12,8 @@ export class CourseListComponent implements OnInit {
   
   public EncodeDecodeBase64 = EncodeDecodeBase64;
   public courseList : any = [];
-  constructor(private _api:APIService,private _loader : NgxUiLoaderService) {
-    
-  }
+  constructor(private _api:APIService,private _loader : NgxUiLoaderService) {}
+  
   ngOnInit(): void {
     this.getCourseList();
     window.scrollTo(0, 0);

@@ -1,0 +1,41 @@
+<ngx-ui-loader loaderId="loader" fgsColor="#FFFFFF" bgsOpacity="1" overlayColor="rgba(40,40,40,0.1)"></ngx-ui-loader>
+<section class="pb-5 mt-5">
+    <div class="container">
+        <div class="row">
+            <div class="section_title text-center col-12 p-0 mb-4">
+                <h3 class="main_title">Teacher List</h3>
+                <p class="col-md-8 m-auto pt-3">What do you think is better to receive after each lesson: a lovely looking badge or important skills you can immediately put into practice.</p>
+            </div>
+            <div class="col-12 p-0 pt-2">
+                <div class="row m-0 p-0">
+                    <div class="col-12 mb-3">
+                        <div class="col-md-2 p-0 ml-auto text-right">
+                            <div class="form-group">
+                                <select class="form-control" id="exampleFormControlSelect1">
+                                  <option>1</option>
+                                  <option>2</option>
+                                  <option>3</option>
+                                  <option>4</option>
+                                  <option selected>All Teacher</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-3 p-1" *ngFor="let teacher of teacherList">
+                        <div class="card">
+                            <img src="{{teacher.image}}" class="card-img-top">
+                            <div class="card-body">
+                                <a routerLink="/teacher/{{EncodeDecodeBase64(teacher.id,'encode')}}">
+                                    <h3 class="course-title">{{teacher.name}}</h3>
+                                    <p class="course-subtitle">{{teacher.description}}</p>
+                                </a>
+                                <!-- <div class="foot_lecture">{{commaSeparateTeacher(course.teacher)}}</div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!--Teacher-->
+

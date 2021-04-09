@@ -46,6 +46,7 @@ import { BookingThankyouComponent } from './component/layouts/booking-thankyou/b
 import { BookingRequestComponent } from './component/booking-request/booking-request.component';
 import { BookingHistoryComponent } from './component/booking-history/booking-history.component';
 import { ZoomMeetingComponent } from './component/zoom-meeting/zoom-meeting.component';
+import { TeacherListComponent } from './component/teacher-list/teacher-list.component';
 // Global Error Catch Implement END
 
 // export class RajeevErrorHandler implements ErrorHandler{
@@ -62,7 +63,7 @@ import { ZoomMeetingComponent } from './component/zoom-meeting/zoom-meeting.comp
     FooterComponent,LoginComponent,SignupComponent,CourseListComponent,CourseDetailsComponent,
     TeacherProfileComponent,DashboardComponent,SidebarComponent,EditProfileComponent,ChangePasswordComponent,
     SubscribedCourseComponent,MembershipComponent,SubscriptionThankyouComponent,QuestionComponent,ChapterComponent,
-    ContactusComponent,SubjectCategoryComponent,EventCalenderComponent,ScheduleComponent, BookingThankyouComponent, BookingRequestComponent, BookingHistoryComponent, ZoomMeetingComponent
+    ContactusComponent,SubjectCategoryComponent,EventCalenderComponent,ScheduleComponent, BookingThankyouComponent, BookingRequestComponent, BookingHistoryComponent, ZoomMeetingComponent, TeacherListComponent
   ],
   imports: [
     BrowserModule,BrowserAnimationsModule,NgxUiLoaderModule,NgxUiLoaderRouterModule,NgxUiLoaderHttpModule,

@@ -29,6 +29,7 @@
                         </div>
                     </li> -->
                     <li class="nav-item" routerLinkActive="active"><a class="nav-link" routerLink="/course-list">All Courses</a></li>
+                    <li class="nav-item" routerLinkActive="active"><a class="nav-link" routerLink="/teacher-list">All Teacher</a></li>
                     <li class="nav-item" routerLinkActive="active"><a class="nav-link" routerLink="/membership">Membership</a></li>
                     <li class="nav-item" routerLinkActive="active" *ngIf="!userAuthentication, else falseAuthCheck"><a class="nav-link" routerLink="/login">Login</a></li>
                     <ng-template #falseAuthCheck>

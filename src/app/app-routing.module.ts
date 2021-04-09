@@ -21,6 +21,7 @@ import { QuestionComponent } from './component/question/question.component';
 import { ScheduleComponent } from './component/schedule/schedule.component';
 import { SubjectCategoryComponent } from './component/subject-category/subject-category.component';
 import { SubscribedCourseComponent } from './component/subscribed-course/subscribed-course.component';
+import { TeacherListComponent } from './component/teacher-list/teacher-list.component';
 import { TeacherProfileComponent } from './component/teacher-profile/teacher-profile.component';
 import { ZoomMeetingComponent } from './component/zoom-meeting/zoom-meeting.component';
 import { AuthGuardService } from './service/auth-guard.service';
@@ -35,6 +36,7 @@ const routes: Routes = [
   {path : 'user/subscribed/course', component : SubscribedCourseComponent,canActivate:[AuthGuardService]},
   {path : 'user/subscription/thankyou/:subscriptionId', component : SubscriptionThankyouComponent,canActivate:[AuthGuardService]},
   {path : 'course-list', component : CourseListComponent},
+  {path : 'teacher-list',component : TeacherListComponent},
   {path : 'membership', component : MembershipComponent},
   {path : 'course-details/:courseId', component : CourseDetailsComponent},
   {path : 'teacher/:teacherId', component : TeacherProfileComponent},
