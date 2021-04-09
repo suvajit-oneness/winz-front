@@ -18,7 +18,10 @@
                                 </li>
                             </ul>
                             <div class="text-center my-5">
-                                <a href="javascript:void(0)" class="btn btn-theme btn-browse-btn" (click)="getMembership(member)">Get Started</a>
+                                <a *ngIf="member.enrolledment;else NotEnrolledThisUser" href="javascript:void(0)" class="btn btn-theme btn-browse-btn" [disabled]="true">Enrolled</a>
+                                <ng-template #NotEnrolledThisUser>
+                                    <a href="javascript:void(0)" class="btn btn-theme btn-browse-btn" (click)="getMembership(member)">Get Started</a>
+                                </ng-template>
                             </div>
                         </div>
                     </div>

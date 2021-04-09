@@ -110,8 +110,8 @@ export class APIService {
     return this._http.post<any>(_apiUrl + 'subscribed/course',formData);
   }
 
-  getMembershipList(){
-    return this._http.get<any>(_apiUrl + 'membership');
+  getMembershipList(userId,userType){
+    return this._http.get<any>(_apiUrl + 'membership?userId='+userId+'&userType='+userType);
   }
 
   getSubjectCategory(categoryId){

@@ -18,6 +18,9 @@ export class MembershipComponent implements OnInit {
 
   public memberShip : any = [];public commonQuestion : any = [];
 
+  public auth = this._api.isAuthenticated();
+  public userInfo = this._api.getUserDetailsFromStorage();
+
   ngOnInit(): void {
     this.getMemberShipList();
     window.scrollTo(0, 0);
@@ -26,7 +29,9 @@ export class MembershipComponent implements OnInit {
   
   getMemberShipList() {
     this._loader.startLoader('loader');
-    this._api.getMembershipList().subscribe(
+    let userType = (this.auth) ? this.userInfo.userType : '';
+    let userId = (this.auth) ? this.userInfo.id : 0;
+    this._api.getMembershipList(userId,userType).subscribe(
       res => {
         if(res.error == false){
           this.memberShip = res.data.membership;
@@ -62,8 +67,7 @@ export class MembershipComponent implements OnInit {
   }
 
   getMembership(memberShipData) {
-    let auth = this._api.isAuthenticated();
-    if(auth){
+    if(this.auth){
       var handler = (<any>window).StripeCheckout.configure({
         key: this.stripeKey,
         locale: 'auto',
@@ -103,12 +107,11 @@ export class MembershipComponent implements OnInit {
   }
 
   bookMemberSlot(transactionDetails,membersip){
-      let userInfo = this._api.getUserDetailsFromStorage();
       const mainForm = new FormData();
       mainForm.append('stripeTransactionId',transactionDetails.id);
       mainForm.append('membershipId',membersip.id);
-      mainForm.append('userId',userInfo.id);
-      mainForm.append('userType',userInfo.userType);
+      mainForm.append('userId',this.userInfo.id);
+      mainForm.append('userType',this.userInfo.userType);
       this._loader.startLoader('loader');
       this._api.buyMemberShipforUser(mainForm).subscribe(
         res => {
