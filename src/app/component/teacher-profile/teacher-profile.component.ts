@@ -68,7 +68,7 @@ export class TeacherProfileComponent implements OnInit {
         confirmButtonText: 'Proceed!',
       }).then((result) => {
         if (result.value) {
-          this.proceedToPay(60,slotDetails.id);
+          this.proceedToPay(this.teacherData.price_per_hour,slotDetails.id);
         } 
       });
     }else{
