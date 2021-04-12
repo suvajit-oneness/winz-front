@@ -24,7 +24,7 @@
                         <span>Fill the below form to create a new account.</span>
                     </h2>
                     <form class="register-form" id="login-form" #signUpForm="ngForm" (ngSubmit)="userSignUpForm(signUpForm)">
-                        {{signUpForm.value | json}}
+                        <!-- {{signUpForm.value | json}} -->
                         <div class="form-group m-0">
                             <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
                             <input #name="ngModel" ngModel type="text" name="name" id="your_name" placeholder="Full Name" required [ngClass]="{'is-invalid':name?.invalid && name?.touched}">
