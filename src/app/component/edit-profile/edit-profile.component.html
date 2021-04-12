@@ -42,6 +42,11 @@
                             <div class="col-md-12 mb-4" *ngIf="userInfo.userType == 'teacher'">
                                 <input #subject [ngModel]="userInfo.teacherData.subject" name="subject" placeholder="Subject" class="form-control" type="text">
                             </div>
+
+                            <div class="col-md-12 mb-4" *ngIf="userInfo.userType == 'teacher'">
+                                <input #price [ngModel]="userInfo.teacherData.price_per_hour" name="price" placeholder="Price per Hour in Doller ($)" class="form-control" type="text">
+                            </div>
+                            
                             <span class="text-danger">{{errorMsg}}</span>
                             <span class="text-success">{{successMsg}}</span>
                             <div class="col-md-6">
