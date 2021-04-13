@@ -177,4 +177,8 @@ export class APIService {
   getUserMembershipHistory(userId,userType){
     return this._http.get<any>(_apiUrl + 'user-membership-details?userId='+userId+'&userType='+userType);
   }
+
+  getConatctUsDataToShow(){
+    return this._http.get<any>(_apiUrl + 'contact-us-data');
+  }
 }
