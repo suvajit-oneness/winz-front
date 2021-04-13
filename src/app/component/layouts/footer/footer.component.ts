@@ -30,6 +30,19 @@ export class FooterComponent implements OnInit {
     }else{
       this.showContactUsBOX = true;
     }
+    this.getContactusData();
+  }
+  
+  public contactDatatoShow : any = {};
+  getContactusData(){
+    this._api.getConatctUsDataToShow().subscribe(
+        res => {
+          this.contactDatatoShow = res.data;
+          console.log(res);
+        },err => {
+
+        }
+    )
   }
 
 }

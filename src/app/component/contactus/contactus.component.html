@@ -40,6 +40,9 @@
                                         <input #mobile="ngModel" ngModel name="mobile" type="text" placeholder="Mobile (optional)" class="form-control">
                                     </div>
                                     <div class="col-md-12 mb-4">
+                                        <input #subject="ngModel" ngModel name="subject" type="text" placeholder="Subject" [ngClass]="{'form-control':true,'is-invalid':subject?.invalid && subject?.touched}" required>
+                                    </div>
+                                    <div class="col-md-12 mb-4">
                                         <textarea #message="ngModel" ngModel name="message" cols="30" rows="5" style="resize: none;" [ngClass]="{'form-control':true,'is-invalid':message?.invalid && message?.touched}" placeholder="Message (max 255 character)" required></textarea>
                                     </div>
                                     <div class="col-md-6">

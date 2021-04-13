@@ -81,6 +81,7 @@ export class MembershipComponent implements OnInit {
       });
     }else{
       Swal.fire('Warning', 'Please Login for continue booking');
+      this._api.routeIntended('membership');
     }
   }
 

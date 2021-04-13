@@ -12,7 +12,7 @@ var _apiUrl = environment.apiUrl;
 export class APIService {
 
   private header;
-  
+
   constructor(private _http : HttpClient,private _router : Router) {
     this.header = new HttpHeaders()
         .set("Authorization", 'Bearer '+localStorage.getItem("accessToken"))
@@ -21,15 +21,18 @@ export class APIService {
   // How to send the data + Header Example is below
   // return this.http.post<any>(_apiUrl + 'update/user/profile',data,{headers: this.header});
 
+  routeIntended(path : any = ''){
+    localStorage.setItem('routeIntended',path);
+  }
+
   // Storing the User Info Locally
   storeUserLocally(data){
-    localStorage.removeItem('accessToken');
-    localStorage.removeItem('userInfo');
-    localStorage.removeItem('bookingData');
+    let routeIntended = localStorage.getItem('routeIntended');
+    localStorage.clear();
     localStorage.setItem('accessToken',data.data.accessToken);
     localStorage.setItem('userInfo',JSON.stringify(data.data));
     // window.location.href="/dashboard";
-    this._router.navigate(['/dashboard']);
+    this._router.navigate([(routeIntended) ? routeIntended : '/dashboard']);
   }
 
   updateUserLocally(data){
@@ -40,9 +43,7 @@ export class APIService {
 
   // Logging Out the Current User
   logoutUser():void{
-    localStorage.removeItem('accessToken');
-    localStorage.removeItem('userInfo');
-    localStorage.removeItem('bookingData');
+    localStorage.clear();
     window.location.href = environment.projectPath;
     // this._router.navigate(['/']);
   }
