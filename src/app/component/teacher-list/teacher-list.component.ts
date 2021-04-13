@@ -25,7 +25,7 @@ export class TeacherListComponent implements OnInit {
           res => {
               this.teacherList = res.data;
               this._loader.stopLoader('loader');
-              console.log(this.teacherList);
+              // console.log(this.teacherList);
           },err => {
               this._loader.stopLoader('loader');
           }

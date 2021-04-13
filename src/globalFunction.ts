@@ -1,4 +1,5 @@
 export function isNumberKey(event) : any {
+    console.log(event);
     if(event.charCode >= 48 && event.charCode <= 57){
         return true;
     }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { APIService } from 'src/app/service/api.service';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { Router } from '@angular/router';
+import {isNumberKey} from 'src/globalFunction';
 
 @Component({
   selector: 'app-signup',
@@ -9,7 +10,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
+
+  public isNumberKey = isNumberKey;
   public errorMessage = '';
+
   constructor(private _api:APIService,private _loader : NgxUiLoaderService,private _router:Router) {
     this._loader.startLoader('loader');
   }
