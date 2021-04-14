@@ -10,14 +10,14 @@ import { FooterComponent } from './component/layouts/footer/footer.component';
 import { LoginComponent } from './component/auth/login/login.component';
 import { SignupComponent } from './component/auth/signup/signup.component';
 import { CourseListComponent } from './component/course-list/course-list.component';
-import { CourseDetailsComponent } from './component/course-details/course-details.component';
+import { CourseDetailsComponent } from './component/course-list/course-details/course-details.component';
 import { TeacherProfileComponent } from './component/teacher-profile/teacher-profile.component';
 import { FormsModule , ReactiveFormsModule, FormControl} from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { NgxUiLoaderHttpModule, NgxUiLoaderModule, NgxUiLoaderRouterModule } from 'ngx-ui-loader';
 import { SidebarComponent } from './component/layouts/sidebar/sidebar.component';
-import { EditProfileComponent } from './component/edit-profile/edit-profile.component';
+import { EditProfileComponent } from './component/auth/edit-profile/edit-profile.component';
 import { ChangePasswordComponent } from './component/change-password/change-password.component';
 import { SubscribedCourseComponent } from './component/subscribed-course/subscribed-course.component';
 import { MembershipComponent } from './component/membership/membership.component';
@@ -43,8 +43,8 @@ FullCalendarModule.registerPlugins([
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpErrorInterceptor } from 'src/app/Interceptor/http-error.interceptor';
 import { BookingThankyouComponent } from './component/layouts/booking-thankyou/booking-thankyou.component';
-import { BookingRequestComponent } from './component/booking-request/booking-request.component';
-import { BookingHistoryComponent } from './component/booking-history/booking-history.component';
+import { BookingRequestComponent } from './component/booking/booking-request/booking-request.component';
+import { BookingHistoryComponent } from './component/booking/booking-history/booking-history.component';
 import { ZoomMeetingComponent } from './component/zoom-meeting/zoom-meeting.component';
 import { TeacherListComponent } from './component/teacher-list/teacher-list.component';
 import { MemberShipBookingThankyouComponent } from './component/booking/member-ship-booking-thankyou/member-ship-booking-thankyou.component';
@@ -53,11 +53,11 @@ import { AboutUsComponent } from './component/about-us/about-us.component';
 import { TestimonialComponent } from './component/testimonial/testimonial.component';
 import { FaqComponent } from './component/faq/faq.component';
 import { BlogComponent } from './component/blog/blog.component';
-import { BlogDetailsComponent } from './component/blog-details/blog-details.component';
-import { TermsAndConditionComponent } from './component/terms-and-condition/terms-and-condition.component';
-import { PrivacyPolicyComponent } from './component/privacy-policy/privacy-policy.component';
-import { RefundPolicyComponent } from './component/refund-policy/refund-policy.component';
-import { CancellationPolicyComponent } from './component/cancellation-policy/cancellation-policy.component';
+import { BlogDetailsComponent } from './component/blog/blog-details/blog-details.component';
+import { TermsAndConditionComponent } from './component/policy/terms-and-condition/terms-and-condition.component';
+import { PrivacyPolicyComponent } from './component/policy/privacy-policy/privacy-policy.component';
+import { RefundPolicyComponent } from './component/policy/refund-policy/refund-policy.component';
+import { CancellationPolicyComponent } from './component/policy/cancellation-policy/cancellation-policy.component';
 // Global Error Catch Implement END
 
 // export class RajeevErrorHandler implements ErrorHandler{
