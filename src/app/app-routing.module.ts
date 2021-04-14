@@ -1,7 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AboutUsComponent } from './component/about-us/about-us.component';
 import { LoginComponent } from './component/auth/login/login.component';
 import { SignupComponent } from './component/auth/signup/signup.component';
+import { BlogDetailsComponent } from './component/blog-details/blog-details.component';
+import { BlogComponent } from './component/blog/blog.component';
 import { BookingHistoryComponent } from './component/booking-history/booking-history.component';
 import { BookingRequestComponent } from './component/booking-request/booking-request.component';
 import { MemberShipBookingThankyouComponent } from './component/booking/member-ship-booking-thankyou/member-ship-booking-thankyou.component';
@@ -13,17 +16,22 @@ import { CourseListComponent } from './component/course-list/course-list.compone
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { EditProfileComponent } from './component/edit-profile/edit-profile.component';
 import { EventCalenderComponent } from './component/event-calender/event-calender.component';
+import { FaqComponent } from './component/faq/faq.component';
 import { HomeComponent } from './component/home/home.component';
 import { BookingThankyouComponent } from './component/layouts/booking-thankyou/booking-thankyou.component';
 import { SubscriptionThankyouComponent } from './component/layouts/subscription-thankyou/subscription-thankyou.component';
 import { MembershipComponent } from './component/membership/membership.component';
 import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
+import { PrivacyPolicyComponent } from './component/privacy-policy/privacy-policy.component';
 import { QuestionComponent } from './component/question/question.component';
+import { RefundPolicyComponent } from './component/refund-policy/refund-policy.component';
 import { ScheduleComponent } from './component/schedule/schedule.component';
 import { SubjectCategoryComponent } from './component/subject-category/subject-category.component';
 import { SubscribedCourseComponent } from './component/subscribed-course/subscribed-course.component';
 import { TeacherListComponent } from './component/teacher-list/teacher-list.component';
 import { TeacherProfileComponent } from './component/teacher-profile/teacher-profile.component';
+import { TermsAndConditionComponent } from './component/terms-and-condition/terms-and-condition.component';
+import { TestimonialComponent } from './component/testimonial/testimonial.component';
 import { UserMemberShipComponent } from './component/user-member-ship/user-member-ship.component';
 import { ZoomMeetingComponent } from './component/zoom-meeting/zoom-meeting.component';
 import { AuthGuardService } from './service/auth-guard.service';
@@ -54,6 +62,15 @@ const routes: Routes = [
   {path : 'user/zoom-meeting',component : ZoomMeetingComponent},
   {path : 'membership/booking-thankyou',component : MemberShipBookingThankyouComponent},
   {path : 'user/membership',component : UserMemberShipComponent},
+  // New Routes
+  {path : 'blogs',component : BlogComponent},
+  {path : 'blog-details',component : BlogDetailsComponent},
+  {path : 'privacy-policy',component : PrivacyPolicyComponent},
+  {path : 'refund-policy',component : RefundPolicyComponent},
+  {path : 'faq',component : FaqComponent},
+  {path : 'about-us',component : AboutUsComponent},
+  {path : 'testimonials',component : TestimonialComponent},
+  {path : 'terms-and-condition',component : TermsAndConditionComponent},
   {path : '**', component : PageNotFoundComponent},
 ];
 

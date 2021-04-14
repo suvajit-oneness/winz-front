@@ -49,6 +49,14 @@ import { ZoomMeetingComponent } from './component/zoom-meeting/zoom-meeting.comp
 import { TeacherListComponent } from './component/teacher-list/teacher-list.component';
 import { MemberShipBookingThankyouComponent } from './component/booking/member-ship-booking-thankyou/member-ship-booking-thankyou.component';
 import { UserMemberShipComponent } from './component/user-member-ship/user-member-ship.component';
+import { AboutUsComponent } from './component/about-us/about-us.component';
+import { TestimonialComponent } from './component/testimonial/testimonial.component';
+import { FaqComponent } from './component/faq/faq.component';
+import { BlogComponent } from './component/blog/blog.component';
+import { BlogDetailsComponent } from './component/blog-details/blog-details.component';
+import { TermsAndConditionComponent } from './component/terms-and-condition/terms-and-condition.component';
+import { PrivacyPolicyComponent } from './component/privacy-policy/privacy-policy.component';
+import { RefundPolicyComponent } from './component/refund-policy/refund-policy.component';
 // Global Error Catch Implement END
 
 // export class RajeevErrorHandler implements ErrorHandler{
@@ -65,7 +73,7 @@ import { UserMemberShipComponent } from './component/user-member-ship/user-membe
     FooterComponent,LoginComponent,SignupComponent,CourseListComponent,CourseDetailsComponent,
     TeacherProfileComponent,DashboardComponent,SidebarComponent,EditProfileComponent,ChangePasswordComponent,
     SubscribedCourseComponent,MembershipComponent,SubscriptionThankyouComponent,QuestionComponent,ChapterComponent,
-    ContactusComponent,SubjectCategoryComponent,EventCalenderComponent,ScheduleComponent, BookingThankyouComponent, BookingRequestComponent, BookingHistoryComponent, ZoomMeetingComponent, TeacherListComponent, MemberShipBookingThankyouComponent, UserMemberShipComponent
+    ContactusComponent,SubjectCategoryComponent,EventCalenderComponent,ScheduleComponent, BookingThankyouComponent, BookingRequestComponent, BookingHistoryComponent, ZoomMeetingComponent, TeacherListComponent, MemberShipBookingThankyouComponent, UserMemberShipComponent, AboutUsComponent, TestimonialComponent, FaqComponent, BlogComponent, BlogDetailsComponent, TermsAndConditionComponent, PrivacyPolicyComponent, RefundPolicyComponent
   ],
   imports: [
     BrowserModule,BrowserAnimationsModule,NgxUiLoaderModule,NgxUiLoaderRouterModule,NgxUiLoaderHttpModule,
