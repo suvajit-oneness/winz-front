@@ -191,4 +191,8 @@ export class APIService {
   getBlogsList(blogId = 0){
     return this._http.get<any>(_apiUrl + 'blogs?id='+blogId);
   }
+
+  getSettingSEOData(key = ''){
+    return this._http.get<any>(_apiUrl + 'settings?key='+key);
+  }
 }
