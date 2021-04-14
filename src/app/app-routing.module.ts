@@ -8,6 +8,7 @@ import { BlogComponent } from './component/blog/blog.component';
 import { BookingHistoryComponent } from './component/booking-history/booking-history.component';
 import { BookingRequestComponent } from './component/booking-request/booking-request.component';
 import { MemberShipBookingThankyouComponent } from './component/booking/member-ship-booking-thankyou/member-ship-booking-thankyou.component';
+import { CancellationPolicyComponent } from './component/cancellation-policy/cancellation-policy.component';
 import { ChangePasswordComponent } from './component/change-password/change-password.component';
 import { ChapterComponent } from './component/chapter/chapter.component';
 import { ContactusComponent } from './component/contactus/contactus.component';
@@ -68,6 +69,7 @@ const routes: Routes = [
   {path : 'blog-details/:blogId',component : BlogDetailsComponent},
   {path : 'terms-and-condition',component : TermsAndConditionComponent},
   {path : 'privacy-policy',component : PrivacyPolicyComponent},
+  {path : 'cancellation-policy',component : CancellationPolicyComponent},
   {path : 'refund-policy',component : RefundPolicyComponent},
   {path : 'faq',component : FaqComponent},
   {path : 'about-us',component : AboutUsComponent},
