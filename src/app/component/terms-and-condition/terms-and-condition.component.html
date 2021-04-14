@@ -5,15 +5,23 @@
         <!-- <p>Thank you for supporting our mission to build amazing resources for 350,000+ IB students worldwide</p> -->
         <div class="row pt-5">
             <div class="col-md-10 offset-md-1">
-                <div class="row">
-                    <div class="col-md-6">
-                        <h3 class="bg-blue">{{getValueUsingKey('terms_meta_title')}}</h3>
-                        <span><sup></sup>{{getValueUsingKey('terms_meta_keywords')}}</span>
-                        <h6 innerHtml="{{getValueUsingKey('terms_meta_description')}}"></h6>
-                        <div class="member-inn border"></div>
-                    </div>
-                </div>
+                <div class="row"></div>
             </div>
         </div>
+    </div>
+</section>
+
+<section class="section_title py-5">
+    <div class="container">
+        <h5 class="question-title">{{getValueUsingKey('terms_meta_title')}}</h5>
+        <ul class="faq-inn">
+            <li>
+                <div class="common-ques-icon"><i class="ti-layout-list-thumb"></i></div>
+                <div class="common-ques">
+                    <h5>{{getValueUsingKey('terms_meta_keywords')}}</h5>
+                    <p innerHtml="{{getValueUsingKey('terms_meta_description')}}"></p>
+                </div>
+            </li>
+        </ul>
     </div>
 </section>

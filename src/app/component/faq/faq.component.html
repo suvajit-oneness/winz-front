@@ -1,1 +1,27 @@
-<p>faq works!</p>
+<ngx-ui-loader loaderId="loader" fgsColor="#FFFFFF" bgsOpacity="1" overlayColor="rgba(40,40,40,0.1)"></ngx-ui-loader>
+<section class="member-sec section_title py-5 text-center">
+    <div class="container">
+        <h3>Faq</h3>
+        <!-- <p>Thank you for supporting our mission to build amazing resources for 350,000+ IB students worldwide</p> -->
+        <div class="row pt-5">
+            <div class="col-md-10 offset-md-1">
+                <div class="row"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section_title py-5">
+    <div class="container">
+        <h5 class="question-title">{{getValueUsingKey('faq_meta_title')}}</h5>
+        <ul class="faq-inn">
+            <li>
+                <div class="common-ques-icon"><i class="ti-layout-list-thumb"></i></div>
+                <div class="common-ques">
+                    <h5>{{getValueUsingKey('faq_meta_keywords')}}</h5>
+                    <p innerHtml="{{getValueUsingKey('faq_meta_description')}}"></p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</section>
