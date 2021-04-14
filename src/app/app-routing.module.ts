@@ -66,12 +66,11 @@ const routes: Routes = [
   {path : 'testimonials',component : TestimonialComponent},
   {path : 'blogs',component : BlogComponent},
   {path : 'blog-details/:blogId',component : BlogDetailsComponent},
-  
+  {path : 'terms-and-condition',component : TermsAndConditionComponent},
   {path : 'privacy-policy',component : PrivacyPolicyComponent},
   {path : 'refund-policy',component : RefundPolicyComponent},
   {path : 'faq',component : FaqComponent},
   {path : 'about-us',component : AboutUsComponent},
-  {path : 'terms-and-condition',component : TermsAndConditionComponent},
   {path : '**', component : PageNotFoundComponent},
 ];
 

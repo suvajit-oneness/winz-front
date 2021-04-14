@@ -1,1 +1,19 @@
-<p>terms-and-condition works!</p>
+<ngx-ui-loader loaderId="loader" fgsColor="#FFFFFF" bgsOpacity="1" overlayColor="rgba(40,40,40,0.1)"></ngx-ui-loader>
+<section class="member-sec section_title py-5 text-center">
+    <div class="container">
+        <h3>Terms and Condition</h3>
+        <!-- <p>Thank you for supporting our mission to build amazing resources for 350,000+ IB students worldwide</p> -->
+        <div class="row pt-5">
+            <div class="col-md-10 offset-md-1">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h3 class="bg-blue">{{getValueUsingKey('terms_meta_title')}}</h3>
+                        <span><sup></sup>{{getValueUsingKey('terms_meta_keywords')}}</span>
+                        <h6 innerHtml="{{getValueUsingKey('terms_meta_description')}}"></h6>
+                        <div class="member-inn border"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
