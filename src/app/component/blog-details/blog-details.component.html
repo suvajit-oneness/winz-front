@@ -1,1 +1,30 @@
-<p>blog-details works!</p>
+<ngx-ui-loader loaderId="loader" fgsColor="#FFFFFF" bgsOpacity="1" overlayColor="rgba(40,40,40,0.1)"></ngx-ui-loader>
+<section class="pb-5 mt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 p-0 pt-2 mb-3 mb-md-5">
+                <div class="row m-0 p-0">
+                    <div class="col-12 p-1">
+                        <div class="card bg-none border-none shadow-none">
+                            <div class="card-body row m-0 p-0">
+                                <div class="col-12 col-md-3 p-0">
+                                    <img src="{{url}}Blog/{{blog.image}}" class="card-img-top">
+                                </div>
+                                <div class="col-12 col-md-9 p-1 pl-md-4">
+                                    <h3 class="course-title-card">{{blog.title}}</h3>
+                                    <p class="course-subtitle" [innerHtml]="blog.content"></p>
+                                    <!-- <ul class="badge_info">
+                                        <li class="started"><a href="javascript:void(0)"><i class="ti-facebook"></i></a></li>
+                                        <li class="medium"><a href="javascript:void(0)"><i class="ti-twitter-alt"></i></a></li>
+                                        <li class="platinum"><a href="javascript:void(0)"><i class="ti-linkedin"></i></a></li>
+                                        <li class="elite unlock"><a href="javascript:void(0)"><i class="ti-google"></i></a></li>
+                                    </ul> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!--Courses-->

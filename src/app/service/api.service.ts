@@ -184,11 +184,11 @@ export class APIService {
     return this._http.get<any>(_apiUrl + 'contact-us-data');
   }
 
-  getTestimonialsList(){
-    return this._http.get<any>(_apiUrl + 'testimonials');
+  getTestimonialsList(testimonalId = 0){
+    return this._http.get<any>(_apiUrl + 'testimonials?id='+testimonalId);
   }
 
-  getBlogsList(){
-    return this._http.get<any>(_apiUrl + 'blogs');
+  getBlogsList(blogId = 0){
+    return this._http.get<any>(_apiUrl + 'blogs?id='+blogId);
   }
 }

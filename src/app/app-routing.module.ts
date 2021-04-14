@@ -63,13 +63,14 @@ const routes: Routes = [
   {path : 'membership/booking-thankyou',component : MemberShipBookingThankyouComponent},
   {path : 'user/membership',component : UserMemberShipComponent},
   // New Routes
+  {path : 'testimonials',component : TestimonialComponent},
   {path : 'blogs',component : BlogComponent},
-  {path : 'blog-details',component : BlogDetailsComponent},
+  {path : 'blog-details/:blogId',component : BlogDetailsComponent},
+  
   {path : 'privacy-policy',component : PrivacyPolicyComponent},
   {path : 'refund-policy',component : RefundPolicyComponent},
   {path : 'faq',component : FaqComponent},
   {path : 'about-us',component : AboutUsComponent},
-  {path : 'testimonials',component : TestimonialComponent},
   {path : 'terms-and-condition',component : TermsAndConditionComponent},
   {path : '**', component : PageNotFoundComponent},
 ];

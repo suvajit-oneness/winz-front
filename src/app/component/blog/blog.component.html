@@ -11,7 +11,7 @@
                         <div class="card">
                             <img src="{{url}}Blog/{{blog.image}}" class="card-img-top">
                             <div class="card-body">
-                                <a href="javascript:void(0)">
+                                <a routerLink="/blog-details/{{blog.id}}">
                                     <h3 class="course-title">{{blog.title}}</h3>
                                     <p class="course-subtitle" [innerHtml]="blog.content"></p>
                                 </a>
