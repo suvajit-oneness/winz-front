@@ -38,7 +38,6 @@ export class FooterComponent implements OnInit {
     this._api.getConatctUsDataToShow().subscribe(
         res => {
           this.contactDatatoShow = res.data;
-          console.log(res);
         },err => {
 
         }

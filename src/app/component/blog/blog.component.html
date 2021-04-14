@@ -1,1 +1,25 @@
-<p>blog works!</p>
+<ngx-ui-loader loaderId="loader" fgsColor="#FFFFFF" bgsOpacity="1" overlayColor="rgba(40,40,40,0.1)"></ngx-ui-loader>
+<section class="pb-5 mt-5">
+    <div class="container">
+        <div class="row">
+            <div class="section_title text-center col-12 p-0 mb-4">
+                <h3 class="main_title">Blogs</h3>
+            </div>
+            <div class="col-12 p-0 pt-2">
+                <div class="row m-0 p-0">
+                    <div class="col-12 col-md-3 p-1" *ngFor="let blog of blogs">
+                        <div class="card">
+                            <img src="{{url}}Blog/{{blog.image}}" class="card-img-top">
+                            <div class="card-body">
+                                <a href="javascript:void(0)">
+                                    <h3 class="course-title">{{blog.title}}</h3>
+                                    <p class="course-subtitle" [innerHtml]="blog.content"></p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!--Blogs-->

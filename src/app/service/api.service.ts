@@ -3,7 +3,8 @@ import { environment } from '../../environments/environment';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 
-var _apiUrl = environment.apiUrl;
+var originalURL = environment.apiUrl;
+var _apiUrl = originalURL + 'api/v1/';
 
 @Injectable({
   providedIn: 'root'
@@ -181,5 +182,13 @@ export class APIService {
 
   getConatctUsDataToShow(){
     return this._http.get<any>(_apiUrl + 'contact-us-data');
+  }
+
+  getTestimonialsList(){
+    return this._http.get<any>(_apiUrl + 'testimonials');
+  }
+
+  getBlogsList(){
+    return this._http.get<any>(_apiUrl + 'blogs');
   }
 }
