@@ -31,31 +31,54 @@
                     <h4 class="edu_title">Course Circullum</h4>
                 </div>
                 <div class="accordion mt-0 mt-md-2" id="accordionExample">
-                  <div class="card child-card">
-                    <div class="card-header border-bottom-0" id="headingOne">
-                      <h2 class="mb-0 accordion_title">
-                        <a class="d-block position-relative d-block text-dark collapsible-link py-2 collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                          Part 01: How To Learn Web Designing Step by Step
-                        </a>
-                      </h2>
-                    </div>
+                    <div class="card child-card">
+                        <div class="card-header border-bottom-0" id="headingOne">
+                            <h2 class="mb-0 accordion_title">
+                                <!-- <a class="d-block position-relative d-block text-dark collapsible-link py-2 collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Part 01: How To Learn Web Designing Step by Step
+                                </a> -->
+                            </h2>
+                        </div>
 
-                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-                        <div class="card-body pl-3 pr-3">
-                            <ul class="lectures_lists">
-                                <li *ngFor="let lecture of courseDetails.lectures">
-                                    <div class="lectures_lists_title">
-                                        <i class="ti-control-play"></i>{{lecture.title}}
-                                    </div>
-                                    {{lecture.description}}
-                                </li>
-                            </ul>
+                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                            <div class="card-body pl-3 pr-3">
+                                <ul class="lectures_lists">
+                                    <li *ngFor="let lecture of courseDetails.lectures">
+                                        <div class="lectures_lists_title" (click)="playAsYoutube(lecture)">
+                                            <i class="ti-control-play"></i>{{lecture.title}}
+                                        </div>
+                                        {{lecture.description}}
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                  </div>
                 </div>
             </div>
             <!-- Accordion card -->
+            <!----------------------------- Button trigger for Youtube modal --------------------------------->
+            <button type="button" class="btn btn-primary youtubeModal" data-toggle="modal" data-target="#youtubelectureModal" [hidden]="true">
+                Launch demo modal
+            </button>
+            <!--Youtube Modal -->
+            <div class="modal fade" id="youtubelectureModal" tabindex="-1" role="dialog" aria-labelledby="youtubelectureModal" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="">{{lectureTitle}}</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closeYoutubeModal()">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        <div class="modal-body" id="youtubeModalBody"></div>
+                        <!-- <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+            <!---------------------------------------- Youtube modal End ----------------------------------------------->
 
             <div class="col-12 col-md-3 p-0 pl-md-3">
                 <div class="card course-detail-card p-0 pt-2">

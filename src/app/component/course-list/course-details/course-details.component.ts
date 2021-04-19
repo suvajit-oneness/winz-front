@@ -4,6 +4,7 @@ import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { EncodeDecodeBase64 } from 'src/globalFunction';
 import { ActivatedRoute, Router } from '@angular/router';
 import   Swal from 'sweetalert2';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-course-details',
@@ -42,6 +43,20 @@ export class CourseDetailsComponent implements OnInit {
           this._loader.stopLoader('loader');
         },err => {}
     )
+  }
+
+  public lectureTitle = '';public youtubeURL = 'https://www.youtube.com/embed/tgbNymZ7vqY';
+  public playAsYoutube(lectureDetails){
+    this.lectureTitle = lectureDetails.title+' : '+lectureDetails.description;
+    if(lectureDetails.media != ''){
+      this.youtubeURL = lectureDetails.media;
+    }
+    $('#youtubeModalBody').empty().append('<iframe width="420" height="345" src="'+this.youtubeURL+'"></iframe>');
+    $('.youtubeModal').trigger('click');
+  }
+
+  closeYoutubeModal(){
+    $('#youtubeModalBody').empty();
   }
 
   enrollNow(courseId){
