@@ -12,7 +12,7 @@
                                 </div>
                                 <div class="col-12 col-md-9 p-1 pl-md-4">
                                     <h3 class="course-title-card">{{courseDetails.course_name}}</h3>
-                                    <p class="course-subtitle">{{courseDetails.course_description}}</p>
+                                    <p class="course-subtitle" [innerHtml]="courseDetails.course_description"></p>
                                     <ul class="badge_info">
                                         <li class="started"><a href="javascript:void(0)"><i class="ti-facebook"></i></a></li>
                                         <li class="medium"><a href="javascript:void(0)"><i class="ti-twitter-alt"></i></a></li>
@@ -120,7 +120,7 @@
                                 <div class="card-body">
                                     <a (click)="getCourseDetails(course.id)" href="javascript:void(0)">
                                         <h3 class="course-title">{{course.course_name}}</h3>
-                                        <p class="course-subtitle">{{course.course_description}}</p>
+                                        <p class="course-subtitle" innerHtml="{{course.course_description | slice:0:95}}{{ course.course_description.length > 95 ? ' ...' : ''}}"></p>
                                     </a>
                                     <div class="foot_lecture">{{commaSeparateTeacher(course.teacher)}}</div>
                                 </div>
