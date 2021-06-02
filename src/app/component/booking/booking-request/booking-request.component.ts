@@ -22,7 +22,7 @@ export class BookingRequestComponent implements OnInit {
       this._api.getBookingRequest(teacherId).subscribe(
           res => {
             this.data = res.data;
-            console.log(res),
+            // console.log(res),
             this._loader.stopLoader('loader');
           },err => {
             this._loader.stopLoader('loader');

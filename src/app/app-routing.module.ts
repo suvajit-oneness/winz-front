@@ -36,16 +36,13 @@ import { TestimonialComponent } from './component/testimonial/testimonial.compon
 import { UserMemberShipComponent } from './component/user-member-ship/user-member-ship.component';
 import { ZoomMeetingComponent } from './component/zoom-meeting/zoom-meeting.component';
 import { AuthGuardService } from './service/auth-guard.service';
+import { CategoryChapterComponent } from './component/category-chapter/category-chapter.component';
 
 const routes: Routes = [
+  // before Login Routes
   {path : '', component : HomeComponent, pathMatch:'full'},
   {path : 'login', component : LoginComponent},
   {path : 'signup', component : SignupComponent},
-  {path : 'dashboard', component : DashboardComponent,canActivate:[AuthGuardService]},
-  {path : 'user/profile', component : EditProfileComponent,canActivate:[AuthGuardService]},
-  {path : 'user/password/change', component : ChangePasswordComponent,canActivate:[AuthGuardService]},
-  {path : 'user/subscribed/course', component : SubscribedCourseComponent,canActivate:[AuthGuardService]},
-  {path : 'user/subscription/thankyou/:subscriptionId', component : SubscriptionThankyouComponent,canActivate:[AuthGuardService]},
   {path : 'course-list', component : CourseListComponent},
   {path : 'teacher-list',component : TeacherListComponent},
   {path : 'membership', component : MembershipComponent},
@@ -54,16 +51,6 @@ const routes: Routes = [
   {path : 'category/subject-category/:categoryId', component : SubjectCategoryComponent},
   {path : 'category/subject-category/chapter/:subjectCategoryId', component : ChapterComponent},
   {path : 'category/subject-category/chapter/question/:subjectCategory/:chapterId', component : QuestionComponent},
-  {path : 'schedule', component : ScheduleComponent},
-  {path : 'events', component : EventCalenderComponent},
-  {path : 'booking-thankyou',component:BookingThankyouComponent},
-  {path : 'booking-request', component:BookingRequestComponent},
-  {path : 'slot-booking-history',component : BookingHistoryComponent},
-  {path : 'contact-us', component : ContactusComponent},
-  {path : 'user/zoom-meeting',component : ZoomMeetingComponent},
-  {path : 'membership/booking-thankyou',component : MemberShipBookingThankyouComponent},
-  {path : 'user/membership',component : UserMemberShipComponent},
-  // New Routes
   {path : 'testimonials',component : TestimonialComponent},
   {path : 'blogs',component : BlogComponent},
   {path : 'blog-details/:blogId',component : BlogDetailsComponent},
@@ -73,6 +60,24 @@ const routes: Routes = [
   {path : 'refund-policy',component : RefundPolicyComponent},
   {path : 'faq',component : FaqComponent},
   {path : 'about-us',component : AboutUsComponent},
+  {path : 'contact-us', component : ContactusComponent},
+
+  // After Login Routes
+  {path : 'dashboard', component : DashboardComponent,canActivate:[AuthGuardService]},
+  {path : 'user/profile', component : EditProfileComponent,canActivate:[AuthGuardService]},
+  {path : 'user/password/change', component : ChangePasswordComponent,canActivate:[AuthGuardService]},
+  {path : 'user/subscribed/course', component : SubscribedCourseComponent,canActivate:[AuthGuardService]},
+  {path : 'user/subscription/thankyou/:subscriptionId', component : SubscriptionThankyouComponent,canActivate:[AuthGuardService]},
+  {path : 'schedule', component : ScheduleComponent},
+  {path : 'events', component : EventCalenderComponent},
+  {path : 'booking-thankyou',component:BookingThankyouComponent},
+  {path : 'booking-request', component:BookingRequestComponent},
+  {path : 'slot-booking-history',component : BookingHistoryComponent},
+  {path : 'user/zoom-meeting',component : ZoomMeetingComponent},
+  {path : 'membership/booking-thankyou',component : MemberShipBookingThankyouComponent},
+  {path : 'user/membership',component : UserMemberShipComponent},
+  {path : 'user/chapter',component:CategoryChapterComponent},
+  
   {path : '**', component : PageNotFoundComponent},
 ];
 

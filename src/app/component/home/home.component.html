@@ -68,7 +68,7 @@
                                 <div class="card-body">
                                     <a routerLink="/course-details/{{EncodeDecodeBase64(course.id,'encode')}}">
                                         <h3 class="course-title">{{course.course_name}}</h3>
-                                        <p class="course-subtitle">{{course.course_description}}</p>
+                                        <p class="course-subtitle" [innerHTML]="course.course_description"></p>
                                     </a>
                                     <div class="foot_lecture">{{commaSeparateTeacher(course.teacher)}}</div>
                                 </div>
