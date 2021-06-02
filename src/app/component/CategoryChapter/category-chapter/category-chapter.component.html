@@ -1,0 +1,34 @@
+<ngx-ui-loader loaderId="loader" fgsColor="#FFFFFF" bgsOpacity="1" overlayColor="rgba(40,40,40,0.1)"></ngx-ui-loader>
+<section class="account-detail">
+    <div class="d-flex">
+        <ul class="aside">
+            <app-sidebar></app-sidebar>
+        </ul>
+        <div class="account-sec mb-5">
+            <h3>All Chapters <a class="float-right" routerLink="/user/chapter/create">Add New Chapter</a></h3>
+            <table class="table table-striped table-bordered" style="width: 100%;" *ngIf="chapter.length > 0;else chapterNotFound">
+                <tr>
+                    <th>ChapterId</th>
+                    <th>Name</th>
+                    <th>Topic</th>
+                    <th>Price</th>
+                    <th>Category</th>
+                    <th>Sub Category</th>
+                    <th>Action</th>
+                </tr>
+                <tr *ngFor="let chap of chapter">
+                    <td>{{chap.id}}</td>
+                    <td>{{chap.chapter}}</td>
+                    <td>
+                        <ul><li *ngFor="let topic of chap.sub_chapter">{{topic.name}}</li></ul>
+                    </td>
+                    <td>{{chap.price}}</td>
+                    <td>{{chap.category.title}}</td>
+                    <td>{{chap.subject_category.title}}</td>
+                    <td><a routerLink="/user/chapter/edit/{{chap.id}}" class="text-success">Edit</a> | <a class="text-danger">Delete</a></td>
+                </tr>
+            </table>
+            <ng-template #chapterNotFound>Oops! no chapter available</ng-template>
+        </div>
+    </div>
+</section>

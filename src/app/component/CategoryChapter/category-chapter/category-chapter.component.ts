@@ -17,12 +17,13 @@ export class CategoryChapterComponent implements OnInit {
     this.getChapterList(this.teacherInfo.id);
   }
 
-  public data = [];
+  public chapter = [];
   getChapterList(teacherId){
     this._loader.startLoader('loader');
-    this._api.getBookingRequest(teacherId).subscribe(
+    this._api.getChapterListWithCategoryandSubjectCategory(teacherId).subscribe(
         res => {
-          this.data = res.data;
+          this.chapter = res.data;
+          console.log(this.chapter);
           this._loader.stopLoader('loader');
         },err => {
           this._loader.stopLoader('loader');

@@ -36,7 +36,9 @@ import { TestimonialComponent } from './component/testimonial/testimonial.compon
 import { UserMemberShipComponent } from './component/user-member-ship/user-member-ship.component';
 import { ZoomMeetingComponent } from './component/zoom-meeting/zoom-meeting.component';
 import { AuthGuardService } from './service/auth-guard.service';
-import { CategoryChapterComponent } from './component/category-chapter/category-chapter.component';
+import { CategoryChapterComponent } from './component/CategoryChapter/category-chapter/category-chapter.component';
+import { NewCategoryChapterComponent } from './component/CategoryChapter/new-category-chapter/new-category-chapter.component';
+import { EditCategoryChapterComponent } from './component/CategoryChapter/edit-category-chapter/edit-category-chapter.component';
 
 const routes: Routes = [
   // before Login Routes
@@ -77,6 +79,8 @@ const routes: Routes = [
   {path : 'membership/booking-thankyou',component : MemberShipBookingThankyouComponent},
   {path : 'user/membership',component : UserMemberShipComponent},
   {path : 'user/chapter',component:CategoryChapterComponent},
+  {path : 'user/chapter/create',component:NewCategoryChapterComponent},
+  {path : 'user/chapter/edit/:chapterId', component:EditCategoryChapterComponent},
   
   {path : '**', component : PageNotFoundComponent},
 ];

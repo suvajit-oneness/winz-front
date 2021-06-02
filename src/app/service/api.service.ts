@@ -195,4 +195,20 @@ export class APIService {
   getSettingSEOData(key = ''){
     return this._http.get<any>(_apiUrl + 'settings?key='+key);
   }
+
+  getChapterListWithCategoryandSubjectCategory(teacherId){
+    return this._http.get<any>(_apiUrl + 'chapter?teacherId='+teacherId);
+  }
+
+  getCategoryAndSubjectCategoryList(){
+    return this._http.get<any>(_apiUrl + 'category_and_subjectCategory');
+  }
+
+  addNewCategory(formData){
+    return this._http.post<any>(_apiUrl + 'chapter/create',formData);
+  }
+
+  updateChapter(formData){
+    return this._http.post<any>(_apiUrl + 'chapter/update',formData);
+  }
 }
