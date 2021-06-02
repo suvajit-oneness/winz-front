@@ -211,4 +211,7 @@ export class APIService {
   updateChapter(formData){
     return this._http.post<any>(_apiUrl + 'chapter/update',formData);
   }
+  deleteChapter(formData){
+    return this._http.post<any>(_apiUrl + 'chapter/delete',formData);
+  }
 }

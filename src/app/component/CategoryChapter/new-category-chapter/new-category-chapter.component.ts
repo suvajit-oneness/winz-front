@@ -94,10 +94,10 @@ export class NewCategoryChapterComponent implements OnInit {
       this._loader.startLoader('loader');
       const formField = new FormData();
       formField.append('teacherId',this.teacherInfo.id);
-      formField.append('category',formData.value['category'].trim());
-      formField.append('subcategory',formData.value['subcategory'].trim());
-      formField.append('chapter',formData.value['chapter'].trim());
-      formField.append('price',formData.value['price'].trim());
+      formField.append('category',formData.value['category']);
+      formField.append('subcategory',formData.value['subcategory']);
+      formField.append('chapter',formData.value['chapter']);
+      formField.append('price',formData.value['price']);
       this.subChapter.data.forEach((subcategory) => {
         formField.append('title[]',subcategory.name);
         formField.append('topic[]',subcategory.topics);

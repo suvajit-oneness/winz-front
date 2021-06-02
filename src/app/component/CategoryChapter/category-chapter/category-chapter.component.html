@@ -25,7 +25,7 @@
                     <td>{{chap.price}}</td>
                     <td>{{chap.category.title}}</td>
                     <td>{{chap.subject_category.title}}</td>
-                    <td><a routerLink="/user/chapter/edit/{{chap.id}}" class="text-success">Edit</a> | <a class="text-danger">Delete</a></td>
+                    <td><a routerLink="/user/chapter/edit/{{chap.id}}" class="text-success">Edit</a> | <a class="text-danger" (click)="deleteChapter(chap)">Delete</a></td>
                 </tr>
             </table>
             <ng-template #chapterNotFound>Oops! no chapter available</ng-template>

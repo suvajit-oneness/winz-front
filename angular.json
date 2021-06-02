@@ -92,9 +92,12 @@
             ],
             "styles": [
               "src/styles.css",
-              "src/responsive.css"
+              "src/responsive.css",
+              "../node_modules/sweetalert2/dist/sweetalert2.css"
             ],
-            "scripts": []
+            "scripts": [
+              "../node_modules/sweetalert2/dist/sweetalert2.js"
+            ]
           }
         },
         "lint": {
