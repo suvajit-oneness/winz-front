@@ -97,7 +97,7 @@ export class MembershipComponent implements OnInit {
           }else{
             Swal.fire('Error', res.message);
           }
-          console.log('Response After Payment',res);
+          // console.log('Response After Payment',res);
           this._loader.stopLoader('loader');
         },
         err => {

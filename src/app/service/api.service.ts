@@ -214,4 +214,8 @@ export class APIService {
   deleteChapter(formData){
     return this._http.post<any>(_apiUrl + 'chapter/delete',formData);
   }
+
+  chapterPurchasedAPI(formData){
+    return this._http.post<any>(_apiUrl + 'chapter/purchase/success',formData);
+  }
 }

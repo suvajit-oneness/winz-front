@@ -9,10 +9,9 @@
                 </p>
             </div>
             <div class="col-md-12" *ngIf="chapterList.length > 0,else noDataFound">
-                
                 <div class="card mb-2" *ngFor="let chapter of chapterList;index as i">
                     <div class="card-header">
-                        Chapter {{i+1}} - <span >{{chapter.chapter}}</span>
+                        Chapter {{i+1}} - <span >{{chapter.chapter}}</span><a href="javascript:void(0)" (click)="buyNowChapter(chapter)" class="float-right">Buy Now ($ {{chapter.price}})</a>
                     </div>
                     <div class="card-body" routerLink="/category/subject-category/chapter/question/{{EncodeDecodeBase64(chapter.subjectCategoryId,'encode')}}/{{EncodeDecodeBase64(chapter.id,'encode')}}">
                         <ul class="subchapter">
@@ -22,24 +21,7 @@
                             </li>
                         </ul>
                     </div>
-                  </div>
-
-                <!-- <div class="row" *ngFor="let chapter of chapterList;index as i">
-                    topic {{i+1}} 
-                    <ul>
-                        <li>
-                            <a class="member-inn blue-bg" routerLink="/category/subject-category/chapter/question/{{EncodeDecodeBase64(chapter.subjectCategoryId,'encode')}}/{{EncodeDecodeBase64(chapter.id,'encode')}}">
-                                <h4>{{chapter.chapter}}</h4>
-                                <ul>
-                                    <li *ngFor="let subchapter of chapter.sub_chapter">
-                                        {{subchapter.name}} <br>
-                                        {{subchapter.topics}}
-                                    </li>
-                                </ul>
-                            </a>
-                        </li>
-                    </ul>
-                </div> -->
+                </div>
             </div>
             <ng-template #noDataFound>
                 <div>
