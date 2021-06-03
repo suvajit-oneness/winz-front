@@ -218,4 +218,8 @@ export class APIService {
   chapterPurchasedAPI(formData){
     return this._http.post<any>(_apiUrl + 'chapter/purchase/success',formData);
   }
+
+  getSubscribedChapterList(userId){
+    return this._http.get<any>(_apiUrl + 'subscribed/user/chapter?userId'+userId);
+  }
 }

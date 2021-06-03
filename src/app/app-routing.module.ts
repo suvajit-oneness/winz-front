@@ -40,6 +40,7 @@ import { CategoryChapterComponent } from './component/CategoryChapter/category-c
 import { NewCategoryChapterComponent } from './component/CategoryChapter/new-category-chapter/new-category-chapter.component';
 import { EditCategoryChapterComponent } from './component/CategoryChapter/edit-category-chapter/edit-category-chapter.component';
 import { ChapterBookingThankyouComponent } from './component/CategoryChapter/chapter-booking-thankyou/chapter-booking-thankyou.component';
+import { ChapterPurchaseHistoryComponent } from './component/CategoryChapter/chapter-purchase-history/chapter-purchase-history.component';
 
 const routes: Routes = [
   // before Login Routes
@@ -83,6 +84,7 @@ const routes: Routes = [
   {path : 'user/chapter/create',component:NewCategoryChapterComponent},
   {path : 'user/chapter/edit/:chapterId', component:EditCategoryChapterComponent},
   {path : 'chapter/purchase/thankyou', component : ChapterBookingThankyouComponent},
+  {path : 'chaper/purchase/history', component : ChapterPurchaseHistoryComponent},
   
   {path : '**', component : PageNotFoundComponent},
 ];

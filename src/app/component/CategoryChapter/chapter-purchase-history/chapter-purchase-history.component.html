@@ -1,0 +1,41 @@
+<ngx-ui-loader loaderId="loader" fgsColor="#FFFFFF" bgsOpacity="1" overlayColor="rgba(40,40,40,0.1)"></ngx-ui-loader>
+<section class="account-detail">
+    <div class="d-flex">
+        <ul class="aside">
+            <app-sidebar></app-sidebar>
+        </ul>
+        <div class="account-sec mb-5">
+            <h3>Subscribed Chapters </h3>
+            <div *ngIf="chapter.data.length>0; else dataNotFound">
+                <table class="table table-striped table-bordered" style="width: 100%;">
+                    <thead>
+                        <tr>
+                            <th>Chapter Id</th>
+                            <th>Chapter Name</th>
+                            <th>Topics</th>
+                            <th>Category</th>
+                            <th>Sub-Category</th>
+                            <th>Price</th>
+                            <th>transactionId</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let chapter of chapter.data">
+                            <td>{{chapter.chapterId}}</td>
+                            <td>{{chapter.chapterName}}</td>
+                            <td><a href="javascript:void(0)" (click)="showTopics(chapter.subjectChapter)">{{chapter.subjectChapter.length}}</a></td>
+                            <td>{{chapter.categoryName}}</td>
+                            <td>{{chapter.subjectCategoryName}}</td>
+                            <td>$ {{chapter.price/100}}</td>
+                            <td>{{chapter.balanceTransactionId}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <ng-template #dataNotFound>
+                <span>OOps! Data not Found </span>
+            </ng-template>
+        </div>
+    </div>
+</section>
