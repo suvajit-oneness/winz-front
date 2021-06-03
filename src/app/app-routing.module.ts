@@ -10,7 +10,7 @@ import { BookingRequestComponent } from './component/booking/booking-request/boo
 import { MemberShipBookingThankyouComponent } from './component/booking/member-ship-booking-thankyou/member-ship-booking-thankyou.component';
 import { CancellationPolicyComponent } from './component/policy/cancellation-policy/cancellation-policy.component';
 import { ChangePasswordComponent } from './component/change-password/change-password.component';
-import { ChapterComponent } from './component/chapter/chapter.component';
+import { ChapterComponent } from './component/CategoryChapter/chapter/chapter.component';
 import { ContactusComponent } from './component/contactus/contactus.component';
 import { CourseDetailsComponent } from './component/course-list/course-details/course-details.component';
 import { CourseListComponent } from './component/course-list/course-list.component';
