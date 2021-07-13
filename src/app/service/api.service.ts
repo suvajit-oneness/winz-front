@@ -222,4 +222,12 @@ export class APIService {
   getSubscribedChapterList(userId){
     return this._http.get<any>(_apiUrl + 'subscribed/user/chapter?userId'+userId);
   }
+
+  getTeacherCourse(teacherId){
+    return this._http.get<any>(_apiUrl + 'teacher/course/list?teacherId'+teacherId);
+  }
+
+  deleteTeacherCourse(formData){
+    return this._http.post<any>(_apiUrl + 'teacher/course/delete',formData);
+  }
 }

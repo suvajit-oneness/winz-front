@@ -1,0 +1,39 @@
+<ngx-ui-loader loaderId="loader" fgsColor="#FFFFFF" bgsOpacity="1" overlayColor="rgba(40,40,40,0.1)"></ngx-ui-loader>
+<section class="account-detail">
+    <div class="d-flex">
+        <ul class="aside">
+            <app-sidebar></app-sidebar>
+        </ul>
+        <div class="account-sec mb-5">
+            <h3>Your Courses </h3>
+            <div *ngIf="TeacherCourse.data.length>0; else dataNotFound">
+                <table class="table table-striped table-bordered" style="width: 100%;">
+                    <thead>
+                        <tr>
+                            <th>Image</th>
+                            <th>Name</th>
+                            <th>Category</th>
+                            <th>Sub-Category</th>
+                            <th>Description</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let course of TeacherCourse.data">
+                            <td><img src="{{course.course_image}}" alt="{{course.course_image}}"></td>
+                            <td>{{course.course_name}}</td>
+                            <td>{{course.categoryName}}</td>
+                            <td>{{course.subCategoryName}}</td>
+                            <td><span [innerHTML]="course.course_description"></span></td>
+                            <td><a href="javascript:void(0)" class="text-success">Edit</a> | <a href="javascript:void(0)" class="text-danger" (click)="deleteTeacherCourse(course)">Delete</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <ng-template #dataNotFound>
+                <span>OOps! Data not Found </span>
+            </ng-template>
+        </div>
+    </div>
+</section>

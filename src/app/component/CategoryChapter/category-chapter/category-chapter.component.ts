@@ -60,7 +60,7 @@ export class CategoryChapterComponent implements OnInit {
       // else if (result.dismiss === Swal.DismissReason.cancel) {
           // Swal.fire('Deleted!','Your imaginary file has been deleted.','success');
       // }
-    })
+    });
   }
 
 }

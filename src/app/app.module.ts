@@ -64,6 +64,7 @@ import { EditCategoryChapterComponent } from './component/CategoryChapter/edit-c
 import { QuestionListComponent } from './component/question/question-list/question-list.component';
 import { ChapterBookingThankyouComponent } from './component/CategoryChapter/chapter-booking-thankyou/chapter-booking-thankyou.component';
 import { ChapterPurchaseHistoryComponent } from './component/CategoryChapter/chapter-purchase-history/chapter-purchase-history.component';
+import { TeacherCourseComponent } from './component/course-list/teacher-course/teacher-course.component';
 // Global Error Catch Implement END
 
 // export class RajeevErrorHandler implements ErrorHandler{
@@ -80,7 +81,7 @@ import { ChapterPurchaseHistoryComponent } from './component/CategoryChapter/cha
     FooterComponent,LoginComponent,SignupComponent,CourseListComponent,CourseDetailsComponent,
     TeacherProfileComponent,DashboardComponent,SidebarComponent,EditProfileComponent,ChangePasswordComponent,
     SubscribedCourseComponent,MembershipComponent,SubscriptionThankyouComponent,QuestionComponent,ChapterComponent,
-    ContactusComponent,SubjectCategoryComponent,EventCalenderComponent,ScheduleComponent, BookingThankyouComponent, BookingRequestComponent, BookingHistoryComponent, ZoomMeetingComponent, TeacherListComponent, MemberShipBookingThankyouComponent, UserMemberShipComponent, AboutUsComponent, TestimonialComponent, FaqComponent, BlogComponent, BlogDetailsComponent, TermsAndConditionComponent, PrivacyPolicyComponent, RefundPolicyComponent, CancellationPolicyComponent, CategoryChapterComponent, NewCategoryChapterComponent, EditCategoryChapterComponent, QuestionListComponent, ChapterBookingThankyouComponent, ChapterPurchaseHistoryComponent
+    ContactusComponent,SubjectCategoryComponent,EventCalenderComponent,ScheduleComponent, BookingThankyouComponent, BookingRequestComponent, BookingHistoryComponent, ZoomMeetingComponent, TeacherListComponent, MemberShipBookingThankyouComponent, UserMemberShipComponent, AboutUsComponent, TestimonialComponent, FaqComponent, BlogComponent, BlogDetailsComponent, TermsAndConditionComponent, PrivacyPolicyComponent, RefundPolicyComponent, CancellationPolicyComponent, CategoryChapterComponent, NewCategoryChapterComponent, EditCategoryChapterComponent, QuestionListComponent, ChapterBookingThankyouComponent, ChapterPurchaseHistoryComponent, TeacherCourseComponent
   ],
   imports: [
     BrowserModule,BrowserAnimationsModule,NgxUiLoaderModule,NgxUiLoaderRouterModule,NgxUiLoaderHttpModule,
