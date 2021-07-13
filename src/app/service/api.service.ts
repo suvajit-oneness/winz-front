@@ -71,6 +71,10 @@ export class APIService {
     return this._http.get<any>(_apiUrl+'home_page_content');
   }
 
+  getCourseList(){
+    return this._http.get<any>(_apiUrl + 'course/list');
+  }
+
   // API Implementation Start
   userLoginAPI(formData){
     return this._http.post<any>(_apiUrl+'login',formData);
@@ -90,10 +94,6 @@ export class APIService {
 
   getTeacherDetails(teacherId){
     return this._http.get<any>(_apiUrl + 'teacher/'+teacherId);
-  }
-
-  getCourseList(){
-    return this._http.get<any>(_apiUrl + 'course');
   }
 
   getCourseDetails(courseId,userId=0){

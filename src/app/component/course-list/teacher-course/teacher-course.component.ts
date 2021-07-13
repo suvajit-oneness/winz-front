@@ -26,6 +26,7 @@ export class TeacherCourseComponent implements OnInit {
     this._loader.startLoader('loader');
     this._api.getTeacherCourse(teacherId).subscribe(
       res => {
+        console.log(res);
         this.TeacherCourse.data = [];
         if(res.error == false){
             res.data.forEach((response) => {
@@ -40,6 +41,10 @@ export class TeacherCourseComponent implements OnInit {
                     course_description : response.course_description,
                     categoryName : response.category.title,
                     subCategoryName : response.subjectcategory.title,
+                    countLecture : response.lecture.length,
+                    countChapter : response.chapter.length,
+                    countFeature : response.feature.length,
+                    price : response.course_price,
                 });
             });
         }
@@ -92,4 +97,8 @@ interface TEACHERCOURSE{
   course_description : string,
   categoryName : string,
   subCategoryName : string,
+  countLecture : number,
+  countChapter : number,
+  countFeature : number,
+  price : string,
 }

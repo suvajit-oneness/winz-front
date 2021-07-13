@@ -15,16 +15,15 @@
     </div>
 </section><!--End_banner-->
 
-<section>
+<!-- <section>
     <div class="container p-0 pl-md-2 pr-md-2">
         <div class="row align-items-center sub_subject">
             <div class="col-6 col-md-3 bg-white p-0" *ngFor="let category of category;">
-                <!-- <a routerLink="/category/chapter/{{EncodeDecodeBase64(category.id,'encode')}}">{{category.title}}</a> -->
                 <a routerLink="/category/subject-category/{{EncodeDecodeBase64(category.id,'encode')}}">{{category.title}}</a>
             </div>
         </div>
     </div>
-</section><!--subject-->
+</section> -->
 
 <section class="pt-6 pb-4 overflow-hidden">
     <div class="container">
@@ -68,9 +67,9 @@
                                 <div class="card-body">
                                     <a routerLink="/course-details/{{EncodeDecodeBase64(course.id,'encode')}}">
                                         <h3 class="course-title">{{course.course_name}}</h3>
-                                        <p class="course-subtitle" [innerHTML]="course.course_description"></p>
+                                        <p class="course-subtitle" innerHTML="{{course.course_description | slice:0:95}}{{ course.course_description.length > 95 ? ' ...' : ''}}"></p>
                                     </a>
-                                    <div class="foot_lecture">{{commaSeparateTeacher(course.teacher)}}</div>
+                                    <div class="foot_lecture"><a routerLink="/teacher/{{EncodeDecodeBase64(course.teacherId,'encode')}}">{{course.teacher.name}}</a></div>
                                 </div>
                             </div>
                         </div>
@@ -88,33 +87,42 @@
     </div>
 </section><!--Courses-->
 
-<section class="pb-5">
-   <div class="container">
-        <div class="section_title text-center pt-5 pb-5 mt-0 mt-md-5">
-            <h3 class="main_title">{{HomeTeacher.heading}}</h3>
-            <p class="col-md-8 m-auto pt-3">{{HomeTeacher.description}}</p>
-        </div>
-        <div class="row m-0">
-            <div class="col-12 col-md-3 p-2 mb-2" *ngFor="let teacher of teacherList">
-                <div class="card border-none pt-2 shadow-sm">
-                    <div class="image m-auto">
-                        <div class="image-teacher">
-                            <img src="{{teacher.image}}">
+<section class="bg-light pt-5 pb-5 mt-5">
+    <div class="container">
+        <div class="row">
+            <div class="section_title text-center col-12 p-0 pb-5">
+                <h3 class="main_title">{{HomeTeacher.heading}}</h3>
+                <p class="col-md-8 m-auto pt-3">{{HomeTeacher.description}}</p>
+            </div>
+            <div class="col-12 p-2 p-md-0 pt-5">
+                <div class="row m-0 p-0">
+                    <div class="col-12 col-md-3 p-1" *ngFor="let teacher of teacherList">
+                        <div class="card">
+                            <div class="card-body p-0 pb-3">
+                                <img src="{{teacher.image}}" class="card-img-top">
+                                <div class="card-body">
+                                    <a routerLink="/teacher/{{EncodeDecodeBase64(teacher.id,'encode')}}">
+                                        <h3 class="course-title">{{teacher.name}}</h3>
+                                        <p class="course-subtitle" innerHTML="{{teacher.subject | slice:0:95}}{{ teacher.subject.length > 95 ? ' ...' : ''}}"></p>
+                                    </a>
+                                    <ul class="instructor_caption">
+                                        <li *ngIf="teacher.facebook != ''"><a href="{{teacher.facebook}}" class="cl-fb" tabindex="-1" target="_blank"><i class="ti-facebook"></i></a></li>
+                                        <li *ngIf="teacher.twitter != ''"><a href="{{teacher.twitter}}" class="cl-twitter" tabindex="-1"><i class="ti-twitter"></i></a></li>
+                                        <li *ngIf="teacher.linkedin != ''"><a href="{{teacher.linkedin}}" class="cl-linked" tabindex="-1"><i class="ti-linkedin"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="card-body">
-                        <a routerLink="/teacher/{{EncodeDecodeBase64(teacher.id,'encode')}}">
-                            <h3 class="course-title text-center"><b>{{teacher.name}}</b></h3>
-                            <p class="course-subtitle text-center mt-1">{{teacher.subject}}</p>
-                        </a>
-                        <ul class="instructor_caption">
-                            <li *ngIf="teacher.facebook != ''"><a href="{{teacher.facebook}}" class="cl-fb" tabindex="-1" target="_blank"><i class="ti-facebook"></i></a></li>
-                            <li *ngIf="teacher.twitter != ''"><a href="{{teacher.twitter}}" class="cl-twitter" tabindex="-1"><i class="ti-twitter"></i></a></li>
-                            <li *ngIf="teacher.linkedin != ''"><a href="{{teacher.linkedin}}" class="cl-linked" tabindex="-1"><i class="ti-linkedin"></i></a></li>
-                        </ul>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-5 col-md-6 col-12 mt-5">
+                <div class="text-center">
+                    <a routerLink="/teacher-list" class="btn btn-theme btn-browse-btn">Browse More Teacher</a>
+                </div>
+            </div>
+        </div>
     </div>
-</section><!--teachers-->
+</section> <!-- Teacher -->

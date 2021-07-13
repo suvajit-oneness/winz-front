@@ -85,13 +85,4 @@ export class CourseDetailsComponent implements OnInit {
     Swal.fire('Warning','This course is already enrolled by you');
   }
 
-  commaSeparateTeacher(teacherList){
-    let teacher = '';
-    Object.keys(teacherList).forEach((key)=>{
-      teacher += teacherList[key].name+',';
-    });
-    teacher = teacher.slice(0, -1);// removing the last , sign from String
-    return teacher;
-  }
-
 }

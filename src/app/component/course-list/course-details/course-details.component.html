@@ -122,7 +122,7 @@
                                         <h3 class="course-title">{{course.course_name}}</h3>
                                         <p class="course-subtitle" innerHtml="{{course.course_description | slice:0:95}}{{ course.course_description.length > 95 ? ' ...' : ''}}"></p>
                                     </a>
-                                    <div class="foot_lecture">{{commaSeparateTeacher(course.teacher)}}</div>
+                                    <div class="foot_lecture">{{course.teacher_details.name}}</div>
                                 </div>
                             </div>
                         </div>
