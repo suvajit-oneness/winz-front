@@ -16,7 +16,7 @@ export class SubjectCategoryComponent implements OnInit {
   }
   public chapterId : any = 0;
   public category : any = [];
-
+public categoryFullName = '';
   ngOnInit(): void {
     this.chapterId = this._activatedRoute.snapshot.paramMap.get('chapterId');
     this.getCategory();
