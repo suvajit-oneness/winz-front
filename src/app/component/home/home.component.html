@@ -69,7 +69,7 @@
                                         <h3 class="course-title">{{course.course_name}}</h3>
                                         <p class="course-subtitle" innerHTML="{{course.course_description | slice:0:95}}{{ course.course_description.length > 95 ? ' ...' : ''}}"></p>
                                     </a>
-                                    <div class="foot_lecture"><a routerLink="/teacher/{{EncodeDecodeBase64(course.teacherId,'encode')}}">{{course.teacher.name}}</a></div>
+                                    <div class="foot_lecture"><a routerLink="/teacher/profile/{{EncodeDecodeBase64(course.teacherId,'encode')}}">{{course.teacher.name}}</a></div>
                                 </div>
                             </div>
                         </div>
@@ -101,7 +101,7 @@
                             <div class="card-body p-0 pb-3">
                                 <img src="{{teacher.image}}" class="card-img-top">
                                 <div class="card-body">
-                                    <a routerLink="/teacher/{{EncodeDecodeBase64(teacher.id,'encode')}}">
+                                    <a routerLink="/teacher/profile/{{EncodeDecodeBase64(teacher.id,'encode')}}">
                                         <h3 class="course-title">{{teacher.name}}</h3>
                                         <p class="course-subtitle" innerHTML="{{teacher.subject | slice:0:95}}{{ teacher.subject.length > 95 ? ' ...' : ''}}"></p>
                                     </a>

@@ -33,21 +33,21 @@
                 <div class="accordion mt-0 mt-md-2" id="accordionExample">
                     <div class="card child-card">
                         <div class="card-header border-bottom-0" id="headingOne">
-                            <h2 class="mb-0 accordion_title">
-                                <!-- <a class="d-block position-relative d-block text-dark collapsible-link py-2 collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                Part 01: How To Learn Web Designing Step by Step
-                                </a> -->
-                            </h2>
+                            <h2 class="mb-0 accordion_title"></h2>
                         </div>
 
                         <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                             <div class="card-body pl-3 pr-3">
                                 <ul class="lectures_lists">
-                                    <li *ngFor="let lecture of courseDetails.lectures">
-                                        <div class="lectures_lists_title" (click)="playAsYoutube(lecture)">
-                                            <i class="ti-control-play"></i>{{lecture.title}}
+                                    <li *ngFor="let chapter of courseDetails.chapter;index as i">
+                                        <div class="lectures_lists_title" (click)="playAsYoutube(chapter)">
+                                            <i class="ti-control-play"></i><b>Chapter : {{i+1}}</b> {{chapter.name}}
                                         </div>
-                                        {{lecture.description}}
+                                        <span *ngIf="!chapter.userChapterPurchases, else chapterPurchased;" (click)="enrollNow('chapter',chapter)">$ {{chapter.price}}</span>
+                                        <ng-template #chapterPurchased>
+                                            <span>{{'Purchased'}}</span>
+                                        </ng-template>
+                                        <!-- {{chapter.description}} -->
                                     </li>
                                 </ul>
                             </div>
@@ -89,7 +89,7 @@
                         <div class="mb-4">
                             <div class="ed_view_price pl-4">
                                 <span>Acctual Price</span>
-                                <h2 class="theme-cl">$ {{courseDetails.course_price}}.00</h2>
+                                <h2 class="theme-cl">$ {{courseDetails.coursePrice}}</h2>
                             </div>
                             <div class="ed_view_features pl-4">
                                 <span>Course Features</span>
@@ -98,7 +98,7 @@
                                 </ul>
                             </div>
                             <div class="ed_view_link">
-                                <a *ngIf="!courseDetails.isUserSubscribed, else enrolled;" href="javascript:void(0)" class="btn btn-theme enroll-btn" (click)="enrollNow(courseDetails.id)">Enroll Now<i class="ti-angle-right"></i></a>
+                                <a *ngIf="!courseDetails.isUserCoursePurchased, else enrolled;" href="javascript:void(0)" class="btn btn-theme enroll-btn" (click)="enrollNow('course',courseDetails)">Enroll Now<i class="ti-angle-right"></i></a>
                                 <ng-template #enrolled>
                                     <a href="javascript:void(0)" (click)="alreadyEnrolled()" class="btn btn-theme enroll-btn">Enrolled</a>
                                 </ng-template>
@@ -122,7 +122,7 @@
                                         <h3 class="course-title">{{course.course_name}}</h3>
                                         <p class="course-subtitle" innerHtml="{{course.course_description | slice:0:95}}{{ course.course_description.length > 95 ? ' ...' : ''}}"></p>
                                     </a>
-                                    <div class="foot_lecture">{{course.teacher_details.name}}</div>
+                                    <div class="foot_lecture"><a routerLink="/teacher/profile/{{EncodeDecodeBase64(course.teacherId,'encode')}}">{{course.teacher.name}}</a></div>
                                 </div>
                             </div>
                         </div>

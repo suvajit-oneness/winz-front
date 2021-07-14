@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { APIService } from 'src/app/service/api.service';
 import Swal from 'sweetalert2';
+import { EncodeDecodeBase64 } from 'src/globalFunction';
 
 @Component({
   selector: 'app-teacher-course',
@@ -9,7 +10,8 @@ import Swal from 'sweetalert2';
   styleUrls: ['./teacher-course.component.css']
 })
 export class TeacherCourseComponent implements OnInit {
-
+  
+  public EncodeDecodeBase64 = EncodeDecodeBase64;
   public TeacherCourse: {data: TEACHERCOURSE[];};
   constructor(private _loader : NgxUiLoaderService,private _api:APIService) {
     this.TeacherCourse = {data : []};
@@ -34,17 +36,14 @@ export class TeacherCourseComponent implements OnInit {
                 this.TeacherCourse.data.push({
                     id : response.id,
                     categoryId : response.categoryId,
-                    subjectCategoryId : response.subjectCategoryId,
                     teacherId : response.teacherId,
                     course_name : response.course_name,
                     course_image : response.course_image,
                     course_description : response.course_description,
-                    categoryName : response.category.title,
-                    subCategoryName : response.subjectcategory.title,
-                    countLecture : response.lecture.length,
+                    categoryName : response.category.name,
                     countChapter : response.chapter.length,
                     countFeature : response.feature.length,
-                    price : response.course_price,
+                    price : response.price,
                 });
             });
         }
@@ -67,7 +66,6 @@ export class TeacherCourseComponent implements OnInit {
       if (result.value) {
         const formField = new FormData();
         formField.append('categoryId',courseData.categoryId);
-        formField.append('subjectCategoryId',courseData.subjectCategoryId);
         formField.append('teacherId',courseData.teacherId);
         formField.append('courseId',courseData.id);
         this._api.deleteTeacherCourse(formField).subscribe(
@@ -90,14 +88,11 @@ export class TeacherCourseComponent implements OnInit {
 interface TEACHERCOURSE{
   id : number,
   categoryId : number,
-  subjectCategoryId : number,
   teacherId : number,
   course_name : string,
   course_image : string,
   course_description : string,
   categoryName : string,
-  subCategoryName : string,
-  countLecture : number,
   countChapter : number,
   countFeature : number,
   price : string,

@@ -28,14 +28,14 @@ export class EditCategoryChapterComponent implements OnInit {
   public teacherInfo : any = {};
   ngOnInit(): void {
     this.teacherInfo = this._api.getUserDetailsFromStorage();
-    this.getCategoryAndSubjectCategoryList();
+    this.getCategoryList();
 
     this.getChapterData(this.chapterId); // getting the Data of the Selected Chapter
   }
 
-  getCategoryAndSubjectCategoryList(){
+  getCategoryList(){
     this._loader.startLoader('loader');
-    this._api.getCategoryAndSubjectCategoryList().subscribe(
+    this._api.getCategoryList().subscribe(
         res => {
           this.categoryClass.data = [];
           res.data.category.forEach((category) => {

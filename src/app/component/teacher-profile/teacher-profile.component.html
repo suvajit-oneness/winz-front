@@ -58,14 +58,14 @@
     </div>
 </section>
 
-<section class="mt-4">
+<section class="mt-4" *ngIf="teacherData.teacherCourses.length > 0">
     <div class="container">
         <div class="row p-3 p-md-0">
             <div class="col-12 p-0 pt-2">
                 <div class="row m-0 p-0">
                     <div class="col-12 row m-0 mb-3 p-0">
                         <div class="col-6 p-0">
-                            <h4 class="text-bold font-small-3 pt-3 pb-3 pb-md-0">Classes</h4>
+                            <h4 class="text-bold font-small-3 pt-3 pb-3 pb-md-0">Courses</h4>
                         </div>
                         <div class="col-md-2 p-0 ml-auto text-right">
                             <div class="form-group">
@@ -86,7 +86,7 @@
                             <div class="card-body">
                                 <a routerLink="/course-details/{{EncodeDecodeBase64(course.id,'encode')}}">
                                     <h3 class="course-title">{{course.course_name}}</h3>
-                                    <p class="course-subtitle">{{course.course_description}}</p>
+                                    <p class="course-subtitle" innerHTML="{{course.course_description | slice:0:95}}{{ course.course_description.length > 95 ? ' ...' : ''}}"></p>
                                 </a>
                             </div>
                         </div>
@@ -95,15 +95,4 @@
             </div>
         </div>
     </div>
-</section><!--class-list-->
-
-
-
-<!-- <div class="container mt-5">
-    <h2>Stripe Checkout</h2>
-    <div class="row mt-5">
-        <div class="col-md-4">
-            <button (click)="bookNow(20)" class="btn btn-primary btn-block">Pay $20</button>
-        </div>
-    </div>
-</div> -->
+</section><!--Course-list-->

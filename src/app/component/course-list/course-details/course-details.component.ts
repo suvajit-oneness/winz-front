@@ -38,7 +38,6 @@ export class CourseDetailsComponent implements OnInit {
     this._api.getCourseDetails(courseId,this.userId).subscribe(
         res => {
           this.courseDetails = res.data;
-          // console.log(this.courseDetails);
           window.scrollTo(0, 0);
           this._loader.stopLoader('loader');
         },err => {}
@@ -59,11 +58,18 @@ export class CourseDetailsComponent implements OnInit {
     $('#youtubeModalBody').empty();
   }
 
-  enrollNow(courseId){
-    if(this.loginCheck && courseId > 0){
+  enrollNow(whattodo,data){
+    console.log(whattodo,data);
+    if(this.loginCheck){
       const mainForm = new FormData();
       mainForm.append('userId',this.userInfo.id);
-      mainForm.append('courseId',courseId);
+      mainForm.append('whatPurchased',whattodo);
+      if(whattodo == 'chapter'){
+        mainForm.append('courseId',data.courseId);
+        mainForm.append('chapterId',data.id);
+      }else if(whattodo == 'course'){
+        mainForm.append('courseId',data.id);
+      }
       this._loader.startLoader('loader');
       this._api.postUserSubscribedCourse(mainForm).subscribe(
         res => {

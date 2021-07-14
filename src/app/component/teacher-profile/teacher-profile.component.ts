@@ -30,6 +30,7 @@ export class TeacherProfileComponent implements OnInit {
     this._loader.startLoader('loader');
     this._api.getTeacherDetails(teacherId).subscribe(
       res => {
+        console.log(res);
         this.teacherData = res.data;
         this._loader.stopLoader('loader');
       },err => {}

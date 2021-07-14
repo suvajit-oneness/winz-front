@@ -10,7 +10,7 @@ import { APIService } from 'src/app/service/api.service';
     <ngx-ui-loader loaderId="loader" fgsColor="#FFFFFF" bgsOpacity="1" overlayColor="rgba(40,40,40,0.1)"></ngx-ui-loader>
     <h3 style="text-align:center; color:purple;">Thankyou for the Subscribed the course
       <br>
-      <a routerLink="/user/subscribed/course">Click here to see your subscription</a>
+      <a routerLink="/chaper/purchase/history">Click here to see your subscription</a>
     </h3>
   `,
   styles: [

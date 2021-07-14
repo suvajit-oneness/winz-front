@@ -25,7 +25,7 @@
                         <div class="card">
                             <img src="{{teacher.image}}" class="card-img-top">
                             <div class="card-body">
-                                <a routerLink="/teacher/{{EncodeDecodeBase64(teacher.id,'encode')}}">
+                                <a routerLink="/teacher/profile/{{EncodeDecodeBase64(teacher.id,'encode')}}">
                                     <h3 class="course-title">{{teacher.name}}</h3>
                                     <p class="course-subtitle"><strong>Subject : {{teacher.subject}}</strong></p>
                                     <p class="course-subtitle"><strong>BIO :</strong><br><span innerHTML="{{teacher.description | slice:0:95}}{{ teacher.description.length > 95 ? ' ...' : ''}}"></span></p>

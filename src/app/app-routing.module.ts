@@ -42,6 +42,8 @@ import { EditCategoryChapterComponent } from './component/CategoryChapter/edit-c
 import { ChapterBookingThankyouComponent } from './component/CategoryChapter/chapter-booking-thankyou/chapter-booking-thankyou.component';
 import { ChapterPurchaseHistoryComponent } from './component/CategoryChapter/chapter-purchase-history/chapter-purchase-history.component';
 import { TeacherCourseComponent } from './component/course-list/teacher-course/teacher-course.component';
+import { AddTeacherCourseComponent } from './component/course-list/teacher-course/add-teacher-course/add-teacher-course.component';
+import { EditTeacherCourseComponent } from './component/course-list/teacher-course/edit-teacher-course/edit-teacher-course.component';
 
 const routes: Routes = [
   // before Login Routes
@@ -52,7 +54,7 @@ const routes: Routes = [
   {path : 'teacher-list',component : TeacherListComponent},
   {path : 'membership', component : MembershipComponent},
   {path : 'course-details/:courseId', component : CourseDetailsComponent},
-  {path : 'teacher/:teacherId', component : TeacherProfileComponent},
+  {path : 'teacher/profile/:teacherId', component : TeacherProfileComponent},
   {path : 'category/subject-category/:categoryId', component : SubjectCategoryComponent},
   {path : 'category/subject-category/chapter/:subjectCategoryId', component : ChapterComponent},
   {path : 'category/subject-category/chapter/question/:subjectCategory/:chapterId', component : QuestionComponent},
@@ -71,7 +73,7 @@ const routes: Routes = [
   {path : 'dashboard', component : DashboardComponent,canActivate:[AuthGuardService]},
   {path : 'user/profile', component : EditProfileComponent,canActivate:[AuthGuardService]},
   {path : 'user/password/change', component : ChangePasswordComponent,canActivate:[AuthGuardService]},
-  {path : 'user/subscribed/course', component : SubscribedCourseComponent,canActivate:[AuthGuardService]},
+  // {path : 'user/subscribed/course', component : SubscribedCourseComponent,canActivate:[AuthGuardService]},
   {path : 'user/subscription/thankyou/:subscriptionId', component : SubscriptionThankyouComponent,canActivate:[AuthGuardService]},
   {path : 'schedule', component : ScheduleComponent},
   {path : 'events', component : EventCalenderComponent},
@@ -87,6 +89,8 @@ const routes: Routes = [
   {path : 'chapter/purchase/thankyou', component : ChapterBookingThankyouComponent},
   {path : 'chaper/purchase/history', component : ChapterPurchaseHistoryComponent},
   {path : 'teacher/course/list', component : TeacherCourseComponent},
+  {path : 'teacher/course/list/create', component : AddTeacherCourseComponent},
+  {path : 'teacher/course/list/:courseId/edit', component : EditTeacherCourseComponent},
   
   {path : '**', component : PageNotFoundComponent},
 ];

@@ -89,15 +89,23 @@ export class APIService {
   }
 
   getTeacherList(){
-    return this._http.get<any>(_apiUrl + 'teacher');
+    return this._http.get<any>(_apiUrl + 'teacher/details');
   }
 
   getTeacherDetails(teacherId){
-    return this._http.get<any>(_apiUrl + 'teacher/'+teacherId);
+    return this._http.get<any>(_apiUrl + 'teacher/details?teacherId='+teacherId);
   }
 
-  getCourseDetails(courseId,userId=0){
-    return this._http.get<any>(_apiUrl + 'course/'+courseId+'?userId='+userId);
+  getCourseDetails(courseId=0,userId=0){
+    return this._http.get<any>(_apiUrl + 'course/list?courseId='+courseId+'&userId='+userId);
+  }
+
+  createTeacherCourse(formdata){
+    return this._http.post<any>(_apiUrl + 'teacher/course/create',formdata);
+  }
+
+  editTeacherCourse(courseId){
+    return this._http.get<any>(_apiUrl+'teacher/course/edit?courseId='+courseId);
   }
 
   updateUserPassword(data){
@@ -109,7 +117,7 @@ export class APIService {
   }
 
   postUserSubscribedCourse(formData){
-    return this._http.post<any>(_apiUrl + 'subscribed/course',formData);
+    return this._http.post<any>(_apiUrl + 'subscribed/user/course',formData);
   }
 
   getMembershipList(userId,userType){
@@ -200,8 +208,8 @@ export class APIService {
     return this._http.get<any>(_apiUrl + 'chapter?teacherId='+teacherId);
   }
 
-  getCategoryAndSubjectCategoryList(){
-    return this._http.get<any>(_apiUrl + 'category_and_subjectCategory');
+  getCategoryList(){
+    return this._http.get<any>(_apiUrl + 'category/list');
   }
 
   addNewCategory(formData){
@@ -224,7 +232,7 @@ export class APIService {
   }
 
   getTeacherCourse(teacherId){
-    return this._http.get<any>(_apiUrl + 'teacher/course/list?teacherId'+teacherId);
+    return this._http.get<any>(_apiUrl + 'teacher/course/list?teacherId='+teacherId);
   }
 
   deleteTeacherCourse(formData){
