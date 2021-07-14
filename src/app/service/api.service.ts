@@ -131,6 +131,11 @@ export class APIService {
   getChapterList(subjectCategoryId = 0,chapterId = 0,userId=0){
     return this._http.get<any>(_apiUrl + 'chapter?subjectCategoryId='+subjectCategoryId+'&chapterId='+chapterId+'&userId='+userId);
   }
+  
+  getSubChapterList(chapterId=0){
+    return this._http.get<any>(_apiUrl + 'chapter/subchapter?chapterId='+chapterId);
+  }
+  
 
   getQuestionList(subjectCategoryId = 0,chapterId = 0){
     return this._http.get<any>(_apiUrl + 'question?subjectCategoryId='+subjectCategoryId+'&chapterId='+chapterId);

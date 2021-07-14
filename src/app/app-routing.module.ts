@@ -53,9 +53,6 @@ const routes: Routes = [
   {path : 'membership', component : MembershipComponent},
   {path : 'course-details/:courseId', component : CourseDetailsComponent},
   {path : 'teacher/profile/:teacherId', component : TeacherProfileComponent},
-  {path : 'category/subject-category/:categoryId', component : SubjectCategoryComponent},
-  {path : 'category/subject-category/chapter/:subjectCategoryId', component : ChapterComponent},
-  {path : 'category/subject-category/chapter/question/:subjectCategory/:chapterId', component : QuestionComponent},
   {path : 'testimonials',component : TestimonialComponent},
   {path : 'blogs',component : BlogComponent},
   {path : 'blog-details/:blogId',component : BlogDetailsComponent},
@@ -67,6 +64,10 @@ const routes: Routes = [
   {path : 'about-us',component : AboutUsComponent},
   {path : 'contact-us', component : ContactusComponent},
 
+  {path : 'chapter/:chapterId/category', component : SubjectCategoryComponent},
+  {path : 'chapter/:chapterId/sub-chapter', component : ChapterComponent},
+  {path : 'category/subject-category/chapter/question/:subjectCategory/:chapterId', component : QuestionComponent},
+
   // After Login Routes
   {path : 'dashboard', component : DashboardComponent,canActivate:[AuthGuardService]},
   {path : 'user/profile', component : EditProfileComponent,canActivate:[AuthGuardService]},
@@ -77,8 +78,6 @@ const routes: Routes = [
   {path : 'teacher/course/:courseId/chapter/list',component : CourseChapterListComponent},
   {path : 'teacher/course/:courseId/chapter/create', component : AddCourseChapterComponent},
   {path : 'teacher/course/:courseId/chapter/:chapterId/edit', component : EditCourseChapterComponent},
-
-
   // {path : 'user/subscribed/course', component : SubscribedCourseComponent,canActivate:[AuthGuardService]},
   {path : 'user/subscription/thankyou/:subscriptionId', component : SubscriptionThankyouComponent,canActivate:[AuthGuardService]},
   {path : 'schedule', component : ScheduleComponent},

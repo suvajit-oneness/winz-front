@@ -28,14 +28,14 @@
             <!-- Accordion card -->
             <div class="card course-detail-card col-12 col-md-9 bg-light">
                 <div class="card-header bg-none border-bottom-0">
-                    <h4 class="edu_title">Course Circullum</h4>
+                    <h4 class="edu_title">Course Chapters</h4>
                 </div>
                 <div class="accordion mt-0 mt-md-2" id="accordionExample">
                     <div class="card child-card">
                         <div class="card-header border-bottom-0" id="headingOne">
                             <h2 class="mb-0 accordion_title"></h2>
                         </div>
-
+                        
                         <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                             <div class="card-body pl-3 pr-3">
                                 <ul class="lectures_lists">
@@ -45,7 +45,7 @@
                                         </div>
                                         <span *ngIf="!chapter.userChapterPurchases, else chapterPurchased;" (click)="enrollNow('chapter',chapter)">$ {{chapter.price}}</span>
                                         <ng-template #chapterPurchased>
-                                            <span>{{'Purchased'}}</span>
+                                            <span routerLink="/chapter/{{chapter.id}}/category">{{'Purchased'}}</span>
                                         </ng-template>
                                         <!-- {{chapter.description}} -->
                                     </li>
