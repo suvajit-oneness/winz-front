@@ -35,14 +35,13 @@ import { TestimonialComponent } from './component/testimonial/testimonial.compon
 import { UserMemberShipComponent } from './component/user-member-ship/user-member-ship.component';
 import { ZoomMeetingComponent } from './component/zoom-meeting/zoom-meeting.component';
 import { AuthGuardService } from './service/auth-guard.service';
-import { EditCategoryChapterComponent } from './component/CategoryChapter/edit-category-chapter/edit-category-chapter.component';
-import { ChapterBookingThankyouComponent } from './component/CategoryChapter/chapter-booking-thankyou/chapter-booking-thankyou.component';
 import { ChapterPurchaseHistoryComponent } from './component/CategoryChapter/chapter-purchase-history/chapter-purchase-history.component';
 import { TeacherCourseComponent } from './component/course-list/teacher-course/teacher-course.component';
 import { AddTeacherCourseComponent } from './component/course-list/teacher-course/add-teacher-course/add-teacher-course.component';
 import { EditTeacherCourseComponent } from './component/course-list/teacher-course/edit-teacher-course/edit-teacher-course.component';
 import { CourseChapterListComponent } from './component/course-list/teacher-course/course-chapter-list/course-chapter-list.component';
 import { AddCourseChapterComponent } from './component/add-course-chapter/add-course-chapter.component';
+import { EditCourseChapterComponent } from './component/edit-course-chapter/edit-course-chapter.component';
 
 const routes: Routes = [
   // before Login Routes
@@ -77,6 +76,7 @@ const routes: Routes = [
   {path : 'teacher/course/list/:courseId/edit', component : EditTeacherCourseComponent},
   {path : 'teacher/course/:courseId/chapter/list',component : CourseChapterListComponent},
   {path : 'teacher/course/:courseId/chapter/create', component : AddCourseChapterComponent},
+  {path : 'teacher/course/:courseId/chapter/:chapterId/edit', component : EditCourseChapterComponent},
 
 
   // {path : 'user/subscribed/course', component : SubscribedCourseComponent,canActivate:[AuthGuardService]},
@@ -90,8 +90,8 @@ const routes: Routes = [
   {path : 'membership/booking-thankyou',component : MemberShipBookingThankyouComponent},
   {path : 'user/membership',component : UserMemberShipComponent},
   
-  {path : 'user/chapter/edit/:chapterId', component:EditCategoryChapterComponent},
-  {path : 'chapter/purchase/thankyou', component : ChapterBookingThankyouComponent},
+  // {path : 'user/chapter/edit/:chapterId', component:EditCategoryChapterComponent},
+  // {path : 'chapter/purchase/thankyou', component : ChapterBookingThankyouComponent},
   {path : 'chaper/purchase/history', component : ChapterPurchaseHistoryComponent},
   
   {path : '**', component : PageNotFoundComponent},
