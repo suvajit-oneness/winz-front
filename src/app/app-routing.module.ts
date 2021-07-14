@@ -36,7 +36,6 @@ import { TestimonialComponent } from './component/testimonial/testimonial.compon
 import { UserMemberShipComponent } from './component/user-member-ship/user-member-ship.component';
 import { ZoomMeetingComponent } from './component/zoom-meeting/zoom-meeting.component';
 import { AuthGuardService } from './service/auth-guard.service';
-import { CategoryChapterComponent } from './component/CategoryChapter/category-chapter/category-chapter.component';
 import { NewCategoryChapterComponent } from './component/CategoryChapter/new-category-chapter/new-category-chapter.component';
 import { EditCategoryChapterComponent } from './component/CategoryChapter/edit-category-chapter/edit-category-chapter.component';
 import { ChapterBookingThankyouComponent } from './component/CategoryChapter/chapter-booking-thankyou/chapter-booking-thankyou.component';
@@ -44,6 +43,7 @@ import { ChapterPurchaseHistoryComponent } from './component/CategoryChapter/cha
 import { TeacherCourseComponent } from './component/course-list/teacher-course/teacher-course.component';
 import { AddTeacherCourseComponent } from './component/course-list/teacher-course/add-teacher-course/add-teacher-course.component';
 import { EditTeacherCourseComponent } from './component/course-list/teacher-course/edit-teacher-course/edit-teacher-course.component';
+import { CourseChapterListComponent } from './component/course-list/teacher-course/course-chapter-list/course-chapter-list.component';
 
 const routes: Routes = [
   // before Login Routes
@@ -73,6 +73,12 @@ const routes: Routes = [
   {path : 'dashboard', component : DashboardComponent,canActivate:[AuthGuardService]},
   {path : 'user/profile', component : EditProfileComponent,canActivate:[AuthGuardService]},
   {path : 'user/password/change', component : ChangePasswordComponent,canActivate:[AuthGuardService]},
+  {path : 'teacher/course/list', component : TeacherCourseComponent},
+  {path : 'teacher/course/list/create', component : AddTeacherCourseComponent},
+  {path : 'teacher/course/list/:courseId/edit', component : EditTeacherCourseComponent},
+  {path : 'teacher/course/:courseId/chapter/list',component : CourseChapterListComponent},
+
+
   // {path : 'user/subscribed/course', component : SubscribedCourseComponent,canActivate:[AuthGuardService]},
   {path : 'user/subscription/thankyou/:subscriptionId', component : SubscriptionThankyouComponent,canActivate:[AuthGuardService]},
   {path : 'schedule', component : ScheduleComponent},
@@ -83,14 +89,12 @@ const routes: Routes = [
   {path : 'user/zoom-meeting',component : ZoomMeetingComponent},
   {path : 'membership/booking-thankyou',component : MemberShipBookingThankyouComponent},
   {path : 'user/membership',component : UserMemberShipComponent},
-  {path : 'user/chapter',component:CategoryChapterComponent},
+  
+
   {path : 'user/chapter/create',component:NewCategoryChapterComponent},
   {path : 'user/chapter/edit/:chapterId', component:EditCategoryChapterComponent},
   {path : 'chapter/purchase/thankyou', component : ChapterBookingThankyouComponent},
   {path : 'chaper/purchase/history', component : ChapterPurchaseHistoryComponent},
-  {path : 'teacher/course/list', component : TeacherCourseComponent},
-  {path : 'teacher/course/list/create', component : AddTeacherCourseComponent},
-  {path : 'teacher/course/list/:courseId/edit', component : EditTeacherCourseComponent},
   
   {path : '**', component : PageNotFoundComponent},
 ];

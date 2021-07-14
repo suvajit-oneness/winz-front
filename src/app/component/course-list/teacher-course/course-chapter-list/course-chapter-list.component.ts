@@ -1,34 +1,35 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { APIService } from 'src/app/service/api.service';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-category-chapter',
-  templateUrl: './category-chapter.component.html',
-  styleUrls: ['./category-chapter.component.css']
+  selector: 'app-course-chapter-list',
+  templateUrl: './course-chapter-list.component.html',
+  styleUrls: ['./course-chapter-list.component.css']
 })
-export class CategoryChapterComponent implements OnInit {
+export class CourseChapterListComponent implements OnInit {
 
-  constructor(private _loader : NgxUiLoaderService,private _api:APIService) {}
+  constructor(private _loader : NgxUiLoaderService,private _api:APIService,private _activated:ActivatedRoute) {}
 
   public teacherInfo : any = {};
+  public course : any = {};public chapters : any = [];
+  public courseId : any = 0;
+
   ngOnInit(): void {
     this.teacherInfo = this._api.getUserDetailsFromStorage();
-    this.getChapterList(this.teacherInfo.id);
+    this.courseId = this._activated.snapshot.paramMap.get('courseId');
+    this.getCourseDetails(this.courseId);
   }
 
-  public chapter = [];
-  getChapterList(teacherId){
-    this._loader.startLoader('loader');
-    this._api.getChapterListWithCategoryandSubjectCategory(teacherId).subscribe(
-        res => {
-          this.chapter = res.data;
-          this._loader.stopLoader('loader');
-        },err => {
-          this._loader.stopLoader('loader');
-        }
-    );
+  getCourseDetails(courseId){
+    this._api.editTeacherCourse(courseId).subscribe(
+      res => {
+        this.course = res.data;
+        this.chapters = res.data.chapter;
+      }
+    )
   }
 
   deleteChapter(chapterData:any){
@@ -48,7 +49,6 @@ export class CategoryChapterComponent implements OnInit {
           res => {
             if(res.error == false){
               Swal.fire('Deleted!','Your imaginary file has been deleted.','success');
-              this.getChapterList(this.teacherInfo.id);
             }else{
               Swal.fire('Cancelled',res.message,'error');
             }
