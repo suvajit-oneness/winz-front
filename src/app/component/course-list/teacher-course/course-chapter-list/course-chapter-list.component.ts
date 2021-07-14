@@ -45,10 +45,12 @@ export class CourseChapterListComponent implements OnInit {
         const formField = new FormData();
         formField.append('teacherId',this.teacherInfo.id);
         formField.append('chapterId',chapterData.id);
+        formField.append('courseId',this.course.id);
         this._api.deleteChapter(formField).subscribe(
           res => {
             if(res.error == false){
               Swal.fire('Deleted!','Your imaginary file has been deleted.','success');
+              this.getCourseDetails(this.courseId);
             }else{
               Swal.fire('Cancelled',res.message,'error');
             }

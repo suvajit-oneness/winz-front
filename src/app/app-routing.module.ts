@@ -28,7 +28,6 @@ import { QuestionComponent } from './component/question/question.component';
 import { RefundPolicyComponent } from './component/policy/refund-policy/refund-policy.component';
 import { ScheduleComponent } from './component/schedule/schedule.component';
 import { SubjectCategoryComponent } from './component/subject-category/subject-category.component';
-import { SubscribedCourseComponent } from './component/subscribed-course/subscribed-course.component';
 import { TeacherListComponent } from './component/teacher-list/teacher-list.component';
 import { TeacherProfileComponent } from './component/teacher-profile/teacher-profile.component';
 import { TermsAndConditionComponent } from './component/policy/terms-and-condition/terms-and-condition.component';
@@ -36,7 +35,6 @@ import { TestimonialComponent } from './component/testimonial/testimonial.compon
 import { UserMemberShipComponent } from './component/user-member-ship/user-member-ship.component';
 import { ZoomMeetingComponent } from './component/zoom-meeting/zoom-meeting.component';
 import { AuthGuardService } from './service/auth-guard.service';
-import { NewCategoryChapterComponent } from './component/CategoryChapter/new-category-chapter/new-category-chapter.component';
 import { EditCategoryChapterComponent } from './component/CategoryChapter/edit-category-chapter/edit-category-chapter.component';
 import { ChapterBookingThankyouComponent } from './component/CategoryChapter/chapter-booking-thankyou/chapter-booking-thankyou.component';
 import { ChapterPurchaseHistoryComponent } from './component/CategoryChapter/chapter-purchase-history/chapter-purchase-history.component';
@@ -44,6 +42,7 @@ import { TeacherCourseComponent } from './component/course-list/teacher-course/t
 import { AddTeacherCourseComponent } from './component/course-list/teacher-course/add-teacher-course/add-teacher-course.component';
 import { EditTeacherCourseComponent } from './component/course-list/teacher-course/edit-teacher-course/edit-teacher-course.component';
 import { CourseChapterListComponent } from './component/course-list/teacher-course/course-chapter-list/course-chapter-list.component';
+import { AddCourseChapterComponent } from './component/add-course-chapter/add-course-chapter.component';
 
 const routes: Routes = [
   // before Login Routes
@@ -77,6 +76,7 @@ const routes: Routes = [
   {path : 'teacher/course/list/create', component : AddTeacherCourseComponent},
   {path : 'teacher/course/list/:courseId/edit', component : EditTeacherCourseComponent},
   {path : 'teacher/course/:courseId/chapter/list',component : CourseChapterListComponent},
+  {path : 'teacher/course/:courseId/chapter/create', component : AddCourseChapterComponent},
 
 
   // {path : 'user/subscribed/course', component : SubscribedCourseComponent,canActivate:[AuthGuardService]},
@@ -90,8 +90,6 @@ const routes: Routes = [
   {path : 'membership/booking-thankyou',component : MemberShipBookingThankyouComponent},
   {path : 'user/membership',component : UserMemberShipComponent},
   
-
-  {path : 'user/chapter/create',component:NewCategoryChapterComponent},
   {path : 'user/chapter/edit/:chapterId', component:EditCategoryChapterComponent},
   {path : 'chapter/purchase/thankyou', component : ChapterBookingThankyouComponent},
   {path : 'chaper/purchase/history', component : ChapterPurchaseHistoryComponent},

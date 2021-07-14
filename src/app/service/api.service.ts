@@ -212,13 +212,14 @@ export class APIService {
     return this._http.get<any>(_apiUrl + 'category/list');
   }
 
-  addNewCategory(formData){
-    return this._http.post<any>(_apiUrl + 'chapter/create',formData);
+  createCourseChapter(formData){
+    return this._http.post<any>(_apiUrl + 'course/chapter/create',formData);
   }
 
   updateChapter(formData){
     return this._http.post<any>(_apiUrl + 'chapter/update',formData);
   }
+
   deleteChapter(formData){
     return this._http.post<any>(_apiUrl + 'chapter/delete',formData);
   }
