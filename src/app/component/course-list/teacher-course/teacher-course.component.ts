@@ -35,12 +35,10 @@ export class TeacherCourseComponent implements OnInit {
                 // pushing into All Teacher Course Interface
                 this.TeacherCourse.data.push({
                     id : response.id,
-                    categoryId : response.categoryId,
                     teacherId : response.teacherId,
                     course_name : response.course_name,
                     course_image : response.course_image,
                     course_description : response.course_description,
-                    categoryName : response.category.name,
                     countChapter : response.chapter.length,
                     countFeature : response.feature.length,
                     price : response.price,
@@ -65,7 +63,6 @@ export class TeacherCourseComponent implements OnInit {
     }).then((result) => {
       if (result.value) {
         const formField = new FormData();
-        formField.append('categoryId',courseData.categoryId);
         formField.append('teacherId',courseData.teacherId);
         formField.append('courseId',courseData.id);
         this._api.deleteTeacherCourse(formField).subscribe(
@@ -87,12 +84,10 @@ export class TeacherCourseComponent implements OnInit {
 
 interface TEACHERCOURSE{
   id : number,
-  categoryId : number,
   teacherId : number,
   course_name : string,
   course_image : string,
   course_description : string,
-  categoryName : string,
   countChapter : number,
   countFeature : number,
   price : string,

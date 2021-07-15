@@ -12,7 +12,6 @@
                         <tr>
                             <th>Image</th>
                             <th>Name</th>
-                            <th>Category</th>
                             <th>Chapter</th>
                             <th>Feature</th>
                             <th>Price ($)</th>
@@ -24,7 +23,6 @@
                         <tr *ngFor="let course of TeacherCourse.data">
                             <td><img src="{{course.course_image}}" alt="{{course.course_image}}"></td>
                             <td>{{course.course_name}}</td>
-                            <td>{{course.categoryName}}</td>
                             <td><a routerLink="/teacher/course/{{course.id}}/chapter/list">{{course.countChapter}}</a></td>
                             <td>{{course.countFeature}}</td>
                             <td>{{course.price}}</td>

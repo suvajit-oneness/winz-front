@@ -19,19 +19,19 @@ export class AddTeacherCourseComponent implements OnInit {
   ngOnInit(): void {
     window.scrollTo(0, 0);
     this.userInfo = this._api.getUserDetailsFromStorage();
-    this.getCategory();
+    // this.getCategory();
     this.hasFile = false;
   }
 
-  public categorydata = [];
-  getCategory(){
-    this.categorydata = [];
-    this._api.getCategoryList().subscribe(
-      res => {
-        this.categorydata = res.data.category;
-      }
-    )
-  }
+  // public categorydata = [];
+  // getCategory(){
+  //   this.categorydata = [];
+  //   this._api.getCategoryList().subscribe(
+  //     res => {
+  //       this.categorydata = res.data.category;
+  //     }
+  //   )
+  // }
 
   public courseImage;
   onSelectFile(event) {
