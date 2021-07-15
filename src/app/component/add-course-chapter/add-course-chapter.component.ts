@@ -15,7 +15,7 @@ export class AddCourseChapterComponent implements OnInit {
 
   public userInfo : any = {};
   public course : any = {};public chapters : any = [];
-  public courseId : any = 0;public category : any = [];
+  public courseId : any = 0;
   public errorMsg = ''; public successMsg = '';
 
   ngOnInit(): void {
@@ -28,7 +28,6 @@ export class AddCourseChapterComponent implements OnInit {
     this._api.editTeacherCourse(courseId).subscribe(
       res => {
         this.course = res.data;
-        this.category = res.data.category;
       }
     )
   }

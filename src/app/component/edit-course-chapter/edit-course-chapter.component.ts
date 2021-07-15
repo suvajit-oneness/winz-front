@@ -15,7 +15,7 @@ export class EditCourseChapterComponent implements OnInit {
 
   public userInfo : any = {};
   public course : any = {};public chapter : any = {};
-  public courseId : any = 0;public category : any = [];
+  public courseId : any = 0;
   public errorMsg = ''; public successMsg = '';public chapterId : any = 0;
 
   ngOnInit(): void {
@@ -38,7 +38,6 @@ export class EditCourseChapterComponent implements OnInit {
             this.chapter.price = chapter.price;
           }
         });
-        this.category = res.data.category;
       }
     )
   }

@@ -5,7 +5,7 @@
             <app-sidebar></app-sidebar>
         </ul>
         <div class="account-sec mb-5">
-            <h3>Edit Chapter - ({{category.name}} - {{course.course_name}}) <a style="float: right;" class="btn" routerLink="/teacher/course/{{course.id}}/chapter/list">Back to Chapter</a></h3>
+            <h3>Edit Chapter - ({{course.course_name}}) <a style="float: right;" class="btn" routerLink="/teacher/course/{{course.id}}/chapter/list">Back to Chapter</a></h3>
             <div class="row">
                 <div class="signin-form col-md-8 offset-md-1">
                     <form #newChapter="ngForm" (ngSubmit)="createNewChapter(newChapter)">
