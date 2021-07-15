@@ -12,8 +12,9 @@ import { APIService } from 'src/app/service/api.service';
 export class ChapterComponent implements OnInit {
 
   public auth = false;public userInfo : any = {};
-  public chapterId : any = 0;public subChapter : any = [];
-  public chapter : any = {};
+  public chapterId : any = 0;public categoryId : any = 0;
+  public chapter : any = {};public subChapter : any = [];
+  public category : any = {};
 
   constructor(private _loader : NgxUiLoaderService,private _activatedRoute:ActivatedRoute,private _api:APIService,private _router:Router) {}
   public categoryName=''; public subjectCategoryName = '';
@@ -23,21 +24,27 @@ export class ChapterComponent implements OnInit {
     this.auth = this._api.isAuthenticated();
     this.userInfo = this._api.getUserDetailsFromStorage();
     this.chapterId = this._activatedRoute.snapshot.paramMap.get('chapterId');
-    this.getSubChapterAgainstChapter(this.chapterId);
+    this.categoryId = this._activatedRoute.snapshot.paramMap.get('categoryId');
+    this.getSubChapterAgainstChapter(this.categoryId,this.chapterId);
   }
 
   subchapter : any = [];
-  getSubChapterAgainstChapter(chapterId){
+  getSubChapterAgainstChapter(categoryId,chapterId){
     this._loader.startLoader('loader');
-    this._api.getSubChapterList(chapterId).subscribe(
+    this._api.getSubChapterList(categoryId,chapterId).subscribe(
       res => {
         this.subchapter = res.data;
         res.data.forEach((response) => {
+          // Chapter Data
             this.chapter.id = response.chapter.id;
             this.chapter.courseId = response.chapter.courseId;
             this.chapter.name = response.chapter.name;
             this.chapter.price = response.chapter.price;
             this.chapter.description = response.chapter.description;
+          // Category Data
+          this.category.id = response.category.id;
+          this.category.name = response.category.name;
+          this.category.image = response.category.image;
         });
         console.log(res);
         console.log(this.chapter);
@@ -47,6 +54,15 @@ export class ChapterComponent implements OnInit {
         this._loader.stopLoader('loader');
       }
     )
+  }
+
+  topicArray = [];
+  getCommaSeparator(string){
+    this.topicArray = [];
+    this.topicArray = string.split(',');
+    return this.topicArray;
+    console.log(this.topicArray);
+    return [{name:'rajeev'},{name:'ramesh'},{name:'mahesh'}];
   }
 
   // getChapters(subjectCategoryId=0,chapter=0){

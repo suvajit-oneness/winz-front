@@ -3,65 +3,51 @@
     <div class="container">
         <div class="row">
             <div class="section_title text-center col-12 p-0 mb-5">
-                <h3 class="main_title aos-init aos-animate" data-aos="fade-down" data-aos-duration="1000">
-                    Question
-                </h3>
+                <h3 class="main_title aos-init aos-animate" data-aos="fade-down" data-aos-duration="1000">{{subchapter.name}}</h3><br>
+                <h4 class="main_title aos-init aos-animate" data-aos="fade-down" data-aos-duration="1000">(Question - {{category.name}})</h4>
             </div>
             <div class="col-md-12" *ngIf="questionList.length > 0,else noDataFound">
-                    <div class="card mb-2" *ngFor="let question of questionList;index as i">
-                        <div class="card-header">
-                            Question {{i+1}} : {{question.chapter.chapter}}
+                <div class="card mb-2" *ngFor="let question of questionList;index as i">
+                    <div class="card-header">
+                        {{subchapter.name}} :=> Question {{i+1}} 
+                    </div>
+                    <div class="card-body row m-0">
+                        <div class="col-12 col-md-8">
+                            <span><img src="{{question.question}}" alt="Question"></span>
                         </div>
-                        <div class="card-body row m-0">
-                            <div class="col-12 col-md-8">
-                                <span><img src="{{question.question}}" alt="Question"></span>
-                            </div>
-                            <div class="difficulty col-12 col-md-2 offset-0 offset-md-2">
-                                <h6 class="text-left">
-                                    Difficulty :
-                                    <span>
-                                        <span *ngIf="question.difficulty == 1">Easy 
-                                            <div class="progress">
-                                                <div class="progress-bar bg-success" role="progressbar" style="width: 33%" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                        </span>
-                                        <span *ngIf="question.difficulty == 2">Medium
-                                            <div class="progress">
-                                                <div class="progress-bar bg-warning" role="progressbar" style="width: 66%" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                        </span>
-                                        <span *ngIf="question.difficulty == 3">Hard
-                                            <div class="progress">
-                                                <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                        </span>
+                        <div class="difficulty col-12 col-md-2 offset-0 offset-md-2">
+                            <h6 class="text-left">
+                                Difficulty :
+                                <span>
+                                    <span *ngIf="question.difficulty == 1">Easy 
+                                        <div class="progress">
+                                            <div class="progress-bar bg-success" role="progressbar" style="width: 33%" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
                                     </span>
-                                </h6>
-                                <div class="question-answer">
-                                    <ul>
-                                        <li *ngIf="question.mark_scheme != ''"><a href="{{question.mark_scheme}}" target="_blank" class="text-dark text-bold-700">Mark Scheme</a></li>
-                                        <li *ngIf="question.answer1 != ''"><a href="{{question.answer1}}" target="_blank">(a) Video Solution</a></li>
-                                        <li *ngIf="question.answer2 != ''"><a href="{{question.answer2}}" target="_blank">(b) Video Solution</a></li>
-                                        <li *ngIf="question.answer3 != ''"><a href="{{question.answer3}}" target="_blank">(c) Video Solution</a></li>
-                                        <li *ngIf="question.answer4 != ''"><a href="{{question.answer4}}" target="_blank">(d) Video Solution</a></li>
-                                    </ul>
-                                </div>
+                                    <span *ngIf="question.difficulty == 2">Medium
+                                        <div class="progress">
+                                            <div class="progress-bar bg-warning" role="progressbar" style="width: 66%" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </span>
+                                    <span *ngIf="question.difficulty == 3">Hard
+                                        <div class="progress">
+                                            <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </span>
+                                </span>
+                            </h6>
+                            <div class="question-answer">
+                                <ul>
+                                    <li *ngIf="question.mark_scheme != ''"><a href="{{question.mark_scheme}}" target="_blank" class="text-dark text-bold-700">Mark Scheme</a></li>
+                                    <li *ngIf="question.answer1 != ''"><a href="{{question.answer1}}" target="_blank">(a) Video Solution</a></li>
+                                    <li *ngIf="question.answer2 != ''"><a href="{{question.answer2}}" target="_blank">(b) Video Solution</a></li>
+                                    <li *ngIf="question.answer3 != ''"><a href="{{question.answer3}}" target="_blank">(c) Video Solution</a></li>
+                                    <li *ngIf="question.answer4 != ''"><a href="{{question.answer4}}" target="_blank">(d) Video Solution</a></li>
+                                </ul>
                             </div>
                         </div>
                     </div>
-
-                    <!-- <div class="col-md-12">
-                        <h4>Question {{i+1}} : {{question.chapter.chapter}}</h4><br>
-                        
-                        <h6> 
-                            
-                        </h6>
-                        <h4 *ngIf="question.mark_scheme != ''"><a href="{{question.mark_scheme}}" target="_blank">Mark Scheme</a></h4>
-                        <h4 *ngIf="question.answer1 != ''"><a href="{{question.answer1}}" target="_blank">(a) Video Solution</a></h4>
-                        <h4 *ngIf="question.answer2 != ''"><a href="{{question.answer2}}" target="_blank">(b) Video Solution</a></h4>
-                        <h4 *ngIf="question.answer3 != ''"><a href="{{question.answer3}}" target="_blank">(c) Video Solution</a></h4>
-                        <h4 *ngIf="question.answer4 != ''"><a href="{{question.answer4}}" target="_blank">(d) Video Solution</a></h4>
-                    </div> -->
+                </div>
             </div>
             <ng-template #noDataFound>
                 <div>

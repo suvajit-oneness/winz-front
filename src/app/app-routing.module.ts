@@ -63,10 +63,9 @@ const routes: Routes = [
   {path : 'faq',component : FaqComponent},
   {path : 'about-us',component : AboutUsComponent},
   {path : 'contact-us', component : ContactusComponent},
-
   {path : 'chapter/:chapterId/category', component : SubjectCategoryComponent},
-  {path : 'chapter/:chapterId/sub-chapter', component : ChapterComponent},
-  {path : 'category/subject-category/chapter/question/:subjectCategory/:chapterId', component : QuestionComponent},
+  {path : 'chapter/:chapterId/category/:categoryId/subchapter', component : ChapterComponent},
+  {path : 'chapter/:chapterId/category/:categoryId/subchapter/:subChapterId/question', component : QuestionComponent},
 
   // After Login Routes
   {path : 'dashboard', component : DashboardComponent,canActivate:[AuthGuardService]},

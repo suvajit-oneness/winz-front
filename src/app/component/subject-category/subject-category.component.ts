@@ -16,7 +16,7 @@ export class SubjectCategoryComponent implements OnInit {
   }
   public chapterId : any = 0;
   public category : any = [];
-public categoryFullName = '';
+  public categoryFullName = 'CHOOSE YOUR DESIRED CATEGORY';
   ngOnInit(): void {
     this.chapterId = this._activatedRoute.snapshot.paramMap.get('chapterId');
     this.getCategory();
@@ -32,7 +32,9 @@ public categoryFullName = '';
           this.category = res.data.category;
         }
       },
-      err => {},
+      err => {
+        this._loader.stopLoader('loader');
+      },
     )
     
   }

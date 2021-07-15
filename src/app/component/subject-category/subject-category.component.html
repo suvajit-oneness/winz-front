@@ -12,9 +12,7 @@
                 <div class="col-md-3" *ngFor="let cat of category;index as i">
                     <div class="card shadow-sm">
                         <div class="card-body">
-                            <!-- <a class="member-inn blue-bg" routerLink="/category/chapter/question/{{EncodeDecodeBase64(chapter.subjectCategoryId,'encode')}}/{{EncodeDecodeBase64(chapter.id,'encode')}}"> -->
-                            <a class="member-inn blue-bg" routerLink="/chapter/{{chapterId}}/sub-chapter"><img src="{{cat.image}}"></a>
-                            <!-- </a> -->
+                            <a class="member-inn blue-bg" routerLink="/chapter/{{chapterId}}/category/{{cat.id}}/subchapter"><img src="{{cat.image}}"></a>
                         </div>
                     </div>
                 </div>

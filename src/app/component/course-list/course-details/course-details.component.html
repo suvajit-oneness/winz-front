@@ -43,9 +43,9 @@
                                         <div class="lectures_lists_title" (click)="playAsYoutube(chapter)">
                                             <i class="ti-control-play"></i><b>Chapter : {{i+1}}</b> {{chapter.name}}
                                         </div>
-                                        <span *ngIf="!chapter.userChapterPurchases, else chapterPurchased;" (click)="enrollNow('chapter',chapter)">$ {{chapter.price}}</span>
+                                        <a class="float-right" *ngIf="!chapter.userChapterPurchases, else chapterPurchased;" (click)="enrollNow('chapter',chapter)">$ {{chapter.price}}</a>
                                         <ng-template #chapterPurchased>
-                                            <span routerLink="/chapter/{{chapter.id}}/category">{{'Purchased'}}</span>
+                                            <a routerLink="/chapter/{{chapter.id}}/category" class="float-right">{{'Purchased'}}</a>
                                         </ng-template>
                                         <!-- {{chapter.description}} -->
                                     </li>

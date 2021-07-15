@@ -132,13 +132,14 @@ export class APIService {
     return this._http.get<any>(_apiUrl + 'chapter?subjectCategoryId='+subjectCategoryId+'&chapterId='+chapterId+'&userId='+userId);
   }
   
-  getSubChapterList(chapterId=0){
-    return this._http.get<any>(_apiUrl + 'chapter/subchapter?chapterId='+chapterId);
+  getSubChapterList(categoryId=0,chapterId=0){
+    return this._http.get<any>(_apiUrl + 'chapter/subchapter?categoryId='+categoryId+'&chapterId='+chapterId);
   }
   
 
-  getQuestionList(subjectCategoryId = 0,chapterId = 0){
-    return this._http.get<any>(_apiUrl + 'question?subjectCategoryId='+subjectCategoryId+'&chapterId='+chapterId);
+  getQuestionList(chapterId,categoryId,subChapterId){
+    const queryString = '?chapterId='+chapterId+'&categoryId='+categoryId+'&subChapterId='+subChapterId;
+    return this._http.get<any>(_apiUrl + 'question/list'+queryString);
   }
 
   postContactUsForm(formData){

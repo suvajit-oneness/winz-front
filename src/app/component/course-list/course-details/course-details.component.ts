@@ -59,7 +59,6 @@ export class CourseDetailsComponent implements OnInit {
   }
 
   enrollNow(whattodo,data){
-    console.log(whattodo,data);
     if(this.loginCheck){
       const mainForm = new FormData();
       mainForm.append('userId',this.userInfo.id);

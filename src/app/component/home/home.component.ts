@@ -25,8 +25,6 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     window.scrollTo(0, 0);
     this.getHomePageContent();
-    // this.getCourseList();
-    // this.getTeacherList();
   }
 
   // get home Page Banner Headings and Images
@@ -52,24 +50,5 @@ export class HomeComponent implements OnInit {
       }
     )
   }
-
-  // /*********Get Course List *********/
-  // getCourseList(){
-  //   this._api.getCourseList().subscribe(
-  //       res => {
-  //         this.courseList = res.data;
-  //       },err => {}
-  //   )
-  // }
-
-  // /*********Get Teacher List *********/
-  // getTeacherList(){
-  //     this._api.getTeacherList().subscribe(
-  //         res => {
-  //           this.teacherList = res.data;
-  //           // console.log(this.teacherList);
-  //         },err => {}
-  //     )
-  // }
 
 }
