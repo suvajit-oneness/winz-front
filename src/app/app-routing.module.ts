@@ -42,6 +42,9 @@ import { EditTeacherCourseComponent } from './component/course-list/teacher-cour
 import { CourseChapterListComponent } from './component/course-list/teacher-course/course-chapter-list/course-chapter-list.component';
 import { AddCourseChapterComponent } from './component/add-course-chapter/add-course-chapter.component';
 import { EditCourseChapterComponent } from './component/edit-course-chapter/edit-course-chapter.component';
+import { CourseChapterSubchapterListComponent } from './component/course-chapter-subchapter-list/course-chapter-subchapter-list.component';
+import { CourseChapterSubchapterCreateComponent } from './component/course-chapter-subchapter-create/course-chapter-subchapter-create.component';
+import { CourseChapterSubchapterEditComponent } from './component/course-chapter-subchapter-edit/course-chapter-subchapter-edit.component';
 
 const routes: Routes = [
   // before Login Routes
@@ -87,6 +90,9 @@ const routes: Routes = [
   {path : 'user/zoom-meeting',component : ZoomMeetingComponent},
   {path : 'membership/booking-thankyou',component : MemberShipBookingThankyouComponent},
   {path : 'user/membership',component : UserMemberShipComponent},
+  {path : 'teacher/course/:courseId/chapter/:chapterId/subchapter/list',component:CourseChapterSubchapterListComponent},
+  {path : 'teacher/course/:courseId/chapter/:chapterId/subchapter/create',component:CourseChapterSubchapterCreateComponent},
+  {path : 'teacher/course/:courseId/chapter/:chapterId/subchapter/:subChapterId/edit', component: CourseChapterSubchapterEditComponent},
   
   // {path : 'user/chapter/edit/:chapterId', component:EditCategoryChapterComponent},
   // {path : 'chapter/purchase/thankyou', component : ChapterBookingThankyouComponent},

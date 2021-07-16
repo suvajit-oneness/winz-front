@@ -11,6 +11,7 @@
                     <th>ChapterId</th>
                     <th>Name</th>
                     <th>description</th>
+                    <th>Sub Chapter</th>
                     <th>Price</th>
                     <th>Action</th>
                 </tr>
@@ -18,6 +19,7 @@
                     <td>{{chap.id}}</td>
                     <td>{{chap.name}}</td>
                     <td>{{chap.description}}</td>
+                    <td><a routerLink="/teacher/course/{{course.id}}/chapter/{{chap.id}}/subchapter/list">{{chap.subchapter.length}}</a></td>
                     <td>$ {{chap.price}}</td>
                     <!-- <td>
                         <ul><li *ngFor="let topic of chap.sub_chapter">{{topic.name}}</li></ul>

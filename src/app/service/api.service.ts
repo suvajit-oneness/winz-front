@@ -214,12 +214,20 @@ export class APIService {
     return this._http.get<any>(_apiUrl + 'chapter?teacherId='+teacherId);
   }
 
+  createSubChapter(courseId,chapterId,formType,subChapterId=0){
+    return this._http.get<any>(_apiUrl + 'sub-chapter/create?courseId='+courseId+'&chapterId='+chapterId+'&formType='+formType+'&subChapterId='+subChapterId);
+  }
+
   getCategoryList(){
     return this._http.get<any>(_apiUrl + 'category/list');
   }
 
   createCourseChapter(formData){
     return this._http.post<any>(_apiUrl + 'course/chapter/create',formData);
+  }
+
+  createChapterSubChapter(formData){
+    return this._http.post<any>(_apiUrl + 'chapter/subchapter/create',formData);
   }
 
   updateChapter(formData){
@@ -244,5 +252,9 @@ export class APIService {
 
   deleteTeacherCourse(formData){
     return this._http.post<any>(_apiUrl + 'teacher/course/delete',formData);
+  }
+
+  deleteSubChapter(formData){
+    return this._http.post<any>(_apiUrl + 'subchapter/delete',formData);
   }
 }
