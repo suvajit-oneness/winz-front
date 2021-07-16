@@ -57,7 +57,7 @@ export class CourseChapterSubchapterListComponent implements OnInit {
     }).then((result) => {
       if (result.value) {
         const formField = new FormData();
-        formField.append('teacherId',this.teacherInfo.id);
+        formField.append('teacherId',this.teacherInfo.teacherData.id);
         formField.append('subChapterId',SubChapterData.id);
         formField.append('chapterId',this.chapter.id);
         formField.append('courseId',this.course.id);

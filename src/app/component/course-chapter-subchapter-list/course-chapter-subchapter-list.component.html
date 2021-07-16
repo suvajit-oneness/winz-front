@@ -19,7 +19,7 @@
                     <td>{{subc.id}}</td>
                     <td>{{subc.name}}</td>
                     <td>{{subc.topics}}</td>
-                    <td><a href="">view</a></td>
+                    <td><a routerLink="/teacher/{{course.id}}/{{chapter.id}}/{{subc.id}}/question">view</a></td>
                     <td><a class="text-success" routerLink="/teacher/course/{{course.id}}/chapter/{{chapter.id}}/subchapter/{{subc.id}}/edit">Edit</a> | <a class="text-danger" (click)="deleteSubChapter(subc)">Delete</a></td>
                 </tr>
             </table>
