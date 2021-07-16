@@ -40,7 +40,8 @@
                             <div class="card-body pl-3 pr-3">
                                 <ul class="lectures_lists">
                                     <li *ngFor="let chapter of courseDetails.chapter;index as i">
-                                        <div class="lectures_lists_title" (click)="playAsYoutube(chapter)">
+                                        <!-- <div class="lectures_lists_title" (click)="playAsYoutube(chapter)"> -->
+                                        <div class="lectures_lists_title">
                                             <i class="ti-control-play"></i><b>Chapter : {{i+1}}</b> {{chapter.name}}
                                         </div>
                                         <a class="float-right" *ngIf="!chapter.userChapterPurchases, else chapterPurchased;" (click)="enrollNow('chapter',chapter)">$ {{chapter.price}}</a>
