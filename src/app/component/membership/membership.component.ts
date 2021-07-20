@@ -56,9 +56,6 @@ export class MembershipComponent implements OnInit {
           key: this.stripeKey,
           locale: 'auto',
           token: function (token: any) {
-            // You can access the token ID with `token.id`.
-            // Get the token ID to your server-side code for use.
-            // alert('Payment Success!!');
           }
         });
       }

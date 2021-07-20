@@ -8,7 +8,7 @@
             </div>
             <div class="col-12 p-0 pt-2">
                 <div class="row m-0 p-0">
-                    <!-- <div class="col-12 mb-3">
+                    <div class="col-12 mb-3">
                         <div class="col-md-2 p-0 ml-auto text-right">
                             <div class="form-group">
                                 <select class="form-control" id="exampleFormControlSelect1">
@@ -20,16 +20,21 @@
                                 </select>
                             </div>
                         </div>
-                    </div> -->
+                    </div>
                     <div class="col-12 col-md-3 p-1" *ngFor="let teacher of teacherList">
                         <div class="card">
                             <img src="{{teacher.image}}" class="card-img-top">
                             <div class="card-body">
-                                <a routerLink="/teacher/{{EncodeDecodeBase64(teacher.id,'encode')}}">
+                                <a routerLink="/teacher/profile/{{EncodeDecodeBase64(teacher.id,'encode')}}">
                                     <h3 class="course-title">{{teacher.name}}</h3>
-                                    <p class="course-subtitle">{{teacher.description}}</p>
+                                    <p class="course-subtitle"><strong>Subject : {{teacher.subject}}</strong></p>
+                                    <p class="course-subtitle"><strong>BIO :</strong><br><span innerHTML="{{teacher.description | slice:0:95}}{{ teacher.description.length > 95 ? ' ...' : ''}}"></span></p>
                                 </a>
-                                <!-- <div class="foot_lecture">{{commaSeparateTeacher(course.teacher)}}</div> -->
+                                <ul class="instructor_caption">
+                                    <li *ngIf="teacher.facebook != ''"><a href="{{teacher.facebook}}" class="cl-fb" tabindex="-1" target="_blank"><i class="ti-facebook"></i></a></li>
+                                    <li *ngIf="teacher.twitter != ''"><a href="{{teacher.twitter}}" class="cl-twitter" tabindex="-1"><i class="ti-twitter"></i></a></li>
+                                    <li *ngIf="teacher.linkedin != ''"><a href="{{teacher.linkedin}}" class="cl-linked" tabindex="-1"><i class="ti-linkedin"></i></a></li>
+                                </ul>
                             </div>
                         </div>
                     </div>

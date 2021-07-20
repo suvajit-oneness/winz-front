@@ -1,0 +1,33 @@
+<ngx-ui-loader loaderId="loader" fgsColor="#FFFFFF" bgsOpacity="1" overlayColor="rgba(40,40,40,0.1)"></ngx-ui-loader>
+<section class="account-detail">
+    <div class="d-flex">
+        <ul class="aside">
+            <app-sidebar></app-sidebar>
+        </ul>
+        <div class="account-sec mb-5">
+            <h3>All Chapters List - ({{course.course_name}}) <a class="float-right" routerLink="/teacher/course/{{course.id}}/chapter/create">Add New Chapter</a></h3>
+            <table class="table table-striped table-bordered" style="width: 100%;" *ngIf="chapters.length > 0;else chapterNotFound">
+                <tr>
+                    <th>ChapterId</th>
+                    <th>Name</th>
+                    <th>description</th>
+                    <th>Sub Chapter</th>
+                    <th>Price</th>
+                    <th>Action</th>
+                </tr>
+                <tr *ngFor="let chap of chapters">
+                    <td>{{chap.id}}</td>
+                    <td>{{chap.name}}</td>
+                    <td>{{chap.description}}</td>
+                    <td><a routerLink="/teacher/course/{{course.id}}/chapter/{{chap.id}}/subchapter/list">{{chap.subchapter.length}}</a></td>
+                    <td>$ {{chap.price}}</td>
+                    <!-- <td>
+                        <ul><li *ngFor="let topic of chap.sub_chapter">{{topic.name}}</li></ul>
+                    </td> -->
+                    <td><a routerLink="/teacher/course/{{chap.courseId}}/chapter/{{chap.id}}/edit" class="text-success">Edit</a> | <a class="text-danger" (click)="deleteChapter(chap)">Delete</a></td>
+                </tr>
+            </table>
+            <ng-template #chapterNotFound>Oops! no chapter available</ng-template>
+        </div>
+    </div>
+</section>

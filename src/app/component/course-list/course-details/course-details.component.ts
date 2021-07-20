@@ -5,6 +5,7 @@ import { EncodeDecodeBase64 } from 'src/globalFunction';
 import { ActivatedRoute, Router } from '@angular/router';
 import   Swal from 'sweetalert2';
 import * as $ from 'jquery';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-course-details',
@@ -29,6 +30,7 @@ export class CourseDetailsComponent implements OnInit {
     this.userId = (this.loginCheck) ? this.userInfo.id : 0;
     this.courseId = EncodeDecodeBase64(this._activatedRoute.snapshot.paramMap.get('courseId'),'decode');
     this.getCourseDetails(this.courseId); // calling to get the Teacher Info
+    this.loadStripe();
   }
 
   /*********Get Course List *********/
@@ -38,7 +40,6 @@ export class CourseDetailsComponent implements OnInit {
     this._api.getCourseDetails(courseId,this.userId).subscribe(
         res => {
           this.courseDetails = res.data;
-          // console.log(this.courseDetails);
           window.scrollTo(0, 0);
           this._loader.stopLoader('loader');
         },err => {}
@@ -59,23 +60,25 @@ export class CourseDetailsComponent implements OnInit {
     $('#youtubeModalBody').empty();
   }
 
-  enrollNow(courseId){
-    if(this.loginCheck && courseId > 0){
-      const mainForm = new FormData();
-      mainForm.append('userId',this.userInfo.id);
-      mainForm.append('courseId',courseId);
-      this._loader.startLoader('loader');
-      this._api.postUserSubscribedCourse(mainForm).subscribe(
-        res => {
-          if(res.error == false){
-            this._router.navigateByUrl('/user/subscription/thankyou/'+EncodeDecodeBase64(res.data.id,'encode'));
-          }else{
-            Swal.fire('Error',res.message);
-          }
-          this._loader.stopLoader('loader');
-          // console.log(res);
-        },err => {}
-      )
+  totalPrice : any = 0;
+  enrollNow(whattodo,data){
+    if(this.loginCheck){
+      if(whattodo == 'chapter'){
+        this.totalPrice = data.price
+      }else if(whattodo == 'course'){
+        this.totalPrice = data.coursePrice;
+      }
+      var handler = (<any>window).StripeCheckout.configure({
+        key: this.stripeKey,
+        locale: 'auto',
+        token: (token: any) => {
+          this.createStripeCharge(token,whattodo,data);
+        }
+      });
+      handler.open({
+        name: 'Winz',
+        amount: parseFloat(this.totalPrice) * 100,
+      });
     }else{
       Swal.fire('Error','Please login to countinue','error')
     }
@@ -85,13 +88,71 @@ export class CourseDetailsComponent implements OnInit {
     Swal.fire('Warning','This course is already enrolled by you');
   }
 
-  commaSeparateTeacher(teacherList){
-    let teacher = '';
-    Object.keys(teacherList).forEach((key)=>{
-      teacher += teacherList[key].name+',';
-    });
-    teacher = teacher.slice(0, -1);// removing the last , sign from String
-    return teacher;
+  // Stripe Integration Start
+  public handler:any = null;
+  public stripeKey = environment.stripeKey;
+  loadStripe() {
+    if(!window.document.getElementById('stripe-script')) {
+      var s = window.document.createElement("script");
+      s.id = "stripe-script";
+      s.type = "text/javascript";
+      s.src = "https://checkout.stripe.com/checkout.js";
+      s.onload = () => {
+        this.handler = (<any>window).StripeCheckout.configure({
+          key: this.stripeKey,
+          locale: 'auto',
+          token: function (token: any) {
+          }
+        });
+      }
+      window.document.body.appendChild(s);
+    }
+  }
+
+  createStripeCharge(token,whattodo,data){
+    this._loader.startLoader('loader');
+    const mainForm = new FormData();
+    mainForm.append('stripeToken',token.id);
+    mainForm.append('amount',this.totalPrice);
+    this._api.createStripeTokenCharge(mainForm).subscribe(
+      res => {
+        if(res.error == false){
+          this.purchaseConfirmed(res.data,whattodo,data);
+        }else{
+          Swal.fire('Error', res.message);
+        }
+        // console.log('Response After Payment',res);
+        this._loader.stopLoader('loader');
+      },
+      err => {
+        this._loader.stopLoader('loader');
+        Swal.fire('Error', 'Something Went Wrong Please try after Some time');
+      }
+    );
+  }
+
+  purchaseConfirmed(transactionDetails,whattodo,purchaseData){
+      const mainForm = new FormData();
+      mainForm.append('stripeTransactionId',transactionDetails.id);
+      mainForm.append('userId',this.userInfo.id);
+      mainForm.append('whatPurchased',whattodo);
+      if(whattodo == 'chapter'){
+        mainForm.append('courseId',purchaseData.courseId);
+        mainForm.append('chapterId',purchaseData.id);
+      }else if(whattodo == 'course'){
+        mainForm.append('courseId',purchaseData.id);
+      }
+      this._loader.startLoader('loader');
+      this._api.postUserSubscribedCourse(mainForm).subscribe(
+        res => {
+          if(res.error == false){
+            this._router.navigateByUrl('/user/subscription/thankyou/'+EncodeDecodeBase64(res.data.id,'encode'));
+          }else{
+            Swal.fire('Error',res.message);
+          }
+          this._loader.stopLoader('loader');
+        },err => {}
+      )
   }
 
 }

@@ -1,0 +1,41 @@
+<ngx-ui-loader loaderId="loader" fgsColor="#FFFFFF" bgsOpacity="1" overlayColor="rgba(40,40,40,0.1)"></ngx-ui-loader>
+<section class="account-detail">
+    <div class="d-flex">
+        <ul class="aside">
+            <app-sidebar></app-sidebar>
+        </ul>
+        <div class="account-sec mb-5">
+            <h3>Chapter : {{chapter.name}}</h3>
+            <h3>Edit Sub Chapter <a style="float: right;" class="btn" routerLink="/teacher/course/{{chapter.courseId}}/chapter/{{chapter.id}}/subchapter/list">Back to Sub-Chapter List</a></h3>
+            <div class="row">
+                <div class="signin-form col-md-8 offset-md-1">
+                    <form #newSubChapter="ngForm" (ngSubmit)="createNewSubChapterFormSubmit(newSubChapter)">
+                        <!-- {{newSubChapter.value | json}} -->
+                        <!-- <small>NAME & EMAIL</small> -->
+                        <div class="row">
+                            <div class="col-md-12 mb-4">
+                                <label for="category">Category:</label>
+                                <select name="categoryId" #category [ngModel]="subChapter.categoryId" class="form-control" required>
+                                    <option *ngFor="let cat of chapter.category" value="{{cat.id}}">{{cat.name}}</option>
+                                </select>
+                            </div>
+                            <div class="col-md-12 mb-4">
+                                <label for="sub_chapter">Sub-Chapter Name:</label>
+                                <input #name [ngModel]="subChapter.name" name="name" type="text" placeholder="Name" class="form-control" required>
+                            </div>
+                            <div class="col-md-12 mb-4">
+                                <label for="topics">Topics:</label>
+                                <textarea #topics [ngModel]="subChapter.topics" name="topics" placeholder="Topics with Comma Separate" class="form-control" required></textarea>
+                            </div>
+                            <span class="text-danger">{{errorMsg}}</span>
+                            <span class="text-success">{{successMsg}}</span>
+                            <div class="col-md-6">
+                                <button type="submit" class="btn btn-primary shadow-sm pl-4 pr-4 mt-4 mb-0">Update the Details</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

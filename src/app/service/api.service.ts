@@ -71,6 +71,10 @@ export class APIService {
     return this._http.get<any>(_apiUrl+'home_page_content');
   }
 
+  getCourseList(){
+    return this._http.get<any>(_apiUrl + 'course/list');
+  }
+
   // API Implementation Start
   userLoginAPI(formData){
     return this._http.post<any>(_apiUrl+'login',formData);
@@ -85,19 +89,23 @@ export class APIService {
   }
 
   getTeacherList(){
-    return this._http.get<any>(_apiUrl + 'teacher');
+    return this._http.get<any>(_apiUrl + 'teacher/details');
   }
 
   getTeacherDetails(teacherId){
-    return this._http.get<any>(_apiUrl + 'teacher/'+teacherId);
+    return this._http.get<any>(_apiUrl + 'teacher/details?teacherId='+teacherId);
   }
 
-  getCourseList(){
-    return this._http.get<any>(_apiUrl + 'course');
+  getCourseDetails(courseId=0,userId=0){
+    return this._http.get<any>(_apiUrl + 'course/list?courseId='+courseId+'&userId='+userId);
   }
 
-  getCourseDetails(courseId,userId=0){
-    return this._http.get<any>(_apiUrl + 'course/'+courseId+'?userId='+userId);
+  createTeacherCourse(formdata){
+    return this._http.post<any>(_apiUrl + 'teacher/course/create',formdata);
+  }
+
+  editTeacherCourse(courseId){
+    return this._http.get<any>(_apiUrl+'teacher/course/edit?courseId='+courseId);
   }
 
   updateUserPassword(data){
@@ -109,7 +117,7 @@ export class APIService {
   }
 
   postUserSubscribedCourse(formData){
-    return this._http.post<any>(_apiUrl + 'subscribed/course',formData);
+    return this._http.post<any>(_apiUrl + 'subscribed/user/course',formData);
   }
 
   getMembershipList(userId,userType){
@@ -123,9 +131,18 @@ export class APIService {
   getChapterList(subjectCategoryId = 0,chapterId = 0,userId=0){
     return this._http.get<any>(_apiUrl + 'chapter?subjectCategoryId='+subjectCategoryId+'&chapterId='+chapterId+'&userId='+userId);
   }
+  
+  getSubChapterList(categoryId=0,chapterId=0){
+    return this._http.get<any>(_apiUrl + 'chapter/subchapter?categoryId='+categoryId+'&chapterId='+chapterId);
+  }
+  
+  getQuestionList(chapterId,categoryId,subChapterId){
+    const queryString = '?chapterId='+chapterId+'&categoryId='+categoryId+'&subChapterId='+subChapterId;
+    return this._http.get<any>(_apiUrl + 'question/list'+queryString);
+  }
 
-  getQuestionList(subjectCategoryId = 0,chapterId = 0){
-    return this._http.get<any>(_apiUrl + 'question?subjectCategoryId='+subjectCategoryId+'&chapterId='+chapterId);
+  deleteQuestionAPI(formData){
+    return this._http.post<any>(_apiUrl + 'delete_question_api',formData);
   }
 
   postContactUsForm(formData){
@@ -200,17 +217,26 @@ export class APIService {
     return this._http.get<any>(_apiUrl + 'chapter?teacherId='+teacherId);
   }
 
-  getCategoryAndSubjectCategoryList(){
-    return this._http.get<any>(_apiUrl + 'category_and_subjectCategory');
+  createSubChapter(courseId,chapterId,formType,subChapterId=0){
+    return this._http.get<any>(_apiUrl + 'sub-chapter/create?courseId='+courseId+'&chapterId='+chapterId+'&formType='+formType+'&subChapterId='+subChapterId);
   }
 
-  addNewCategory(formData){
-    return this._http.post<any>(_apiUrl + 'chapter/create',formData);
+  getCategoryList(){
+    return this._http.get<any>(_apiUrl + 'category/list');
+  }
+
+  createCourseChapter(formData){
+    return this._http.post<any>(_apiUrl + 'course/chapter/create',formData);
+  }
+
+  createChapterSubChapter(formData){
+    return this._http.post<any>(_apiUrl + 'chapter/subchapter/create',formData);
   }
 
   updateChapter(formData){
     return this._http.post<any>(_apiUrl + 'chapter/update',formData);
   }
+
   deleteChapter(formData){
     return this._http.post<any>(_apiUrl + 'chapter/delete',formData);
   }
@@ -221,5 +247,17 @@ export class APIService {
 
   getSubscribedChapterList(userId){
     return this._http.get<any>(_apiUrl + 'subscribed/user/chapter?userId'+userId);
+  }
+
+  getTeacherCourse(teacherId){
+    return this._http.get<any>(_apiUrl + 'teacher/course/list?teacherId='+teacherId);
+  }
+
+  deleteTeacherCourse(formData){
+    return this._http.post<any>(_apiUrl + 'teacher/course/delete',formData);
+  }
+
+  deleteSubChapter(formData){
+    return this._http.post<any>(_apiUrl + 'subchapter/delete',formData);
   }
 }

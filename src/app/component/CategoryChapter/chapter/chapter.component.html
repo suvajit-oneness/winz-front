@@ -3,38 +3,22 @@
     <div class="container">
         <div class="row">
             <div class="section_title text-center col-12 p-0 mb-5">
-                <h3 class="main_title aos-init aos-animate" data-aos="fade-down" data-aos-duration="1000">{{categoryName}} {{subjectCategoryName}}</h3>
-                <p class="col-md-8 m-auto pt-3 aos-init aos-animate" data-aos="fade-down" data-aos-duration="1500">
-                    How would you like to study today…
-                </p>
+                <h3 class="main_title aos-init aos-animate" data-aos="fade-down" data-aos-duration="1000">{{chapter.name}}</h3><br>
+                <h4 class="main_title aos-init aos-animate" data-aos="fade-down" data-aos-duration="1000">({{category.name}})</h4>
+                <p class="col-md-8 m-auto pt-3 aos-init aos-animate" data-aos="fade-down" data-aos-duration="1500">How would you like to study today…</p>
             </div>
-            <div class="col-md-12" *ngIf="chapterList.length > 0,else noDataFound">
-                <div class="card mb-2" *ngFor="let chapter of chapterList;index as i">
+            <div class="col-md-12" *ngIf="subchapter.length > 0,else noDataFound">
+                <div class="card mb-2" *ngFor="let subch of subchapter;index as i">
                     <div class="card-header">
-                        Chapter {{i+1}} - <span >{{chapter.chapter}}</span>
-                        <a *ngIf="!chapter.userChapterPurchased;else userChapterAlreadyPurchades" href="javascript:void(0)" (click)="buyNowChapter(chapter)" class="float-right">Buy Now ($ {{chapter.price}})</a>
-                        <ng-template #userChapterAlreadyPurchades>
-                            <a href="javascript:void(0)" class="float-right">Purchased</a>
-                        </ng-template>
+                        Topic {{i+1}} - <span >{{subch.name}}</span>
                     </div>
-                    <div class="card-body" *ngIf="chapter.userChapterPurchased;else donotMoveToQuestionURL" routerLink="/category/subject-category/chapter/question/{{EncodeDecodeBase64(chapter.subjectCategoryId,'encode')}}/{{EncodeDecodeBase64(chapter.id,'encode')}}">
+                    <div class="card-body" routerLink="/chapter/{{subch.chapterId}}/category/{{subch.categoryId}}/subchapter/{{subch.id}}/question">
                         <ul class="subchapter">
-                            <li *ngFor="let subchapter of chapter.sub_chapter">
-                                <span>{{subchapter.name}} </span>
-                                <i class="ti-arrow-right mr-1"></i> {{subchapter.topics}}
+                            <li *ngFor="let topic of getCommaSeparator(subch.topics); index as j">
+                                <span>Point {{j+1}} - {{topic}} </span>
                             </li>
                         </ul>
                     </div>
-                    <ng-template #donotMoveToQuestionURL>
-                        <div class="card-body" (click)="buyNowChapter(chapter)">
-                            <ul class="subchapter">
-                                <li *ngFor="let subchapter of chapter.sub_chapter">
-                                    <span>{{subchapter.name}} </span>
-                                    <i class="ti-arrow-right mr-1"></i> {{subchapter.topics}}
-                                </li>
-                            </ul>
-                        </div>
-                    </ng-template>
                 </div>
             </div>
             <ng-template #noDataFound>

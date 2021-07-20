@@ -20,27 +20,24 @@ export class ChapterPurchaseHistoryComponent implements OnInit {
     this._loader.startLoader('loader');
     this._api.getSubscribedChapterList(this.userInfo.id).subscribe(
       res => {
-        console.log(res);
         this.chapter.data = [];
         if(res.error == false){
+          console.log(res);
           res.data.forEach((data) => {
-            let subjectChapter : any = data.chapter.sub_chapter;
+            // let subjectChapter : any = data.chapter.sub_chapter;
             this.chapter.data.push({
-              categoryName : data.chapter.category.title,
-              subjectCategoryName : data.chapter.subject_category.title,
-              chapterName : data.chapter.chapter,
-              subjectChapter : subjectChapter,
-              chapterId : data.chapter.id,
               purchaseChapterId : data.id,
-              stripeTransactionId : data.stripeTransactionId,
-              userId : data.userId,
-              transactionId: data.stripe_transaction.transactionId,
-              cardType : data.stripe_transaction.card_type,
-              balanceTransactionId : data.stripe_transaction.balance_transaction,
-              price : data.stripe_transaction.amount,
+              chapterId : data.chapterId,
+              chapterName : data.chapter.name,
+              // categoryName : data.category.name,
+              courseName : data.course.course_name,
+              teacherName : data.teacher.name,
+              teacherEmail : data.teacher.email,
+              transactionId : data.transaction.id,
+              transaction : data.transaction.transactionId,
+              price : data.price,
             });
           });
-          console.log(this.chapter.data);
         }
         this._loader.stopLoader('loader');
       },err => {
@@ -52,21 +49,18 @@ export class ChapterPurchaseHistoryComponent implements OnInit {
   showTopics(topics){
     console.log(topics);
   }
-
 }
 
 
 interface CHAPTER{
-    categoryName : string,
-    subjectCategoryName : string,
-    chapterName : string,
-    subjectChapter : any,
-    chapterId : number,
-    purchaseChapterId : number,
-    stripeTransactionId : number,
-    userId : number,
-    transactionId: string,
-    cardType : string,
-    balanceTransactionId : string,
-    price : string,
+  purchaseChapterId : number,
+  chapterId : number,
+  chapterName : string,
+  // categoryName : string,
+  courseName : string,
+  teacherName : string,
+  teacherEmail : string,
+  transactionId : number,
+  transaction : string,
+  price : string,
 }

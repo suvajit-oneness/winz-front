@@ -1,0 +1,49 @@
+<ngx-ui-loader loaderId="loader" fgsColor="#FFFFFF" bgsOpacity="1" overlayColor="rgba(40,40,40,0.1)"></ngx-ui-loader>
+<section class="account-detail">
+    <div class="d-flex">
+        <ul class="aside">
+            <app-sidebar></app-sidebar>
+        </ul>
+        <div class="account-sec mb-5">
+            <h3>Add New Course <a style="float: right;" class="btn" routerLink="/teacher/course/list">Back to Course</a></h3>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="drag-outr text-center">
+                        <a href="javascript:void(0)" class="dragfiles">
+                            <img id="courseImage" [src]="courseImage"/>
+                        </a>
+                        <div class="selectbtn">
+                            <input type="file" name="image" class="btn" (change)="onSelectFile($event)">
+                            <a href="javascript:void(0)" class="btn">Select Image</a>
+                        </div>
+                        <span class="jsError">{{fileFormatError}}</span>
+                    </div>
+                </div>
+                <div class="signin-form col-md-8 offset-md-1">
+                    <form #newCourse="ngForm" (ngSubmit)="createNewCourse(newCourse)">
+                        <!-- {{newCourse.value | json}} -->
+                        <!-- <small>NAME & EMAIL</small> -->
+                        <div class="row">
+                            <!-- <div class="col-md-6 mb-4">
+                                <select name="category" #category [ngModel]='1' class="form-control" required>
+                                    <option *ngFor="let cat of categorydata" value="{{cat.id}}">{{cat.name}}</option>
+                                </select>
+                            </div> -->
+                            <div class="col-md-12 mb-4">
+                                <input #name ngModel name="name" type="text" placeholder="Name" class="form-control">
+                            </div>
+                            <div class="col-md-12 mb-4">
+                                <textarea #description ngModel name="description" placeholder="Description" class="form-control"></textarea>
+                            </div>
+                            <span class="text-danger">{{errorMsg}}</span>
+                            <span class="text-success">{{successMsg}}</span>
+                            <div class="col-md-6">
+                                <button type="submit" class="btn btn-primary shadow-sm pl-4 pr-4 mt-4 mb-0">Save the Details</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,37 @@
+<ngx-ui-loader loaderId="loader" fgsColor="#FFFFFF" bgsOpacity="1" overlayColor="rgba(40,40,40,0.1)"></ngx-ui-loader>
+<section class="account-detail">
+    <div class="d-flex">
+        <ul class="aside">
+            <app-sidebar></app-sidebar>
+        </ul>
+        <div class="account-sec mb-5">
+            <h3>Add New Chapter - ({{course.course_name}}) <a style="float: right;" class="btn" routerLink="/teacher/course/{{course.id}}/chapter/list">Back to Chapter</a></h3>
+            <div class="row">
+                <div class="signin-form col-md-8 offset-md-1">
+                    <form #newChapter="ngForm" (ngSubmit)="createNewChapter(newChapter)">
+                        <!-- {{newChapter.value | json}} -->
+                        <!-- <small>NAME & EMAIL</small> -->
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <label for="name">Chapter Name: </label>
+                                <input #name ngModel name="name" type="text" id="name" placeholder="Name" class="form-control" required>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <label for="price">Chapter Price: </label>
+                                <input #price ngModel name="price" type="text" id="price" placeholder="Price in ($)" class="form-control" required>
+                            </div>
+                            <div class="col-md-12 mb-4">
+                                <label for="description">Chapter Description: </label>
+                                <textarea #description ngModel id="description" name="description" placeholder="Description" class="form-control"></textarea>
+                            </div>
+                            <span class="text-danger">{{errorMsg}}</span><span class="text-success">{{successMsg}}</span>
+                            <div class="col-md-6">
+                                <button type="submit" class="btn btn-primary shadow-sm pl-4 pr-4 mt-4 mb-0">Save the Details</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

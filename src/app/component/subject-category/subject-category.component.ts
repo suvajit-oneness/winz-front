@@ -11,32 +11,30 @@ import { EncodeDecodeBase64 } from 'src/globalFunction';
 })
 export class SubjectCategoryComponent implements OnInit {
 
-  public EncodeDecodeBase64 = EncodeDecodeBase64;
   constructor(private _loader : NgxUiLoaderService,private _api:APIService,private _activatedRoute:ActivatedRoute) {
     this._loader.startLoader('loader');
   }
-
-  public category : any = 0;public subjectCategoryList : any = [];
-  public categoryFullName = '';
+  public chapterId : any = 0;
+  public category : any = [];
+  public categoryFullName = 'CHOOSE YOUR DESIRED CATEGORY';
   ngOnInit(): void {
-    this.category = EncodeDecodeBase64(this._activatedRoute.snapshot.paramMap.get('categoryId'),'decode');
-    this.subjectCategory(this.category);
+    this.chapterId = this._activatedRoute.snapshot.paramMap.get('chapterId');
+    this.getCategory();
   }
 
-  subjectCategory(categoryId){
-    this._api.getSubjectCategory(categoryId).subscribe(
+  getCategory(){
+    this._loader.startLoader('loader');
+    this._api.getCategoryList().subscribe(
       res => {
         window.scrollTo(0, 0);
         this._loader.stopLoader('loader');
         if(res.error == false){
-          this.subjectCategoryList = res.data;
-          Object.keys(res.data).forEach((key)=>{
-            this.categoryFullName = res.data[key].category.full_name;
-          });
+          this.category = res.data.category;
         }
-        // console.log(res);
       },
-      err => {},
+      err => {
+        this._loader.stopLoader('loader');
+      },
     )
     
   }

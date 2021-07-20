@@ -17,6 +17,7 @@ export class TeacherProfileComponent implements OnInit {
   constructor(private _loader : NgxUiLoaderService,private _activatedRoute:ActivatedRoute,private _api:APIService,private _router:Router) { }
 
   public teacherId : any = 0;public teacherData : any = {};
+  public teacherCourse : any = [];
   
   ngOnInit(): void {
     window.scrollTo(0, 0);
@@ -31,6 +32,7 @@ export class TeacherProfileComponent implements OnInit {
     this._api.getTeacherDetails(teacherId).subscribe(
       res => {
         this.teacherData = res.data;
+        this.teacherCourse = res.data.teacherCourses;
         this._loader.stopLoader('loader');
       },err => {}
     )

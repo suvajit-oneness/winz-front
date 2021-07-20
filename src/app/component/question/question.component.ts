@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { APIService } from 'src/app/service/api.service';
-import { EncodeDecodeBase64 } from 'src/globalFunction';
 
 @Component({
   selector: 'app-question',
@@ -11,24 +10,42 @@ import { EncodeDecodeBase64 } from 'src/globalFunction';
 })
 export class QuestionComponent implements OnInit {
 
-  public EncodeDecodeBase64 = EncodeDecodeBase64;
   constructor(private _loader : NgxUiLoaderService,private _activatedRoute:ActivatedRoute,private _api:APIService) {}
-
-  public subjectCategory;public chapterId;
+  public chapterId : any = 0;public categoryId : any = 0;public subChapterId : any = 0;
   public questionList : any = [];
+  public chapter : any = {};public category : any = {};public subchapter : any = {};
+
   ngOnInit(): void {
     window.scrollTo(0, 0);
-    this.subjectCategory = EncodeDecodeBase64(this._activatedRoute.snapshot.paramMap.get('subjectCategory'),'decode');
-    this.chapterId = EncodeDecodeBase64(this._activatedRoute.snapshot.paramMap.get('chapterId'),'decode');
-    this.getQuestion(this.subjectCategory,this.chapterId);
+    this.chapterId = this._activatedRoute.snapshot.paramMap.get('chapterId');
+    this.categoryId = this._activatedRoute.snapshot.paramMap.get('categoryId');
+    this.subChapterId = this._activatedRoute.snapshot.paramMap.get('subChapterId');
+    this.getRelatedQuestion();
   }
 
-  getQuestion(subjectCategoryId,chapterId){
-    this._loader.startLoader('loader');
-    this._api.getQuestionList(subjectCategoryId,chapterId).subscribe(
+  getRelatedQuestion(){
+      const mainForm = new FormData();
+      this._loader.startLoader('loader');
+      this._api.getQuestionList(this.chapterId,this.categoryId,this.subChapterId).subscribe(
       res => {
         window.scrollTo(0, 0);
         this.questionList = res.data;
+        res.data.forEach(response => {
+          // Category Data
+          this.category.id = response.category.id;
+          this.category.name = response.category.name;
+          this.category.image = response.category.image;
+          // Chapter Data
+          this.chapter.id = response.chapter.id;
+          this.chapter.name = response.chapter.name;
+          this.chapter.price = response.chapter.price;
+          this.chapter.courseId = response.chapter.courseId;
+          // Sub - Chapter Data
+          this.subchapter.id = response.subchapter.id;
+          this.subchapter.name = response.subchapter.name;
+          this.subchapter.topics = response.subchapter.topics;
+          this.subchapter.courseId = response.subchapter.courseId;
+        });
         console.log(res);
       },err => {}
     )
