@@ -140,6 +140,14 @@ export class APIService {
     const queryString = '?chapterId='+chapterId+'&categoryId='+categoryId+'&subChapterId='+subChapterId;
     return this._http.get<any>(_apiUrl + 'question/list'+queryString);
   }
+  
+  createQuestion(formData){
+    return this._http.post<any>(_apiUrl + 'create-and-update-question', formData);
+  }
+
+  getParticularQuestion(questionId) {
+    return this._http.get<any>(_apiUrl + 'question/edit/' + questionId);
+  }
 
   deleteQuestionAPI(formData){
     return this._http.post<any>(_apiUrl + 'delete_question_api',formData);

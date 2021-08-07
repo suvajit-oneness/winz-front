@@ -46,6 +46,8 @@ import { CourseChapterSubchapterListComponent } from './component/course-chapter
 import { CourseChapterSubchapterCreateComponent } from './component/course-chapter-subchapter-create/course-chapter-subchapter-create.component';
 import { CourseChapterSubchapterEditComponent } from './component/course-chapter-subchapter-edit/course-chapter-subchapter-edit.component';
 import { QuestionListComponent } from './component/question/question-list/question-list.component';
+import { QuestionAddComponent } from './component/question/question-add/question-add.component';
+import { QuestionEditComponent } from './component/question/question-edit/question-edit.component'
 
 const routes: Routes = [
   // before Login Routes
@@ -95,6 +97,8 @@ const routes: Routes = [
   {path : 'teacher/course/:courseId/chapter/:chapterId/subchapter/create',component:CourseChapterSubchapterCreateComponent},
   {path : 'teacher/course/:courseId/chapter/:chapterId/subchapter/:subChapterId/edit', component: CourseChapterSubchapterEditComponent},
   {path : 'teacher/:courseId/:chapterId/:subChapterId/question', component:QuestionListComponent},
+  {path : 'teacher/:courseId/:chapterId/:subChapterId/question/create', component:QuestionAddComponent},
+  {path : 'teacher/question/edit/:questionId', component:QuestionEditComponent},
   
   // {path : 'user/chapter/edit/:chapterId', component:EditCategoryChapterComponent},
   // {path : 'chapter/purchase/thankyou', component : ChapterBookingThankyouComponent},

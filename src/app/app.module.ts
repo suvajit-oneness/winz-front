@@ -69,6 +69,8 @@ import { EditCourseChapterComponent } from './component/edit-course-chapter/edit
 import { CourseChapterSubchapterListComponent } from './component/course-chapter-subchapter-list/course-chapter-subchapter-list.component';
 import { CourseChapterSubchapterCreateComponent } from './component/course-chapter-subchapter-create/course-chapter-subchapter-create.component';
 import { CourseChapterSubchapterEditComponent } from './component/course-chapter-subchapter-edit/course-chapter-subchapter-edit.component';
+import { QuestionAddComponent } from './component/question/question-add/question-add.component';
+import { QuestionEditComponent } from './component/question/question-edit/question-edit.component';
 // Global Error Catch Implement END
 
 // export class RajeevErrorHandler implements ErrorHandler{
@@ -85,7 +87,7 @@ import { CourseChapterSubchapterEditComponent } from './component/course-chapter
     FooterComponent,LoginComponent,SignupComponent,CourseListComponent,CourseDetailsComponent,
     TeacherProfileComponent,DashboardComponent,SidebarComponent,EditProfileComponent,ChangePasswordComponent,
     SubscribedCourseComponent,MembershipComponent,SubscriptionThankyouComponent,QuestionComponent,ChapterComponent,
-    ContactusComponent,SubjectCategoryComponent,EventCalenderComponent,ScheduleComponent, BookingThankyouComponent, BookingRequestComponent, BookingHistoryComponent, ZoomMeetingComponent, TeacherListComponent, MemberShipBookingThankyouComponent, UserMemberShipComponent, AboutUsComponent, TestimonialComponent, FaqComponent, BlogComponent, BlogDetailsComponent, TermsAndConditionComponent, PrivacyPolicyComponent, RefundPolicyComponent, CancellationPolicyComponent, QuestionListComponent, ChapterPurchaseHistoryComponent, TeacherCourseComponent, AddTeacherCourseComponent, EditTeacherCourseComponent, CourseChapterListComponent, AddCourseChapterComponent, EditCourseChapterComponent, CourseChapterSubchapterListComponent, CourseChapterSubchapterCreateComponent, CourseChapterSubchapterEditComponent
+    ContactusComponent,SubjectCategoryComponent,EventCalenderComponent,ScheduleComponent, BookingThankyouComponent, BookingRequestComponent, BookingHistoryComponent, ZoomMeetingComponent, TeacherListComponent, MemberShipBookingThankyouComponent, UserMemberShipComponent, AboutUsComponent, TestimonialComponent, FaqComponent, BlogComponent, BlogDetailsComponent, TermsAndConditionComponent, PrivacyPolicyComponent, RefundPolicyComponent, CancellationPolicyComponent, QuestionListComponent, ChapterPurchaseHistoryComponent, TeacherCourseComponent, AddTeacherCourseComponent, EditTeacherCourseComponent, CourseChapterListComponent, AddCourseChapterComponent, EditCourseChapterComponent, CourseChapterSubchapterListComponent, CourseChapterSubchapterCreateComponent, CourseChapterSubchapterEditComponent, QuestionAddComponent, QuestionEditComponent
   ],
   imports: [
     BrowserModule,BrowserAnimationsModule,NgxUiLoaderModule,NgxUiLoaderRouterModule,NgxUiLoaderHttpModule,
