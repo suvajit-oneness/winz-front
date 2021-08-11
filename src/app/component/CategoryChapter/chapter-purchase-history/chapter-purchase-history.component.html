@@ -16,6 +16,7 @@
                             <th>Price</th>
                             <th>transactionId</th>
                             <th>Teacher</th>
+                            <th>Chapter Link</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -29,6 +30,7 @@
                                 <li>Name : {{chapter.teacherName}}</li>
                                 <li>Email : {{chapter.teacherEmail}}</li>
                             </ul></td>
+                            <td><a routerLink="/chapter/{{chapter.chapterId}}/category">Click Here</a></td>
                         </tr>
                     </tbody>
                 </table>

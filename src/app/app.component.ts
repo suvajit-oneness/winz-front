@@ -3,6 +3,7 @@ import { NavigationStart, Router } from '@angular/router';
 import { ConnectionService } from 'ng-connection-service';
 import { ToastrService } from 'ngx-toastr';
 import { APIService } from './service/api.service';
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +14,7 @@ export class AppComponent {
   title = 'winz-frontend';
   public showHeaderFooter: boolean = false;
   public isConnected : boolean = true;
+  public whatsappNumber : any = environment.whatsappNumber;
 
   constructor(private _api:APIService,private _router:Router,private _connection:ConnectionService,public toastr:ToastrService){
     _router.events.forEach((event) => {
