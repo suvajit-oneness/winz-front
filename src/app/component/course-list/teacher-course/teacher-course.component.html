@@ -27,7 +27,10 @@
                             <td>{{course.countFeature}}</td>
                             <td>{{course.price}}</td>
                             <td><span innerHTML="{{course.course_description | slice:0:95}}{{ course.course_description.length > 95 ? ' ...' : ''}}"></span></td>
-                            <td><a href="javascript:void(0)" class="text-success" routerLink="/teacher/course/list/{{course.id}}/edit">Edit</a> | <a href="javascript:void(0)" class="text-danger" (click)="deleteTeacherCourse(course)">Delete</a></td>
+                            <td>
+                                <a href="javascript:void(0)" class="text-primary p-1" routerLink="/teacher/course/list/{{course.id}}/edit"><i class="ti-pencil-alt"></i></a>
+                                <a href="javascript:void(0)" class="text-danger p-1" (click)="deleteTeacherCourse(course)"><i class="ti-trash"></i></a>
+                            </td>
                         </tr>
                     </tbody>
                 </table>

@@ -28,7 +28,10 @@
                                 <a routerLink="/teacher/profile/{{EncodeDecodeBase64(teacher.id,'encode')}}">
                                     <h3 class="course-title">{{teacher.name}}</h3>
                                     <p class="course-subtitle"><strong>Subject : {{teacher.subject}}</strong></p>
-                                    <p class="course-subtitle"><strong>BIO :</strong><br><span innerHTML="{{teacher.description | slice:0:95}}{{ teacher.description.length > 95 ? ' ...' : ''}}"></span></p>
+                                    <!-- <p class="course-subtitle"><strong>BIO :</strong><br><span innerHTML="{{teacher.description | slice:0:95}}{{ teacher.description.length > 95 ? ' ...' : ''}}"></span></p> -->
+                                    <p class="course-subtitle">
+                                        <small innerHTML="{{teacher.description | slice:0:95}}{{ teacher.description.length > 95 ? ' ...' : ''}}"></small>
+                                    </p>
                                 </a>
                                 <ul class="instructor_caption">
                                     <li *ngIf="teacher.facebook != ''"><a href="{{teacher.facebook}}" class="cl-fb" tabindex="-1" target="_blank"><i class="ti-facebook"></i></a></li>

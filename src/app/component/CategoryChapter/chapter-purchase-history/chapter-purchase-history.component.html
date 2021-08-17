@@ -6,8 +6,8 @@
         </ul>
         <div class="account-sec mb-5">
             <h3>Subscribed Chapters </h3>
-            <div *ngIf="chapter.data.length>0; else dataNotFound">
-                <table class="table table-striped table-bordered" style="width: 100%;">
+            <div class="table-responsive" *ngIf="chapter.data.length>0; else dataNotFound">
+                <table class="table table-hover table-sm">
                     <thead>
                         <tr>
                             <th>Course Name</th>
@@ -30,7 +30,7 @@
                                 <li>Name : {{chapter.teacherName}}</li>
                                 <li>Email : {{chapter.teacherEmail}}</li>
                             </ul></td>
-                            <td><a routerLink="/chapter/{{chapter.chapterId}}/category">Click Here</a></td>
+                            <td><a routerLink="/chapter/{{chapter.chapterId}}/category" class="orderbtn">Click Here</a></td>
                         </tr>
                     </tbody>
                 </table>
