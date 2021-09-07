@@ -5,11 +5,12 @@
 export const environment = {
   production: false,
   projectPath : '/',
-  whatsappNumber : '918804809613',
+  whatsappNumber : '',
   stripeKey : 'pk_test_TYooMQauvdEDq54NiTphI7jx',
   stripeSecret : 'sk_test_4eC39HqLyjWDarjtT1zdp7dc',
   // apiUrl : 'http://127.0.0.1:8000/'
-  apiUrl : 'https://demo91.co.in/dev/winz-v2/public/',
+  apiUrl : 'https://emarketernetwork.com/winz-backend/public/'
+  // apiUrl : 'https://demo91.co.in/dev/winz-v2/public/'
 };
 
 /*
