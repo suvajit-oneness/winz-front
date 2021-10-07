@@ -6,12 +6,12 @@
         </ul>
         <div class="account-sec mb-5">
             <h3>Manage Schedule</h3>
-            <table class="table table-striped" style="width: 100%;">
+            <table class="table table-sm">
                 <tr>
                     <td>Date</td>
                     <td>Time</td>
-                    <td>Available</td>
-                    <td>Action</td>
+                    <td class="text-center" style="width: 80px;">Available</td>
+                    <td class="text-center" style="width: 100px;">Action</td>
                 </tr>
                 <tr *ngFor="let booked of bookedSlot">
                     <td><input type="date" [ngModel]="booked.date" class="form-control" disabled></td>
@@ -22,17 +22,19 @@
                 <tr *ngFor="let data of schedule.data;let last=last">
                     <td><input type="date" #date [(ngModel)]="data.date" class="form-control" value="{{data.date}}" onfocus="blur()"></td>
                     <td><input type="time" #time [(ngModel)]="data.time" class="form-control" value="{{data.time}}" onfocus="blur()"></td>
-                    <td><input type="checkbox" class="checkbox" #available [(ngModel)]="data.available"></td>
-                    <td>
-                        <a href="javascript:void(0)" class="text-success" *ngIf="last;else notLastEvent" (click)="addSchedule()">&oplus;</a>
+                    <td class="text-center"><input type="checkbox" class="checkbox" #available [(ngModel)]="data.available"></td>
+                    <td class="text-center">
+                        <a href="javascript:void(0)" class="text-success" *ngIf="last;else notLastEvent" (click)="addSchedule()"><i class="ti-plus"></i></a>
                         <ng-template #notLastEvent>
-                            <a href="javascript:void(0)" class="text-danger" (click)="removeSchedule(data)">&otimes;</a>
+                            <a href="javascript:void(0)" class="text-danger" (click)="removeSchedule(data)"><i class="ti-close"></i></a>
                         </ng-template>
                     </td>
                 </tr>
             </table>
-            <p class="text-danger">{{errorMsg}}</p><p class="text-success">{{successMsg}}</p>
-            <button type="button" class="btn btn-success" (click)="updateScheduledData()">Update</button>
+            <div class="row m-0 justify-content-between">
+                <p class="text-danger">{{errorMsg}}</p><p class="text-success">{{successMsg}}</p>
+                <button type="button" class="btn btn-success btn-sm" (click)="updateScheduledData()">Update</button>
+            </div>
         </div>
     </div>
 </section>

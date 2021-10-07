@@ -22,7 +22,7 @@
                         </div>
                     </div>
                     <div class="col-12 col-md-3 p-1" *ngFor="let teacher of teacherList">
-                        <div class="card">
+                        <div class="card text-center pt-4 tlist_im">
                             <img src="{{teacher.image}}" class="card-img-top">
                             <div class="card-body">
                                 <a routerLink="/teacher/profile/{{EncodeDecodeBase64(teacher.id,'encode')}}">

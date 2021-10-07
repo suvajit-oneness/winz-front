@@ -5,7 +5,11 @@
             <app-sidebar></app-sidebar>
         </ul>
         <div class="account-sec mb-5">
-            <h3>Edit New Course <a style="float: right;" class="btn" routerLink="/teacher/course/list">Back to Course</a></h3>
+            <h3>Edit New Course
+                <span>
+                    <a style="float: right;" routerLink="/teacher/course/list">Back to Course</a>
+                </span> 
+            </h3>
             <div class="row">
                 <div class="col-md-3">
                     <div class="drag-outr text-center">
@@ -37,7 +41,7 @@
                             </div>
                             <span class="text-danger">{{errorMsg}}</span>
                             <span class="text-success">{{successMsg}}</span>
-                            <div class="col-md-6">
+                            <div class="col-md-6 ml-auto text-right">
                                 <button type="submit" class="btn btn-primary shadow-sm pl-4 pr-4 mt-4 mb-0">Update the Details</button>
                             </div>
                         </div>

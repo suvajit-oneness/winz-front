@@ -1,0 +1,30 @@
+.dragfiles{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.dragfiles img{
+    width: 100%;
+    object-fit: cover;
+}
+.drag-outr .selectbtn .btn {
+    margin: 0 0;
+    border: 3px solid #fff;
+    height: 42px;
+    width: 42px;
+    text-align: center;
+    padding: 7px 0;
+    min-width: inherit;
+    border-radius: 50%;
+    background: #ff8100;
+    color: #fff;
+    top: -20% !important;
+    display: block;
+}
+.drag-outr .selectbtn {
+    position: absolute;
+    top: 74%;
+    right: 18%;
+}

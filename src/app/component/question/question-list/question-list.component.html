@@ -6,8 +6,12 @@
         </ul>
         <div class="account-sec mb-5">
             <h3>Chapter : {{chapter.name}}</h3>
-            <h3>All Question List - ({{subChapter.name}}) <a class="float-right" routerLink="/teacher/{{courseId}}/{{chapterId}}/{{subChapterId}}/question/create">Add New Question</a></h3>
-            <table class="table table-striped table-bordered" style="width: 100%;" *ngIf="questionList.length > 0;else subChapterNotFound">
+            <h3>All Question List - ({{subChapter.name}})
+                <span>
+                    <a class="float-right" routerLink="/teacher/{{courseId}}/{{chapterId}}/{{subChapterId}}/question/create">Add New Question</a>
+                </span>
+            </h3>
+            <table class="table table-sm" *ngIf="questionList.length > 0;else subChapterNotFound">
                 <tr>
                     <th>Category</th>
                     <th>Question</th>
@@ -18,7 +22,7 @@
                     <th>Answer 2</th>
                     <th>Answer 3</th>
                     <th>Answer 4</th>
-                    <th>Action</th>
+                    <th style="width: 80px;">Action</th>
                 </tr>
                 <tr *ngFor="let question of questionList">
                     <td>{{question.category.name}}</td>
@@ -34,7 +38,10 @@
                     <td>{{question.answer2}}</td>
                     <td>{{question.answer3}}</td>
                     <td>{{question.answer4}}</td>
-                    <td><a class="text-success" routerLink="/teacher/question/edit/{{question.id}}">Edit</a> | <a class="text-danger" (click)="deleteQuestionList(question)">Delete</a></td>
+                    <td>
+                        <a class="text-primary" routerLink="/teacher/question/edit/{{question.id}}"><i class="ti-pencil-alt mr-1"></i></a>
+                        <a class="text-danger" (click)="deleteQuestionList(question)"><i class="ti-trash ml-1"></i></a>
+                    </td>
                 </tr>
             </table>
             <ng-template #subChapterNotFound>Oops! no Question available</ng-template>

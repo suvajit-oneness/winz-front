@@ -6,25 +6,26 @@
         </ul>
         <div class="account-sec mb-5">
             <h3>MemberShip</h3>
-
-            <table class="table table-striped table-bordered" *ngIf="data.length > 0;else dataNotFound">
-                <tr>
-                    <td>Name</td>
-                    <td>Description</td>
-                    <td>Price</td>
-                    <td>Payment Method</td>
-                    <td>Transaction Id</td>
-                    <td>Booking Id</td>
-                </tr>
-                <tr *ngFor="let d of data">
-                    <td>{{d.membership.title}}</td>
-                    <td>{{d.membership.description}}</td>
-                    <td>$ {{d.price / 100}}</td>
-                    <td>{{d.transaction_details.card_type}}</td>
-                    <td>{{d.transaction_details.transactionId}}</td>
-                    <td>{{d.transaction_details.id}}</td>
-                </tr>
-            </table>
+            <div class="table-responsive">
+                <table class="table table-sm" *ngIf="data.length > 0;else dataNotFound">
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th>Payment Method</th>
+                        <th>Transaction Id</th>
+                        <th>Booking Id</th>
+                    </tr>
+                    <tr *ngFor="let d of data">
+                        <td>{{d.membership.title}}</td>
+                        <td>{{d.membership.description}}</td>
+                        <td>$ {{d.price / 100}}</td>
+                        <td>{{d.transaction_details.card_type}}</td>
+                        <td>{{d.transaction_details.transactionId}}</td>
+                        <td>{{d.transaction_details.id}}</td>
+                    </tr>
+                </table>
+            </div>
             <ng-template #dataNotFound>Oops! no data available</ng-template>
         </div>
     </div>

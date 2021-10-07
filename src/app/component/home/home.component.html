@@ -87,7 +87,7 @@
     </div>
 </section><!--Courses-->
 
-<section class="bg-light pt-5 pb-5 mt-5">
+<section class="pt-5 pb-5 mt-5">
     <div class="container">
         <div class="row">
             <div class="section_title text-center col-12 p-0 pb-5">
@@ -97,8 +97,8 @@
             <div class="col-12 p-2 p-md-0 pt-5">
                 <div class="row m-0 p-0">
                     <div class="col-12 col-md-3 p-1" *ngFor="let teacher of teacherList">
-                        <div class="card">
-                            <div class="card-body p-0 pb-3">
+                        <div class="card text-center tlist_im ">
+                            <div class="card-body p-0 pb-3 pt-3">
                                 <img src="{{teacher.image}}" class="card-img-top">
                                 <div class="card-body">
                                     <a routerLink="/teacher/profile/{{EncodeDecodeBase64(teacher.id,'encode')}}">

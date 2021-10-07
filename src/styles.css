@@ -488,7 +488,7 @@ header{
     background: url(assets/img/bg_shape.jpg) no-repeat;
     background-size: cover;
     background-position: center center;
-    margin: 50px 0;
+    margin: 0 0 50px 0;
 }
 .thank_bg .section_title h3{
     color:#ffffff !important;
@@ -557,7 +557,9 @@ header{
     float: right;
     margin-top: 15px;
 }
-
+.foot_lecture a{
+    color: #1ead6b;
+}
 /*------------------Modal-------------------*/
 	
 .modal-body {
@@ -983,7 +985,7 @@ input[type=checkbox]:not(old)+label>span {
 }
 .account-detail{
     margin:0 0 40px;
-    border-bottom:1px solid grey;
+    /* border-bottom:1px solid grey; */
 }
 .aside {
     background:#003783;
@@ -1075,9 +1077,19 @@ color: #7a7a7a;
 
 .drag-outr .dragfiles {
 display: block;
-margin-bottom: 20px;
+/* margin-bottom: 20px; */
+width: 150px;
+height: 150px;
+border-radius: 50%;
+background: #bbbbbb;
+margin: 0 auto;
+overflow: hidden;
 }
-
+.drag-outr .dragfiles img{
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
+}
 .drag-outr .dragfiles span {
 color: #000000;
 font-size: 14px;
@@ -1323,15 +1335,15 @@ opacity: 0;
 
 .mentor-det-details {
     background: #ffffff;
-    border: 1px solid #d6d3d3;
-    padding: 25px;
+    border: 1px solid #ededed;
+    padding: 0 20px 20px 20px;
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 31px;
 }
 
 .medium-heading {
-    font-family: GT Walsheim Pro;
+    font-family: 'Poppins', sans-serif !important;
     font-weight:400;
     font-size: 26px;
     line-height: 1.2;
@@ -1349,17 +1361,17 @@ opacity: 0;
 }
 
 .date-scroll a {
-    background: #1cb3d3;
+    background: #ffc107;
     color: #fff;
     display: inline-block;
     vertical-align: middle;
     padding: 3px 10px;
 }
 .date-scroll .date {
-    font-family: GT Walsheim Pro;
-    font-weight: 400;
-    color: #000;
-    font-size: 18px;
+    font-family: 'Poppins', sans-serif !important;
+    font-weight: 500;
+    color: #647b9c;
+    font-size: 15px;
     line-height: 1;
     display: block;
     margin-top: 13px;
@@ -1371,13 +1383,13 @@ opacity: 0;
 .calender-body .dayname {
     flex:1 0 0;
     text-align: center;
-    font-family: GT Walsheim Pro;
+    font-family: 'Poppins', sans-serif !important;
     font-weight: 400;
-    color: #000;
-    font-size: 18px;
-    border-top: 3px solid #1cb3d3;
-    padding: 9px 0;
-    border-right:1px solid #1cb3d3;
+    color: #647b9c;
+    font-size: 14px;
+    border-top: 1px solid #ffc107;
+    padding: 10px;
+    border-right:1px solid #ffc107;
 }
 .calender-body .dayname:last-child{
     border-right:none;
@@ -1576,7 +1588,7 @@ table tr td{
 	vertical-align: middle !important;
 }
 .table tr td img{
-    width: 100px;
+    width: 70px;
 }
 .table tr td .form-control{
     height: 40px;
@@ -1602,4 +1614,68 @@ table tr td{
 }
 .fc-today-button{
     font-size: 14px !important;
+}
+.tlist_im img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 0 auto;
+}
+.tlist_im{
+    height: 340px;
+}
+.account-sec table tr th{
+	color: #33475b;
+	padding: 8px !important;
+	font-size: .85rem !important;
+	border-bottom: 0;
+}
+.account-sec table tr td{
+	padding: 12px !important;
+	font-weight: 400;
+    font-size: .85rem !important;
+	color: #747da1;
+	transition: all .5s;
+	vertical-align: middle !important;
+}
+.account-sec table tr td i{
+    font-size: 18px;
+}
+.account-sec table tr td img{
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+.account-sec tbody tr:hover{
+	box-shadow: 0px 0px 15px rgba(99, 98, 98, 0.15);
+	background: #fff;
+}
+.table-bordered, .table-bordered td, .table-bordered th{
+    border: none !important;
+}
+.account-detail .btn{
+    border-radius: 30px;
+    font-size: 14px;
+    padding: 10px 12px; 
+}
+.account-detail .signin-form input {
+    width: 100%;
+    display: block;
+    border: none;
+    border: 1px solid #e6eaf3;
+    padding: 6px 10px;
+    font-family: Poppins;
+    box-sizing: border-box;
+    font-size: 14px;
+    border-radius: 4px;
+}
+.form-control:focus {
+    box-shadow: none;
+}
+.account-sec h3 span a{
+    font-size: 14px;
+    background: #d39e00;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 17px;
 }
