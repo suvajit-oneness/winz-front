@@ -2,20 +2,31 @@
 <section class="pb-5 mt-5">
     <div class="container">
         <div class="row">
-            <div class="section_title text-center col-12 p-0 mb-4">
+            <div class="section_title text-center col-12 p-0 mb-5">
                 <h3 class="main_title">Blogs</h3>
             </div>
             <div class="col-12 p-0 pt-2">
                 <div class="row m-0 p-0">
-                    <div class="col-12 col-md-3 p-1" *ngFor="let blog of blogs">
-                        <div class="card">
-                            <img src="{{url}}Blog/{{blog.image}}" class="card-img-top">
+                    <div class="col-12 col-md-4" *ngFor="let blog of blogs">
+                        <div class="card shadow-sm border-0 mb-3">
+                            <a routerLink="/blog-details/{{blog.id}}">
+                                <img class="card-img-top " src="{{url}}Blog/{{blog.image}}" alt="Card image cap">
+                                <div class="card-body">
+                                    <div class="row m-0 mb-3">
+                                        <span class="badge">Web Design</span>
+                                        <small>March 27, 2018</small>
+                                    </div>
+                                    <h5 class="card-title text-dark">{{blog.title}}</h5>
+                                    <p class="card-text" [innerHtml]="blog.content"></p>
+                                </div> 
+                            </a>
+                            <!-- <img src="{{url}}Blog/{{blog.image}}" class="card-img-top">
                             <div class="card-body">
                                 <a routerLink="/blog-details/{{blog.id}}">
                                     <h3 class="course-title">{{blog.title}}</h3>
                                     <p class="course-subtitle" [innerHtml]="blog.content"></p>
                                 </a>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>

@@ -358,8 +358,11 @@ header{
     font-weight: 400;
     font-size: 14px;
     margin-top: 8px;
+    text-align: center;
 }
-
+.common-ques p{
+    text-align: left;
+}
 /*----------------Part-Subject-----------------*/
 
 .part_subject h4{
@@ -545,6 +548,7 @@ header{
     font-size: 15px !important;
     font-weight: 400;
     margin-top: 13px ;
+    text-align: center;
 }
 .course-subtitle span{
     font-weight: 400;
@@ -1163,6 +1167,7 @@ opacity: 0;
     line-height: 18px;
     color: #647b9c;
     font-family: Poppins,sans-serif !important;
+    text-align: left;
 }
 .member-inn ul li p strong{
     font-weight: 600;
@@ -1713,9 +1718,9 @@ table tr td{
     text-align: center;
 }
 .resorce_text p {
-    line-height: 1.65 !important;
+    line-height: 22px !important;
     color: #647b9c !important;
-    font-size: 15px !important;
+    font-size: 14px !important;
     font-weight: 400;
     margin-top: 13px;
     text-align: center;
@@ -1809,4 +1814,129 @@ summary {
     display: inline-block;
     font-size: 15px;
     color: #003783;
+}
+.badge{
+    color: #fff;
+    padding: 5px 8px;
+    letter-spacing: 0.5px;
+    margin-right: 15px;
+    font-size: 15px;
+    font-weight: 500;
+}
+.card-body small{
+    color: #a5a5a5;
+    font-size: 12px;
+}
+.badge:nth-child(1){
+    background: #4bb92f;
+}
+.blog_detail{
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 350px;
+    position: relative;
+}
+.blog_detail::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0px;
+    bottom: 0px;
+    pointer-events: none;
+    background: rgb(255,255,255);
+    background: linear-gradient(180deg, rgba(255,255,255,0) 38%, rgba(0,0,0,1) 100%);
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+.comment_section h6 {
+    font-size: 20px;
+    line-height: 27px;
+    margin-bottom: 25px;
+    display: block;
+  }
+  
+  .comment_section h6 i {
+    vertical-align: middle;
+  }
+  
+  .comment_section .card {
+    border-radius: 0;
+    margin-bottom: 15px;
+    padding: 10px 15px;
+  }
+  
+  .comment_section .card .card-header ul {
+    margin: 0;
+    padding: 0;
+    line-height: 0;
+  }
+  
+  .comment_section .card .card-header ul li {
+    display: block;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 0 8px;
+    color: #2a2a2a;
+    line-height: 21px;
+  }
+  
+  .comment_section label {
+    font-size: 16px;
+    font-weight: 500;
+  }
+  
+  .comment_section .form-control {
+    font-size: 15px;
+    border-radius: 25px;
+    padding: 12px 15px;
+    font-weight: 500;
+    resize: none;
+  }
+  
+  .comment_section input {
+    font-size: 15px;
+    border-radius: 25px;
+    padding: 12px 15px;
+    height: 55px;
+    font-weight: 500;
+  }
+  .viewmore {
+    padding: 12px 20px;
+    border: none;
+    background-color: #003783;
+    text-transform: uppercase;
+    font-size: 13px;
+    color: #fff;
+    transition: all 0.35s;
+}
+.viewmore:hover{
+    background-color: #fcc741;
+    color: #2a2a2a;
+}
+.blog_r h6{
+    font-size: 15px;
+    line-height: 22px;
+}
+.user_pic{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+    overflow: hidden;
+}
+.user_pic img{
+    width: 100%;
+    object-fit: cover;
+}
+.bl_dtall{
+    position: absolute;
+    width: 100%;
+    z-index: 11;
+    top: 228px;
+}
+.tc_text p{
+    text-align: left;
 }
