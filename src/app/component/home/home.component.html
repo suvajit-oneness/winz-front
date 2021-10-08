@@ -24,8 +24,30 @@
         </div>
     </div>
 </section> -->
-
-<section class="pt-6 pb-4 overflow-hidden">
+<section class="pt-5 pb-4 overflow-hidden">
+    <div class="container">
+        <div class="row p-0">
+            <div class="section_title text-center col-12 p-0 pb-5">
+                <h3 class="main_title">{{HomeBanner.heading}}</h3>
+                <p class="col-md-8 m-auto pt-3">{{HomeBanner.description}}</p>
+            </div>
+        </div>
+        <div class="row m-0">
+            <div class="col-12 col-md-3 mb-2" *ngFor="let bannercontent of HomeBannerContent">
+                <div class="card resorce_text border-0">
+                    <a href="javascript:void(0);">
+                        <div class="pro_img">
+                            <img src="../../../assets/img/co-5.jpg">
+                        </div>
+                        <h4>{{bannercontent.heading}}</h4>
+                        <p>{{bannercontent.description}}</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- <section class="pt-6 pb-4 overflow-hidden d-none">
     <div class="container">
         <div class="row">
             <div class="col-12 col-md-6">
@@ -49,7 +71,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 
 <section class="bg-light pt-5 pb-5 mt-5">
     <div class="container">
@@ -97,7 +119,7 @@
             <div class="col-12 p-2 p-md-0 pt-5">
                 <div class="row m-0 p-0">
                     <div class="col-12 col-md-3 p-1" *ngFor="let teacher of teacherList">
-                        <div class="card text-center tlist_im ">
+                        <div class="card text-center tlist_im border-0">
                             <div class="card-body p-0 pb-3 pt-3">
                                 <img src="{{teacher.image}}" class="card-img-top">
                                 <div class="card-body">

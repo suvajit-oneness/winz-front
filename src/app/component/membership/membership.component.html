@@ -61,14 +61,16 @@
 <section class="section_title py-5">
     <div class="container">
         <h5 class="question-title">Common Questions</h5>
-        <ul class="faq-inn">
-            <li *ngFor="let cq of commonQuestion;">
+        <div class="row m-0 mb-4" *ngFor="let cq of commonQuestion;">
+            <div class="col-3 col-md-1 p-0 text-center text-lg-left">
                 <div class="common-ques-icon"><i class="{{cq.icon}}"></i></div>
+            </div>
+            <div class="col-9 col-md-11 p-0 text-left">
                 <div class="common-ques">
                     <h5>{{cq.title}}</h5>
                     <p>{{cq.description}}</p>
                 </div>
-            </li>
-        </ul>
+            </div>
+        </div>
     </div>
 </section>

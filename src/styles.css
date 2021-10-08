@@ -488,7 +488,7 @@ header{
     background: url(assets/img/bg_shape.jpg) no-repeat;
     background-size: cover;
     background-position: center center;
-    margin: 0 0 50px 0;
+    margin: 25px 0 50px 0;
 }
 .thank_bg .section_title h3{
     color:#ffffff !important;
@@ -545,6 +545,9 @@ header{
     font-size: 15px !important;
     font-weight: 400;
     margin-top: 13px ;
+}
+.course-subtitle span{
+    font-weight: 400;
 }
 .foot_lecture {
     background: rgba(30, 173, 107,0.13);
@@ -1570,6 +1573,7 @@ opacity: 0;
     border-radius: 50%;
     display: table;
     padding: 14px;
+    margin: 0 auto;
 }
 
 table tr th{
@@ -1678,4 +1682,131 @@ table tr td{
     color: #fff;
     padding: 5px 10px;
     border-radius: 17px;
+}
+.resorce_text{
+    padding: 18px 10px;
+    max-height: 295px;
+    transition: all 0.35s;
+}
+.resorce_text:hover{
+    box-shadow: 0 .5rem 2rem rgba(0,0,0,.175)!important;
+}
+.resorce_text .pro_img{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: #efefef;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+.resorce_text .pro_img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.resorce_text h4{
+    color: #2D3954 !important;
+    font-size: 17px !important;
+    line-height: 1.2;
+    margin: 0;
+    text-align: center;
+}
+.resorce_text p {
+    line-height: 1.65 !important;
+    color: #647b9c !important;
+    font-size: 15px !important;
+    font-weight: 400;
+    margin-top: 13px;
+    text-align: center;
+}
+summary {
+    font-size: 1.25rem;
+    font-weight: 500;
+    background-color: #f3f3f3;
+    color: #2a2a2a;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    outline: none;
+    border-radius: 0.25rem;
+    text-align: left;
+    cursor: pointer;
+    position: relative;
+  }
+  p { text-align: left; }
+  details[open] summary ~ * {
+    animation: sweep .5s ease-in-out;
+  }
+  @keyframes sweep {
+    0%    {opacity: 0; margin-top: -10px}
+    100%  {opacity: 1; margin-top: 0px}
+  }
+  details > summary::after {
+    position: absolute;
+    content: "+";
+    right: 20px;
+  }
+  details[open] > summary::after {
+    position: absolute;
+    content: "-";
+    right: 20px;
+  }
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+  summary::marker{
+      content: none;
+  }
+
+  .testimonial{
+    border-left: 4px solid #ffc107;
+    box-shadow: 5px 5px 6px rgba(0, 0, 0, 0.06);
+    padding: 30px 30px 30px 130px;
+    margin: 0 15px 30px 15px;
+    overflow: hidden;
+    position: relative;
+}
+.testimonial:before{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border-top: 25px solid #ffc107;
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    transform: rotate(-45deg);
+    transform-origin: 80% -30% 0;
+}
+.testimonial .pic{
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: absolute;
+    top: 60px;
+    left: 20px;
+}
+.testimonial .pic img{
+    width: 100%;
+    height: auto;
+}
+.testimonial .description{
+    font-size: 15px;
+    font-style: italic;
+    color: #918686;
+    line-height: 25px;
+    margin-bottom: 15px;
+}
+.testimonial .title{
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 700;
+    color: #003783;
+    margin: 0;
+}
+.testimonial .post{
+    display: inline-block;
+    font-size: 15px;
+    color: #003783;
 }

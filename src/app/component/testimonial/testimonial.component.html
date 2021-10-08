@@ -7,8 +7,31 @@
             </div>
             <div class="col-12 p-0 pt-2">
                 <div class="row m-0 p-0">
-                    <div class="col-12 col-md-3 p-1" *ngFor="let testimonial of testimonials">
-                        <div class="card">
+                    <div class="col-12 col-md-6 p-1"><!--*ngFor="let testimonial of testimonials"-->
+                        <div class="testimonial">
+                            <div class="pic">
+                                <img src="../../../assets/img/default_profile.jpg">
+                            </div>
+                            <p class="description">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed malesuada vulputate nisi in fermentum. Vivamus ac libero quis nisi auctor pulvinar. Aenean sit amet lectus posuere, mattis massa eget, ullamcorper diam. Nunc sit amet felis eget arcu congue dictum.
+                            </p>
+                            <h3 class="title">WILLIAMSON</h3>
+                            <small class="post">- Web Developer</small>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 p-1">
+                        <div class="testimonial">
+                            <div class="pic">
+                                <img src="../../../assets/img/default_profile.jpg">
+                            </div>
+                            <p class="description">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed malesuada vulputate nisi in fermentum. Vivamus ac libero quis nisi auctor pulvinar. Aenean sit amet lectus posuere, mattis massa eget, ullamcorper diam. Nunc sit amet felis eget arcu congue dictum.
+                            </p>
+                            <h3 class="title">kristina</h3>
+                            <small class="post">- Web Designer</small>
+                        </div>
+                    </div>
+                        <!-- <div class="card">
                             <img src="{{url}}testimonials/{{testimonial.image}}" class="card-img-top">
                             <div class="card-body">
                                 <a href="javascript:void(0)">
@@ -16,8 +39,7 @@
                                     <p class="course-subtitle" [innerHtml]="testimonial.content"></p>
                                 </a>
                             </div>
-                        </div>
-                    </div>
+                        </div> -->
                 </div>
             </div>
         </div>

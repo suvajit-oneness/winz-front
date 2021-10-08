@@ -1,19 +1,39 @@
 <ngx-ui-loader loaderId="loader" fgsColor="#FFFFFF" bgsOpacity="1" overlayColor="rgba(40,40,40,0.1)"></ngx-ui-loader>
 <section class="member-sec section_title py-5 text-center">
     <div class="container">
-        <h3>Faq</h3>
-        <!-- <p>Thank you for supporting our mission to build amazing resources for 350,000+ IB students worldwide</p> -->
-        <div class="row pt-5">
-            <div class="col-md-10 offset-md-1">
-                <div class="row"></div>
-            </div>
-        </div>
+        <h3>FAQS</h3>
     </div>
 </section>
 
-<section class="section_title py-5">
+<section class="section_title pb-5">
     <div class="container">
-        <h5 class="question-title">{{getValueUsingKey('faq_meta_title')}}</h5>
+        <div class="row m-0 justify-content-center">
+            <div class="col-12 col-md-10">
+                <main>
+                    <details open>
+                      <summary>What Is Web Design?</summary>
+                      <div class="faq__content">
+                        <p>Web design encompasses many different skills and disciplines in the production and maintenance of websites.</p>
+                      </div>
+                    </details>
+                  
+                      <details>
+                      <summary>What Is Graphic Design?</summary>
+                      <div class="faq__content">
+                        <p>Graphic design is the process of visual communication and problem-solving through the use of typography, photography, iconography and illustration. </p>
+                      </div>
+                    </details>
+
+                    <details>
+                      <summary>What Is JavaScript?</summary>
+                      <div class="faq__content">
+                        <p>JavaScript, often abbreviated as JS, is a programming language that conforms to the ECMAScript specification. </p>
+                      </div>
+                    </details>
+                </main>
+            </div>
+        </div>
+        <!-- <h5 class="question-title">{{getValueUsingKey('faq_meta_title')}}</h5>
         <ul class="faq-inn">
             <li>
                 <div class="common-ques-icon"><i class="ti-layout-list-thumb"></i></div>
@@ -22,6 +42,6 @@
                     <p innerHtml="{{getValueUsingKey('faq_meta_description')}}"></p>
                 </div>
             </li>
-        </ul>
+        </ul> -->
     </div>
 </section>

@@ -1,27 +1,24 @@
 <ngx-ui-loader loaderId="loader" fgsColor="#FFFFFF" bgsOpacity="1" overlayColor="rgba(40,40,40,0.1)"></ngx-ui-loader>
 <section class="member-sec section_title py-5 text-center">
     <div class="container">
-        <h3>About Us</h3>
-        <!-- <p>Thank you for supporting our mission to build amazing resources for 350,000+ IB students worldwide</p> -->
-        <div class="row pt-5">
-            <div class="col-md-10 offset-md-1">
-                <div class="row"></div>
-            </div>
+        <div class="row m-0 justify-content-center">
+            <h3>{{getValueUsingKey('about_meta_title')}}</h3>
         </div>
     </div>
 </section>
 
 <section class="section_title py-5">
     <div class="container">
-        <h5 class="question-title">{{getValueUsingKey('about_meta_title')}}</h5>
-        <ul class="faq-inn">
-            <li>
-                <div class="common-ques-icon"><i class="ti-layout-list-thumb"></i></div>
+        <div class="row m-0 mb-4">
+            <div class="col-12 col-md-6 p-0 text-left">
                 <div class="common-ques">
                     <h5>{{getValueUsingKey('about_meta_keywords')}}</h5>
                     <p innerHtml="{{getValueUsingKey('about_meta_description')}}"></p>
                 </div>
-            </li>
-        </ul>
+            </div>
+            <div class="col-12 col-md-6 text-center text-lg-left">
+                <img src="../../../assets/img/choose_bg.png" class="w-100">
+            </div>
+        </div>
     </div>
 </section>
