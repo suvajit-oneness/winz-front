@@ -7,28 +7,14 @@
             </div>
             <div class="col-12 p-0 pt-2">
                 <div class="row m-0 p-0">
-                    <div class="col-12 col-md-6 p-1"><!--*ngFor="let testimonial of testimonials"-->
+                    <div class="col-12 col-md-6 p-1" *ngFor="let testimonial of testimonials"><!--*ngFor="let testimonial of testimonials"-->
                         <div class="testimonial">
                             <div class="pic">
-                                <img src="../../../assets/img/default_profile.jpg">
+                                <img src="{{url}}testimonials/{{testimonial.image}}">
                             </div>
-                            <p class="description">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed malesuada vulputate nisi in fermentum. Vivamus ac libero quis nisi auctor pulvinar. Aenean sit amet lectus posuere, mattis massa eget, ullamcorper diam. Nunc sit amet felis eget arcu congue dictum.
-                            </p>
-                            <h3 class="title">WILLIAMSON</h3>
+                            <p class="description" [innerHtml]="testimonial.content"></p>
+                            <h3 class="title">{{testimonial.name}}</h3>
                             <small class="post">- Web Developer</small>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 p-1">
-                        <div class="testimonial">
-                            <div class="pic">
-                                <img src="../../../assets/img/default_profile.jpg">
-                            </div>
-                            <p class="description">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed malesuada vulputate nisi in fermentum. Vivamus ac libero quis nisi auctor pulvinar. Aenean sit amet lectus posuere, mattis massa eget, ullamcorper diam. Nunc sit amet felis eget arcu congue dictum.
-                            </p>
-                            <h3 class="title">kristina</h3>
-                            <small class="post">- Web Designer</small>
                         </div>
                     </div>
                         <!-- <div class="card">
