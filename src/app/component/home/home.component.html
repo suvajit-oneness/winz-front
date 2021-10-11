@@ -37,7 +37,8 @@
                 <div class="card resorce_text border-0">
                     <a href="javascript:void(0);">
                         <div class="pro_img">
-                            <img src="../../../assets/img/co-5.jpg">
+                            <img *ngIf="bannercontent.image != ''" src="{{bannercontent.image}}">
+                            <img *ngIf="bannercontent.image == ''" src="assets/img/co-5.jpg">
                         </div>
                         <h4>{{bannercontent.heading}}</h4>
                         <p>{{bannercontent.description}}</p>

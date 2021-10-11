@@ -40,6 +40,7 @@ export class HomeComponent implements OnInit {
             this.HomeTeacher = res.data.teacher[0];
             this.HomeBanner = res.data.banner[0];
             this.HomeBannerContent = res.data.bannerContent;
+            console.log(this.HomeBannerContent);
             this.courseList = res.data.courseList;
             this.teacherList = res.data.teacherList;
           }
