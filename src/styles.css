@@ -1665,7 +1665,8 @@ table tr td{
 .account-detail .btn{
     border-radius: 30px;
     font-size: 14px;
-    padding: 10px 12px; 
+    padding: 10px 15px;
+    line-height: 24px;
 }
 .account-detail .signin-form input {
     width: 100%;
